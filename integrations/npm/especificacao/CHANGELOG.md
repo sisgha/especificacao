@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.4
+
+### Patch Changes
+
+- 8ba7df2: fix(definitions/ImagemGenericSetImagemOperation): body format to "binary"
+
 ## 3.3.3
 
 ### Patch Changes
