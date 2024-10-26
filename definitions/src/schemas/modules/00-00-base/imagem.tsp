@@ -82,6 +82,7 @@ alias ImagemGenericSetImagemOperation<Token = Tokens.Imagem_Operations_SetImagem
       /**
        * Binário da imagem.
        */
+      @extension("format", "binary")
       @extension("mimeTypes", #["image/jpeg", "image/png", "image/jpeg", "image/webp", "binary/octet-stream"])
       body: string;
     };

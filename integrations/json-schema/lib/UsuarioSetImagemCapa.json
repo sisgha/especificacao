@@ -20,7 +20,8 @@
         "body": {
           "type": "string",
           "description": "Binário da imagem.",
-          "mimeTypes": ["image/jpeg", "image/png", "image/jpeg", "image/webp", "binary/octet-stream"]
+          "mimeTypes": ["image/jpeg", "image/png", "image/jpeg", "image/webp", "binary/octet-stream"],
+          "format": "binary"
         }
       },
       "required": ["params", "body"]
