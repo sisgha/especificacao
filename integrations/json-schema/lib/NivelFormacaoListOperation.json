@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ladesa://schemas/v3/generics/NivelDeFormacaoListOperation.json",
+  "$id": "ladesa://schemas/v3/generics/NivelFormacaoListOperation.json",
   "type": "object",
   "properties": {
     "input": {
@@ -60,7 +60,7 @@
       "type": "object",
       "properties": {
         "success": {
-          "$ref": "ladesa://schemas/v3/generics/NivelDeFormacaoListResultView.json"
+          "$ref": "ladesa://schemas/v3/generics/NivelFormacaoListResultView.json"
         }
       },
       "required": ["success"]
@@ -68,7 +68,7 @@
   },
   "required": ["input", "output"],
   "x-unispec-kind": "operation",
-  "x-unispec-operation-id": "NivelDeFormacaoList",
+  "x-unispec-operation-id": "NivelFormacaoList",
   "additionalProperties": false,
   "x-unispec-operation-meta": {
     "gql": {

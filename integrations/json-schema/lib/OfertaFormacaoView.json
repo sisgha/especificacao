@@ -35,9 +35,13 @@
         }
       ],
       "description": "Data e hora da exclusão do registro."
+    },
+    "modalidade": {
+      "$ref": "ladesa://schemas/v3/generics/ModalidadeFindOneResultView.json",
+      "description": "Modalidade da oferta de formação."
     }
   },
-  "required": ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+  "required": ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted", "modalidade"],
   "description": "Visão completa de uma oferta de formação.",
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "OfertaFormacaoView",

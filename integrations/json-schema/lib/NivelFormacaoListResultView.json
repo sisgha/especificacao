@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ladesa://schemas/v3/generics/NivelDeFormacaoListResultView.json",
+  "$id": "ladesa://schemas/v3/generics/NivelFormacaoListResultView.json",
   "type": "object",
   "properties": {
     "meta": {
@@ -10,7 +10,7 @@
     "data": {
       "type": "array",
       "items": {
-        "$ref": "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json"
+        "$ref": "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json"
       },
       "description": "Resultados da busca atual."
     },
@@ -22,6 +22,6 @@
   "required": ["meta", "data", "links"],
   "description": "Resultados da busca aos níveis de formações.",
   "x-unispec-kind": "entity",
-  "x-unispec-entity-id": "NivelDeFormacaoListResultView",
+  "x-unispec-entity-id": "NivelFormacaoListResultView",
   "additionalProperties": false
 }

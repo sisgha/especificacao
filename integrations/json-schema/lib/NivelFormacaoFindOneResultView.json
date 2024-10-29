@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json",
+  "$id": "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
   "type": "object",
   "properties": {
     "id": {
@@ -34,8 +34,8 @@
   },
   "required": ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
   "description": "Visão FindOne de um nível de formação.",
-  "x-unispec-entity-partial-of": "NivelDeFormacaoView",
+  "x-unispec-entity-partial-of": "NivelFormacaoView",
   "x-unispec-kind": "entity",
-  "x-unispec-entity-id": "NivelDeFormacaoFindOneResultView",
+  "x-unispec-entity-id": "NivelFormacaoFindOneResultView",
   "additionalProperties": false
 }

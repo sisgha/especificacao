@@ -1615,11 +1615,43 @@ export interface OfertaFormacaoElement {
    */
   id: string
   /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: ModalidadeElement
+  /**
    * Nome da oferta de formação.
    */
   nome: string
   /**
    * Apelido da oferta de formação.
+   */
+  slug: string
+}
+
+/**
+ * Modalidade da oferta de formação.
+ *
+ * Visão FindOne de uma modalidade.
+ */
+export interface ModalidadeElement {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Apelido da modalidade.
    */
   slug: string
 }
@@ -2025,11 +2057,47 @@ export interface CalendarioLetivoOfertaFormacao {
    */
   id: string
   /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: OfertaFormacaoModalidade
+  /**
    * Nome da oferta de formação.
    */
   nome: string
   /**
    * Apelido da oferta de formação.
+   */
+  slug: string
+}
+
+/**
+ * Modalidade da oferta de formação.
+ *
+ * Modalidade.
+ */
+export interface OfertaFormacaoModalidade {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome da modalidade.
+   */
+  nome: string
+  /**
+   * Apelido da modalidade.
    */
   slug: string
 }
@@ -10084,34 +10152,8 @@ export interface Body29 {
 }
 
 export interface ModalidadeCreateOperationOutput {
-  success: ModalidadeListResultViewSuccess
+  success: ModalidadeElement
   [property: string]: any
-}
-
-/**
- * Visão FindOne de uma modalidade.
- */
-export interface ModalidadeListResultViewSuccess {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Apelido da modalidade.
-   */
-  slug: string
 }
 
 export interface ModalidadeDeleteByIdOperation {
@@ -10156,7 +10198,7 @@ export interface Params58 {
 }
 
 export interface ModalidadeFindOneByIdOperationOutput {
-  success: ModalidadeListResultViewSuccess
+  success: ModalidadeElement
   [property: string]: any
 }
 
@@ -10288,7 +10330,7 @@ export interface Success11 {
   /**
    * Resultados da busca atual.
    */
-  data: ModalidadeListResultViewSuccess[]
+  data: ModalidadeElement[]
   /**
    * Links da busca.
    */
@@ -10306,7 +10348,7 @@ export interface ModalidadeListResultView {
   /**
    * Resultados da busca atual.
    */
-  data: ModalidadeListResultViewSuccess[]
+  data: ModalidadeElement[]
   /**
    * Links da busca.
    */
@@ -10347,7 +10389,7 @@ export interface Params59 {
 }
 
 export interface ModalidadeUpdateByIdOperationOutput {
-  success: ModalidadeListResultViewSuccess
+  success: ModalidadeElement
   [property: string]: any
 }
 
@@ -10381,12 +10423,12 @@ export interface ModalidadeView {
   slug: string
 }
 
-export interface NivelDeFormacaoCreateOperation {
-  input: NivelDeFormacaoCreateOperationInput
-  output: NivelDeFormacaoCreateOperationOutput
+export interface NivelFormacaoCreateOperation {
+  input: NivelFormacaoCreateOperationInput
+  output: NivelFormacaoCreateOperationOutput
 }
 
-export interface NivelDeFormacaoCreateOperationInput {
+export interface NivelFormacaoCreateOperationInput {
   body: Body31
   [property: string]: any
 }
@@ -10401,7 +10443,7 @@ export interface Body31 {
   slug: string
 }
 
-export interface NivelDeFormacaoCreateOperationOutput {
+export interface NivelFormacaoCreateOperationOutput {
   success: NivelFormcaoElement
   [property: string]: any
 }
@@ -10432,12 +10474,12 @@ export interface NivelFormcaoElement {
   slug: string
 }
 
-export interface NivelDeFormacaoDeleteByIdOperation {
-  input: NivelDeFormacaoDeleteByIdOperationInput
-  output: NivelDeFormacaoDeleteByIdOperationOutput
+export interface NivelFormacaoDeleteByIdOperation {
+  input: NivelFormacaoDeleteByIdOperationInput
+  output: NivelFormacaoDeleteByIdOperationOutput
 }
 
-export interface NivelDeFormacaoDeleteByIdOperationInput {
+export interface NivelFormacaoDeleteByIdOperationInput {
   params: Params60
   [property: string]: any
 }
@@ -10450,17 +10492,17 @@ export interface Params60 {
   [property: string]: any
 }
 
-export interface NivelDeFormacaoDeleteByIdOperationOutput {
+export interface NivelFormacaoDeleteByIdOperationOutput {
   success: boolean
   [property: string]: any
 }
 
-export interface NivelDeFormacaoFindOneByIdOperation {
-  input: NivelDeFormacaoFindOneByIdOperationInput
-  output: NivelDeFormacaoFindOneByIdOperationOutput
+export interface NivelFormacaoFindOneByIdOperation {
+  input: NivelFormacaoFindOneByIdOperationInput
+  output: NivelFormacaoFindOneByIdOperationOutput
 }
 
-export interface NivelDeFormacaoFindOneByIdOperationInput {
+export interface NivelFormacaoFindOneByIdOperationInput {
   params: Params61
   [property: string]: any
 }
@@ -10473,7 +10515,7 @@ export interface Params61 {
   [property: string]: any
 }
 
-export interface NivelDeFormacaoFindOneByIdOperationOutput {
+export interface NivelFormacaoFindOneByIdOperationOutput {
   success: NivelFormcaoElement
   [property: string]: any
 }
@@ -10481,7 +10523,7 @@ export interface NivelDeFormacaoFindOneByIdOperationOutput {
 /**
  * Dados de entrada para encontrar um nível de formação por ID.
  */
-export interface NivelDeFormacaoFindOneInputView {
+export interface NivelFormacaoFindOneInputView {
   /**
    * Identificador do registro (uuid).
    */
@@ -10491,7 +10533,7 @@ export interface NivelDeFormacaoFindOneInputView {
 /**
  * Visão FindOne de um nível de formação.
  */
-export interface NivelDeFormacaoFindOneResultView {
+export interface NivelFormacaoFindOneResultView {
   /**
    * Data e hora da criação do registro.
    */
@@ -10517,7 +10559,7 @@ export interface NivelDeFormacaoFindOneResultView {
 /**
  * Dados de entrada para a criação de um nível de formação.
  */
-export interface NivelDeFormacaoInputCreateView {
+export interface NivelFormacaoInputCreateView {
   /**
    * Apelido do nível de formação.
    */
@@ -10527,7 +10569,7 @@ export interface NivelDeFormacaoInputCreateView {
 /**
  * Dados de entrada para a atualização de um nível de formação.
  */
-export interface NivelDeFormacaoInputUpdateView {
+export interface NivelFormacaoInputUpdateView {
   /**
    * Apelido do nível de formação.
    */
@@ -10535,9 +10577,9 @@ export interface NivelDeFormacaoInputUpdateView {
 }
 
 /**
- * NivelDeFormacao.
+ * NivelFormacao.
  */
-export interface NivelDeFormacao {
+export interface NivelFormacao {
   /**
    * Data e hora da criação do registro.
    */
@@ -10560,12 +10602,12 @@ export interface NivelDeFormacao {
   slug: string
 }
 
-export interface NivelDeFormacaoListOperation {
-  input: NivelDeFormacaoListOperationInput
-  output: NivelDeFormacaoListOperationOutput
+export interface NivelFormacaoListOperation {
+  input: NivelFormacaoListOperationInput
+  output: NivelFormacaoListOperationOutput
 }
 
-export interface NivelDeFormacaoListOperationInput {
+export interface NivelFormacaoListOperationInput {
   queries: Queries11
   [property: string]: any
 }
@@ -10590,7 +10632,7 @@ export interface Queries11 {
   [property: string]: any
 }
 
-export interface NivelDeFormacaoListOperationOutput {
+export interface NivelFormacaoListOperationOutput {
   success: Success12
   [property: string]: any
 }
@@ -10616,7 +10658,7 @@ export interface Success12 {
 /**
  * Resultados da busca aos níveis de formações.
  */
-export interface NivelDeFormacaoListResultView {
+export interface NivelFormacaoListResultView {
   /**
    * Resultados da busca atual.
    */
@@ -10631,12 +10673,12 @@ export interface NivelDeFormacaoListResultView {
   meta: Meta
 }
 
-export interface NivelDeFormacaoUpdateByIdOperation {
-  input: NivelDeFormacaoUpdateByIdOperationInput
-  output: NivelDeFormacaoUpdateByIdOperationOutput
+export interface NivelFormacaoUpdateByIdOperation {
+  input: NivelFormacaoUpdateByIdOperationInput
+  output: NivelFormacaoUpdateByIdOperationOutput
 }
 
-export interface NivelDeFormacaoUpdateByIdOperationInput {
+export interface NivelFormacaoUpdateByIdOperationInput {
   body: Body32
   params: Params62
   [property: string]: any
@@ -10660,7 +10702,7 @@ export interface Params62 {
   [property: string]: any
 }
 
-export interface NivelDeFormacaoUpdateByIdOperationOutput {
+export interface NivelFormacaoUpdateByIdOperationOutput {
   success: NivelFormcaoElement
   [property: string]: any
 }
@@ -10668,7 +10710,7 @@ export interface NivelDeFormacaoUpdateByIdOperationOutput {
 /**
  * Visão completa de um nível de formação.
  */
-export interface NivelDeFormacaoView {
+export interface NivelFormacaoView {
   /**
    * Data e hora da criação do registro.
    */
@@ -10728,6 +10770,10 @@ export interface OfertaFormacaoCreateOperationInput {
  */
 export interface Body33 {
   /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: BodyModalidade
+  /**
    * Nome da oferta de formação.
    */
   nome: string
@@ -10735,6 +10781,18 @@ export interface Body33 {
    * Apelido da oferta de formação.
    */
   slug: string
+}
+
+/**
+ * Modalidade da oferta de formação.
+ *
+ * Dados de entrada para encontrar uma modalidade por ID.
+ */
+export interface BodyModalidade {
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
 }
 
 export interface OfertaFormacaoCreateOperationOutput {
@@ -10819,6 +10877,10 @@ export interface OfertaFormacaoFindOneResultView {
    */
   id: string
   /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: ModalidadeElement
+  /**
    * Nome da oferta de formação.
    */
   nome: string
@@ -10833,6 +10895,10 @@ export interface OfertaFormacaoFindOneResultView {
  */
 export interface OfertaFormacaoInputCreateView {
   /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: BodyModalidade
+  /**
    * Nome da oferta de formação.
    */
   nome: string
@@ -10846,6 +10912,10 @@ export interface OfertaFormacaoInputCreateView {
  * Dados de entrada para a atualização de uma oferta de formação.
  */
 export interface OfertaFormacaoInputUpdateView {
+  /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade?: BodyModalidade
   /**
    * Nome da oferta de formação.
    */
@@ -10876,6 +10946,10 @@ export interface OfertaFormacao {
    * Identificador do registro (uuid).
    */
   id: string
+  /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: OfertaFormacaoModalidade
   /**
    * Nome da oferta de formação.
    */
@@ -10971,14 +11045,14 @@ export interface OfertaFormacaoNivelFormacaoCreateOperationInput {
  * Dados de entrada para a criação de uma oferta de formação.
  */
 export interface Body34 {
-  nivelFormcao: Nivel
+  nivelFormcao: NivelForm
   ofertaFormacao: BodyOfertaFormacao
 }
 
 /**
  * Dados de entrada para encontrar um nível de formação por ID.
  */
-export interface Nivel {
+export interface NivelForm {
   /**
    * Identificador do registro (uuid).
    */
@@ -11096,7 +11170,7 @@ export interface OfertaFormacaoNivelFormacaoFindOneResultView {
  * Dados de entrada para a criação de uma oferta de formação.
  */
 export interface OfertaFormacaoNivelFormacaoInputCreateView {
-  nivelFormcao: Nivel
+  nivelFormcao: NivelForm
   ofertaFormacao: BodyOfertaFormacao
 }
 
@@ -11104,7 +11178,7 @@ export interface OfertaFormacaoNivelFormacaoInputCreateView {
  * Dados de entrada para a atualização de uma oferta de formação.
  */
 export interface OfertaFormacaoNivelFormacaoInputUpdateView {
-  nivelFormcao?: Nivel
+  nivelFormcao?: NivelForm
   ofertaFormacao?: BodyOfertaFormacao
 }
 
@@ -11131,7 +11205,7 @@ export interface OfertaFormacaoNivelFormacao {
   /**
    * Nível de formação.
    */
-  nivelFormacao: NivelFormacao
+  nivelFormacao: NivelFormacaoClass
   /**
    * Oferta de formação.
    */
@@ -11141,9 +11215,9 @@ export interface OfertaFormacaoNivelFormacao {
 /**
  * Nível de formação.
  *
- * NivelDeFormacao.
+ * NivelFormacao.
  */
-export interface NivelFormacao {
+export interface NivelFormacaoClass {
   /**
    * Data e hora da criação do registro.
    */
@@ -11252,7 +11326,7 @@ export interface OfertaFormacaoNivelFormacaoUpdateByIdOperationInput {
  * Dados de entrada para a atualização de uma oferta de formação.
  */
 export interface Body35 {
-  nivelFormcao?: Nivel
+  nivelFormcao?: NivelForm
   ofertaFormacao?: BodyOfertaFormacao
 }
 
@@ -11309,6 +11383,10 @@ export interface OfertaFormacaoUpdateByIdOperationInput {
  */
 export interface Body36 {
   /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade?: BodyModalidade
+  /**
    * Nome da oferta de formação.
    */
   nome?: string
@@ -11351,6 +11429,10 @@ export interface OfertaFormacaoView {
    * Identificador do registro (uuid).
    */
   id: string
+  /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: ModalidadeElement
   /**
    * Nome da oferta de formação.
    */
@@ -12763,18 +12845,18 @@ export enum Tokens {
   ModalidadeListResultView = "ModalidadeListResultView",
   ModalidadeUpdateOneById = "ModalidadeUpdateOneById",
   ModalidadeView = "ModalidadeView",
-  NivelDeFormacao = "NivelDeFormacao",
-  NivelDeFormacaoCreate = "NivelDeFormacaoCreate",
-  NivelDeFormacaoDeleteOneById = "NivelDeFormacaoDeleteOneById",
-  NivelDeFormacaoFindOneById = "NivelDeFormacaoFindOneById",
-  NivelDeFormacaoFindOneInputView = "NivelDeFormacaoFindOneInputView",
-  NivelDeFormacaoFindOneResultView = "NivelDeFormacaoFindOneResultView",
-  NivelDeFormacaoInputCreateView = "NivelDeFormacaoInputCreateView",
-  NivelDeFormacaoInputUpdateView = "NivelDeFormacaoInputUpdateView",
-  NivelDeFormacaoList = "NivelDeFormacaoList",
-  NivelDeFormacaoListResultView = "NivelDeFormacaoListResultView",
-  NivelDeFormacaoUpdateOneById = "NivelDeFormacaoUpdateOneById",
-  NivelDeFormacaoView = "NivelDeFormacaoView",
+  NivelFormacao = "NivelFormacao",
+  NivelFormacaoCreate = "NivelFormacaoCreate",
+  NivelFormacaoDeleteOneById = "NivelFormacaoDeleteOneById",
+  NivelFormacaoFindOneById = "NivelFormacaoFindOneById",
+  NivelFormacaoFindOneInputView = "NivelFormacaoFindOneInputView",
+  NivelFormacaoFindOneResultView = "NivelFormacaoFindOneResultView",
+  NivelFormacaoInputCreateView = "NivelFormacaoInputCreateView",
+  NivelFormacaoInputUpdateView = "NivelFormacaoInputUpdateView",
+  NivelFormacaoList = "NivelFormacaoList",
+  NivelFormacaoListResultView = "NivelFormacaoListResultView",
+  NivelFormacaoUpdateOneById = "NivelFormacaoUpdateOneById",
+  NivelFormacaoView = "NivelFormacaoView",
   OfertaFormacao = "OfertaFormacao",
   OfertaFormacaoCreate = "OfertaFormacaoCreate",
   OfertaFormacaoDeleteOneById = "OfertaFormacaoDeleteOneById",

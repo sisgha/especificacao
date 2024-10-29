@@ -12,9 +12,13 @@
       "type": "string",
       "minLength": 1,
       "description": "Apelido da oferta de formação."
+    },
+    "modalidade": {
+      "$ref": "ladesa://schemas/v3/generics/ModalidadeFindOneInputView.json",
+      "description": "Modalidade da oferta de formação."
     }
   },
-  "required": ["nome", "slug"],
+  "required": ["nome", "slug", "modalidade"],
   "description": "Dados de entrada para a criação de uma oferta de formação.",
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "OfertaFormacaoInputCreateView",

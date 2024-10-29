@@ -30,7 +30,7 @@
       "$ref": "ladesa://schemas/v3/generics/OfertaFormacaoFindOneResultView.json"
     },
     "nivelFormcao": {
-      "$ref": "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json"
+      "$ref": "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json"
     }
   },
   "required": ["id", "dateCreated", "dateUpdated", "dateDeleted", "ofertaFormacao", "nivelFormcao"],

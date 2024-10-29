@@ -12,6 +12,10 @@
       "type": "string",
       "minLength": 1,
       "description": "Apelido da oferta de formação."
+    },
+    "modalidade": {
+      "$ref": "ladesa://schemas/v3/generics/ModalidadeFindOneInputView.json",
+      "description": "Modalidade da oferta de formação."
     }
   },
   "description": "Dados de entrada para a atualização de uma oferta de formação.",

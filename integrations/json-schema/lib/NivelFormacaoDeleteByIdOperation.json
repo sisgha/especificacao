@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneByIdOperation.json",
+  "$id": "ladesa://schemas/v3/generics/NivelFormacaoDeleteByIdOperation.json",
   "type": "object",
   "properties": {
     "input": {
@@ -12,7 +12,7 @@
             "id": {
               "$ref": "ladesa://schemas/v3/generics/uuid.json",
               "description": "Identificador do registro (uuid).",
-              "x-unispec-constraint-entity-exists": "NivelDeFormacao"
+              "x-unispec-constraint-entity-exists": "NivelFormacao"
             }
           },
           "required": ["id"]
@@ -24,7 +24,7 @@
       "type": "object",
       "properties": {
         "success": {
-          "$ref": "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json"
+          "type": "boolean"
         }
       },
       "required": ["success"]
@@ -32,11 +32,11 @@
   },
   "required": ["input", "output"],
   "x-unispec-kind": "operation",
-  "x-unispec-operation-id": "NivelDeFormacaoFindOneById",
+  "x-unispec-operation-id": "NivelFormacaoDeleteOneById",
   "additionalProperties": false,
   "x-unispec-operation-meta": {
     "gql": {
-      "kind": "query"
+      "kind": "mutation"
     }
   }
 }

@@ -303,18 +303,18 @@
 //    var modalidadeListResultView = ModalidadeListResultView.FromJson(jsonString);
 //    var modalidadeUpdateByIdOperation = ModalidadeUpdateByIdOperation.FromJson(jsonString);
 //    var modalidadeView = ModalidadeView.FromJson(jsonString);
-//    var nivelDeFormacao = NivelDeFormacao.FromJson(jsonString);
-//    var nivelDeFormacaoCreateOperation = NivelDeFormacaoCreateOperation.FromJson(jsonString);
-//    var nivelDeFormacaoDeleteByIdOperation = NivelDeFormacaoDeleteByIdOperation.FromJson(jsonString);
-//    var nivelDeFormacaoFindOneByIdOperation = NivelDeFormacaoFindOneByIdOperation.FromJson(jsonString);
-//    var nivelDeFormacaoFindOneInputView = NivelDeFormacaoFindOneInputView.FromJson(jsonString);
-//    var nivelDeFormacaoFindOneResultView = NivelDeFormacaoFindOneResultView.FromJson(jsonString);
-//    var nivelDeFormacaoInputCreateView = NivelDeFormacaoInputCreateView.FromJson(jsonString);
-//    var nivelDeFormacaoInputUpdateView = NivelDeFormacaoInputUpdateView.FromJson(jsonString);
-//    var nivelDeFormacaoListOperation = NivelDeFormacaoListOperation.FromJson(jsonString);
-//    var nivelDeFormacaoListResultView = NivelDeFormacaoListResultView.FromJson(jsonString);
-//    var nivelDeFormacaoUpdateByIdOperation = NivelDeFormacaoUpdateByIdOperation.FromJson(jsonString);
-//    var nivelDeFormacaoView = NivelDeFormacaoView.FromJson(jsonString);
+//    var nivelFormacao = NivelFormacao.FromJson(jsonString);
+//    var nivelFormacaoCreateOperation = NivelFormacaoCreateOperation.FromJson(jsonString);
+//    var nivelFormacaoDeleteByIdOperation = NivelFormacaoDeleteByIdOperation.FromJson(jsonString);
+//    var nivelFormacaoFindOneByIdOperation = NivelFormacaoFindOneByIdOperation.FromJson(jsonString);
+//    var nivelFormacaoFindOneInputView = NivelFormacaoFindOneInputView.FromJson(jsonString);
+//    var nivelFormacaoFindOneResultView = NivelFormacaoFindOneResultView.FromJson(jsonString);
+//    var nivelFormacaoInputCreateView = NivelFormacaoInputCreateView.FromJson(jsonString);
+//    var nivelFormacaoInputUpdateView = NivelFormacaoInputUpdateView.FromJson(jsonString);
+//    var nivelFormacaoListOperation = NivelFormacaoListOperation.FromJson(jsonString);
+//    var nivelFormacaoListResultView = NivelFormacaoListResultView.FromJson(jsonString);
+//    var nivelFormacaoUpdateByIdOperation = NivelFormacaoUpdateByIdOperation.FromJson(jsonString);
+//    var nivelFormacaoView = NivelFormacaoView.FromJson(jsonString);
 //    var objectIntegerId = ObjectIntegerId.FromJson(jsonString);
 //    var objectUuid = ObjectUuid.FromJson(jsonString);
 //    var ofertaFormacao = OfertaFormacao.FromJson(jsonString);
@@ -2626,6 +2626,12 @@ namespace Ladesa.Dtos
         public Guid Id { get; set; }
 
         /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("modalidade")]
+        public OfertaFormacaoModalidade Modalidade { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonPropertyName("nome")]
@@ -2634,6 +2640,52 @@ namespace Ladesa.Dtos
 
         /// <summary>
         /// Apelido da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("slug")]
+        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
+        public string Slug { get; set; }
+    }
+
+    /// <summary>
+    /// Modalidade da oferta de formação.
+    ///
+    /// Modalidade.
+    /// </summary>
+    public partial class OfertaFormacaoModalidade
+    {
+        /// <summary>
+        /// Data e hora da criação do registro.
+        /// </summary>
+        [JsonPropertyName("dateCreated")]
+        public DateTimeOffset DateCreated { get; set; }
+
+        /// <summary>
+        /// Data e hora da exclusão do registro.
+        /// </summary>
+        [JsonPropertyName("dateDeleted")]
+        public DateTimeOffset? DateDeleted { get; set; }
+
+        /// <summary>
+        /// Data e hora da alteração do registro.
+        /// </summary>
+        [JsonPropertyName("dateUpdated")]
+        public DateTimeOffset DateUpdated { get; set; }
+
+        /// <summary>
+        /// Identificador do registro (uuid).
+        /// </summary>
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Nome da modalidade.
+        /// </summary>
+        [JsonPropertyName("nome")]
+        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
+        public string Nome { get; set; }
+
+        /// <summary>
+        /// Apelido da modalidade.
         /// </summary>
         [JsonPropertyName("slug")]
         [JsonConverter(typeof(MinMaxLengthCheckConverter))]
@@ -3129,6 +3181,12 @@ namespace Ladesa.Dtos
         public Guid Id { get; set; }
 
         /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("modalidade")]
+        public ModalidadeElement Modalidade { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonPropertyName("nome")]
@@ -3137,6 +3195,45 @@ namespace Ladesa.Dtos
 
         /// <summary>
         /// Apelido da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("slug")]
+        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
+        public string Slug { get; set; }
+    }
+
+    /// <summary>
+    /// Modalidade da oferta de formação.
+    ///
+    /// Visão FindOne de uma modalidade.
+    /// </summary>
+    public partial class ModalidadeElement
+    {
+        /// <summary>
+        /// Data e hora da criação do registro.
+        /// </summary>
+        [JsonPropertyName("dateCreated")]
+        public DateTimeOffset DateCreated { get; set; }
+
+        /// <summary>
+        /// Data e hora da exclusão do registro.
+        /// </summary>
+        [JsonPropertyName("dateDeleted")]
+        public DateTimeOffset? DateDeleted { get; set; }
+
+        /// <summary>
+        /// Data e hora da alteração do registro.
+        /// </summary>
+        [JsonPropertyName("dateUpdated")]
+        public DateTimeOffset DateUpdated { get; set; }
+
+        /// <summary>
+        /// Identificador do registro (uuid).
+        /// </summary>
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Apelido da modalidade.
         /// </summary>
         [JsonPropertyName("slug")]
         [JsonConverter(typeof(MinMaxLengthCheckConverter))]
@@ -14887,44 +14984,7 @@ namespace Ladesa.Dtos
     public partial class ModalidadeCreateOperationOutput
     {
         [JsonPropertyName("success")]
-        public ModalidadeListResultViewSuccess Success { get; set; }
-    }
-
-    /// <summary>
-    /// Visão FindOne de uma modalidade.
-    /// </summary>
-    public partial class ModalidadeListResultViewSuccess
-    {
-        /// <summary>
-        /// Data e hora da criação do registro.
-        /// </summary>
-        [JsonPropertyName("dateCreated")]
-        public DateTimeOffset DateCreated { get; set; }
-
-        /// <summary>
-        /// Data e hora da exclusão do registro.
-        /// </summary>
-        [JsonPropertyName("dateDeleted")]
-        public DateTimeOffset? DateDeleted { get; set; }
-
-        /// <summary>
-        /// Data e hora da alteração do registro.
-        /// </summary>
-        [JsonPropertyName("dateUpdated")]
-        public DateTimeOffset DateUpdated { get; set; }
-
-        /// <summary>
-        /// Identificador do registro (uuid).
-        /// </summary>
-        [JsonPropertyName("id")]
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// Apelido da modalidade.
-        /// </summary>
-        [JsonPropertyName("slug")]
-        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
-        public string Slug { get; set; }
+        public ModalidadeElement Success { get; set; }
     }
 
     public partial class ModalidadeDeleteByIdOperation
@@ -14984,7 +15044,7 @@ namespace Ladesa.Dtos
     public partial class ModalidadeFindOneByIdOperationOutput
     {
         [JsonPropertyName("success")]
-        public ModalidadeListResultViewSuccess Success { get; set; }
+        public ModalidadeElement Success { get; set; }
     }
 
     /// <summary>
@@ -15121,7 +15181,7 @@ namespace Ladesa.Dtos
         /// Resultados da busca atual.
         /// </summary>
         [JsonPropertyName("data")]
-        public ModalidadeListResultViewSuccess[] Data { get; set; }
+        public ModalidadeElement[] Data { get; set; }
 
         /// <summary>
         /// Links da busca.
@@ -15145,7 +15205,7 @@ namespace Ladesa.Dtos
         /// Resultados da busca atual.
         /// </summary>
         [JsonPropertyName("data")]
-        public ModalidadeListResultViewSuccess[] Data { get; set; }
+        public ModalidadeElement[] Data { get; set; }
 
         /// <summary>
         /// Links da busca.
@@ -15204,7 +15264,7 @@ namespace Ladesa.Dtos
     public partial class ModalidadeUpdateByIdOperationOutput
     {
         [JsonPropertyName("success")]
-        public ModalidadeListResultViewSuccess Success { get; set; }
+        public ModalidadeElement Success { get; set; }
     }
 
     /// <summary>
@@ -15252,9 +15312,9 @@ namespace Ladesa.Dtos
     }
 
     /// <summary>
-    /// NivelDeFormacao.
+    /// NivelFormacao.
     /// </summary>
-    public partial class NivelDeFormacao
+    public partial class NivelFormacao
     {
         /// <summary>
         /// Data e hora da criação do registro.
@@ -15288,16 +15348,16 @@ namespace Ladesa.Dtos
         public string Slug { get; set; }
     }
 
-    public partial class NivelDeFormacaoCreateOperation
+    public partial class NivelFormacaoCreateOperation
     {
         [JsonPropertyName("input")]
-        public NivelDeFormacaoCreateOperationInput Input { get; set; }
+        public NivelFormacaoCreateOperationInput Input { get; set; }
 
         [JsonPropertyName("output")]
-        public NivelDeFormacaoCreateOperationOutput Output { get; set; }
+        public NivelFormacaoCreateOperationOutput Output { get; set; }
     }
 
-    public partial class NivelDeFormacaoCreateOperationInput
+    public partial class NivelFormacaoCreateOperationInput
     {
         [JsonPropertyName("body")]
         public Body31 Body { get; set; }
@@ -15316,7 +15376,7 @@ namespace Ladesa.Dtos
         public string Slug { get; set; }
     }
 
-    public partial class NivelDeFormacaoCreateOperationOutput
+    public partial class NivelFormacaoCreateOperationOutput
     {
         [JsonPropertyName("success")]
         public NivelFormcaoElement Success { get; set; }
@@ -15359,16 +15419,16 @@ namespace Ladesa.Dtos
         public string Slug { get; set; }
     }
 
-    public partial class NivelDeFormacaoDeleteByIdOperation
+    public partial class NivelFormacaoDeleteByIdOperation
     {
         [JsonPropertyName("input")]
-        public NivelDeFormacaoDeleteByIdOperationInput Input { get; set; }
+        public NivelFormacaoDeleteByIdOperationInput Input { get; set; }
 
         [JsonPropertyName("output")]
-        public NivelDeFormacaoDeleteByIdOperationOutput Output { get; set; }
+        public NivelFormacaoDeleteByIdOperationOutput Output { get; set; }
     }
 
-    public partial class NivelDeFormacaoDeleteByIdOperationInput
+    public partial class NivelFormacaoDeleteByIdOperationInput
     {
         [JsonPropertyName("params")]
         public Params60 Params { get; set; }
@@ -15383,22 +15443,22 @@ namespace Ladesa.Dtos
         public Guid Id { get; set; }
     }
 
-    public partial class NivelDeFormacaoDeleteByIdOperationOutput
+    public partial class NivelFormacaoDeleteByIdOperationOutput
     {
         [JsonPropertyName("success")]
         public bool Success { get; set; }
     }
 
-    public partial class NivelDeFormacaoFindOneByIdOperation
+    public partial class NivelFormacaoFindOneByIdOperation
     {
         [JsonPropertyName("input")]
-        public NivelDeFormacaoFindOneByIdOperationInput Input { get; set; }
+        public NivelFormacaoFindOneByIdOperationInput Input { get; set; }
 
         [JsonPropertyName("output")]
-        public NivelDeFormacaoFindOneByIdOperationOutput Output { get; set; }
+        public NivelFormacaoFindOneByIdOperationOutput Output { get; set; }
     }
 
-    public partial class NivelDeFormacaoFindOneByIdOperationInput
+    public partial class NivelFormacaoFindOneByIdOperationInput
     {
         [JsonPropertyName("params")]
         public Params61 Params { get; set; }
@@ -15413,7 +15473,7 @@ namespace Ladesa.Dtos
         public Guid Id { get; set; }
     }
 
-    public partial class NivelDeFormacaoFindOneByIdOperationOutput
+    public partial class NivelFormacaoFindOneByIdOperationOutput
     {
         [JsonPropertyName("success")]
         public NivelFormcaoElement Success { get; set; }
@@ -15422,7 +15482,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para encontrar um nível de formação por ID.
     /// </summary>
-    public partial class NivelDeFormacaoFindOneInputView
+    public partial class NivelFormacaoFindOneInputView
     {
         /// <summary>
         /// Identificador do registro (uuid).
@@ -15434,7 +15494,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Visão FindOne de um nível de formação.
     /// </summary>
-    public partial class NivelDeFormacaoFindOneResultView
+    public partial class NivelFormacaoFindOneResultView
     {
         /// <summary>
         /// Data e hora da criação do registro.
@@ -15471,7 +15531,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a criação de um nível de formação.
     /// </summary>
-    public partial class NivelDeFormacaoInputCreateView
+    public partial class NivelFormacaoInputCreateView
     {
         /// <summary>
         /// Apelido do nível de formação.
@@ -15484,7 +15544,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um nível de formação.
     /// </summary>
-    public partial class NivelDeFormacaoInputUpdateView
+    public partial class NivelFormacaoInputUpdateView
     {
         /// <summary>
         /// Apelido do nível de formação.
@@ -15495,16 +15555,16 @@ namespace Ladesa.Dtos
         public string Slug { get; set; }
     }
 
-    public partial class NivelDeFormacaoListOperation
+    public partial class NivelFormacaoListOperation
     {
         [JsonPropertyName("input")]
-        public NivelDeFormacaoListOperationInput Input { get; set; }
+        public NivelFormacaoListOperationInput Input { get; set; }
 
         [JsonPropertyName("output")]
-        public NivelDeFormacaoListOperationOutput Output { get; set; }
+        public NivelFormacaoListOperationOutput Output { get; set; }
     }
 
-    public partial class NivelDeFormacaoListOperationInput
+    public partial class NivelFormacaoListOperationInput
     {
         [JsonPropertyName("queries")]
         public Queries11 Queries { get; set; }
@@ -15538,7 +15598,7 @@ namespace Ladesa.Dtos
         public string[] SortBy { get; set; }
     }
 
-    public partial class NivelDeFormacaoListOperationOutput
+    public partial class NivelFormacaoListOperationOutput
     {
         [JsonPropertyName("success")]
         public Success12 Success { get; set; }
@@ -15571,7 +15631,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Resultados da busca aos níveis de formações.
     /// </summary>
-    public partial class NivelDeFormacaoListResultView
+    public partial class NivelFormacaoListResultView
     {
         /// <summary>
         /// Resultados da busca atual.
@@ -15592,16 +15652,16 @@ namespace Ladesa.Dtos
         public Meta Meta { get; set; }
     }
 
-    public partial class NivelDeFormacaoUpdateByIdOperation
+    public partial class NivelFormacaoUpdateByIdOperation
     {
         [JsonPropertyName("input")]
-        public NivelDeFormacaoUpdateByIdOperationInput Input { get; set; }
+        public NivelFormacaoUpdateByIdOperationInput Input { get; set; }
 
         [JsonPropertyName("output")]
-        public NivelDeFormacaoUpdateByIdOperationOutput Output { get; set; }
+        public NivelFormacaoUpdateByIdOperationOutput Output { get; set; }
     }
 
-    public partial class NivelDeFormacaoUpdateByIdOperationInput
+    public partial class NivelFormacaoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
         public Body32 Body { get; set; }
@@ -15633,7 +15693,7 @@ namespace Ladesa.Dtos
         public Guid Id { get; set; }
     }
 
-    public partial class NivelDeFormacaoUpdateByIdOperationOutput
+    public partial class NivelFormacaoUpdateByIdOperationOutput
     {
         [JsonPropertyName("success")]
         public NivelFormcaoElement Success { get; set; }
@@ -15642,7 +15702,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Visão completa de um nível de formação.
     /// </summary>
-    public partial class NivelDeFormacaoView
+    public partial class NivelFormacaoView
     {
         /// <summary>
         /// Data e hora da criação do registro.
@@ -15730,6 +15790,12 @@ namespace Ladesa.Dtos
         public Guid Id { get; set; }
 
         /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("modalidade")]
+        public OfertaFormacaoModalidade Modalidade { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonPropertyName("nome")]
@@ -15765,6 +15831,12 @@ namespace Ladesa.Dtos
     public partial class Body33
     {
         /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("modalidade")]
+        public BodyModalidade Modalidade { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonPropertyName("nome")]
@@ -15777,6 +15849,20 @@ namespace Ladesa.Dtos
         [JsonPropertyName("slug")]
         [JsonConverter(typeof(MinMaxLengthCheckConverter))]
         public string Slug { get; set; }
+    }
+
+    /// <summary>
+    /// Modalidade da oferta de formação.
+    ///
+    /// Dados de entrada para encontrar uma modalidade por ID.
+    /// </summary>
+    public partial class BodyModalidade
+    {
+        /// <summary>
+        /// Identificador do registro (uuid).
+        /// </summary>
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
     }
 
     public partial class OfertaFormacaoCreateOperationOutput
@@ -15887,6 +15973,12 @@ namespace Ladesa.Dtos
         public Guid Id { get; set; }
 
         /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("modalidade")]
+        public ModalidadeElement Modalidade { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonPropertyName("nome")]
@@ -15907,6 +15999,12 @@ namespace Ladesa.Dtos
     public partial class OfertaFormacaoInputCreateView
     {
         /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("modalidade")]
+        public BodyModalidade Modalidade { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonPropertyName("nome")]
@@ -15926,6 +16024,13 @@ namespace Ladesa.Dtos
     /// </summary>
     public partial class OfertaFormacaoInputUpdateView
     {
+        /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("modalidade")]
+        public BodyModalidade Modalidade { get; set; }
+
         /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
@@ -16073,7 +16178,7 @@ namespace Ladesa.Dtos
         /// Nível de formação.
         /// </summary>
         [JsonPropertyName("nivelFormacao")]
-        public NivelFormacao NivelFormacao { get; set; }
+        public NivelFormacaoClass NivelFormacao { get; set; }
 
         /// <summary>
         /// Oferta de formação.
@@ -16085,9 +16190,9 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Nível de formação.
     ///
-    /// NivelDeFormacao.
+    /// NivelFormacao.
     /// </summary>
-    public partial class NivelFormacao
+    public partial class NivelFormacaoClass
     {
         /// <summary>
         /// Data e hora da criação do registro.
@@ -16142,7 +16247,7 @@ namespace Ladesa.Dtos
     public partial class Body34
     {
         [JsonPropertyName("nivelFormcao")]
-        public Nivel NivelFormcao { get; set; }
+        public NivelForm NivelFormcao { get; set; }
 
         [JsonPropertyName("ofertaFormacao")]
         public BodyOfertaFormacao OfertaFormacao { get; set; }
@@ -16151,7 +16256,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para encontrar um nível de formação por ID.
     /// </summary>
-    public partial class Nivel
+    public partial class NivelForm
     {
         /// <summary>
         /// Identificador do registro (uuid).
@@ -16310,7 +16415,7 @@ namespace Ladesa.Dtos
     public partial class OfertaFormacaoNivelFormacaoInputCreateView
     {
         [JsonPropertyName("nivelFormcao")]
-        public Nivel NivelFormcao { get; set; }
+        public NivelForm NivelFormcao { get; set; }
 
         [JsonPropertyName("ofertaFormacao")]
         public BodyOfertaFormacao OfertaFormacao { get; set; }
@@ -16323,7 +16428,7 @@ namespace Ladesa.Dtos
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("nivelFormcao")]
-        public Nivel NivelFormcao { get; set; }
+        public NivelForm NivelFormcao { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("ofertaFormacao")]
@@ -16452,7 +16557,7 @@ namespace Ladesa.Dtos
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("nivelFormcao")]
-        public Nivel NivelFormcao { get; set; }
+        public NivelForm NivelFormcao { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("ofertaFormacao")]
@@ -16534,6 +16639,13 @@ namespace Ladesa.Dtos
     public partial class Body36
     {
         /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("modalidade")]
+        public BodyModalidade Modalidade { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -16593,6 +16705,12 @@ namespace Ladesa.Dtos
         /// </summary>
         [JsonPropertyName("id")]
         public Guid Id { get; set; }
+
+        /// <summary>
+        /// Modalidade da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("modalidade")]
+        public ModalidadeElement Modalidade { get; set; }
 
         /// <summary>
         /// Nome da oferta de formação.
@@ -19862,7 +19980,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Define os nomes de indentificação das entidades.
     /// </summary>
-    public enum TokensEnum { Ambiente, AmbienteCreate, AmbienteDeleteOneById, AmbienteFindOneById, AmbienteFindOneInputView, AmbienteFindOneResultView, AmbienteGetImagemCapa, AmbienteInputCreateView, AmbienteInputUpdateView, AmbienteList, AmbienteListResultView, AmbienteSetImagemCapa, AmbienteUpdateOneById, AmbienteView, Arquivo, ArquivoFindOneInputView, ArquivoFindOneResultView, ArquivoGetFile, ArquivoView, Aula, AulaCreate, AulaDeleteOneById, AulaFindOneById, AulaFindOneInputView, AulaFindOneResultView, AulaInputCreateView, AulaInputUpdateView, AulaList, AulaListResultView, AulaUpdateOneById, AulaView, AuthLogin, AuthLoginInputView, AuthRefresh, AuthRefreshInputView, AuthSessionCredentialsView, AuthSetInitialPassword, AuthSetInitialPasswordInputView, AuthWhoAmI, AuthWhoAmIInputView, Bloco, BlocoCreate, BlocoDeleteOneById, BlocoFindOneById, BlocoFindOneInputView, BlocoFindOneResultView, BlocoGetImagemCapa, BlocoInputCreateView, BlocoInputUpdateView, BlocoList, BlocoListResultView, BlocoSetImagemCapa, BlocoUpdateOneById, BlocoView, CalendarioLetivo, CalendarioLetivoCreate, CalendarioLetivoDeleteOneById, CalendarioLetivoFindOneById, CalendarioLetivoFindOneInputView, CalendarioLetivoFindOneResultView, CalendarioLetivoInputCreateView, CalendarioLetivoInputUpdateView, CalendarioLetivoList, CalendarioLetivoListResultView, CalendarioLetivoUpdateOneById, CalendarioLetivoView, Campus, CampusCreate, CampusDeleteOneById, CampusFindOneById, CampusFindOneInputView, CampusFindOneResultView, CampusInputCreateView, CampusInputUpdateView, CampusList, CampusListResultView, CampusUpdateOneById, CampusView, Cidade, CidadeFindOneById, CidadeFindOneInputView, CidadeFindOneResultView, CidadeList, CidadeListResultView, CidadeView, Curso, CursoCreate, CursoDeleteOneById, CursoFindOneById, CursoFindOneInputView, CursoFindOneResultView, CursoGetImagemCapa, CursoInputCreateView, CursoInputUpdateView, CursoList, CursoListResultView, CursoSetImagemCapa, CursoUpdateOneById, CursoView, DiaCalendario, DiaCalendarioCreate, DiaCalendarioDeleteOneById, DiaCalendarioFindOneById, DiaCalendarioFindOneInputView, DiaCalendarioFindOneResultView, DiaCalendarioInputCreateView, DiaCalendarioInputUpdateView, DiaCalendarioList, DiaCalendarioListResultView, DiaCalendarioUpdateOneById, DiaCalendarioView, Diario, DiarioCreate, DiarioDeleteOneById, DiarioFindOneById, DiarioFindOneInputView, DiarioFindOneResultView, DiarioGetImagemCapa, DiarioInputCreateView, DiarioInputUpdateView, DiarioList, DiarioListResultView, DiarioPreferenciaAgrupamento, DiarioPreferenciaAgrupamentoCreate, DiarioPreferenciaAgrupamentoDeleteOneById, DiarioPreferenciaAgrupamentoFindOneById, DiarioPreferenciaAgrupamentoFindOneInputView, DiarioPreferenciaAgrupamentoFindOneResultView, DiarioPreferenciaAgrupamentoInputCreateView, DiarioPreferenciaAgrupamentoInputUpdateView, DiarioPreferenciaAgrupamentoList, DiarioPreferenciaAgrupamentoListResultView, DiarioPreferenciaAgrupamentoUpdateOneById, DiarioPreferenciaAgrupamentoView, DiarioProfessor, DiarioProfessorCreate, DiarioProfessorDeleteOneById, DiarioProfessorFindOneById, DiarioProfessorFindOneInputView, DiarioProfessorFindOneResultView, DiarioProfessorInputCreateView, DiarioProfessorInputUpdateView, DiarioProfessorList, DiarioProfessorListResultView, DiarioProfessorUpdateOneById, DiarioProfessorView, DiarioSetImagemCapa, DiarioUpdateOneById, DiarioView, Disciplina, DisciplinaCreate, DisciplinaDeleteOneById, DisciplinaFindOneById, DisciplinaFindOneInputView, DisciplinaFindOneResultView, DisciplinaGetImagemCapa, DisciplinaInputCreateView, DisciplinaInputUpdateView, DisciplinaList, DisciplinaListResultView, DisciplinaSetImagemCapa, DisciplinaUpdateOneById, DisciplinaView, Disponibilidade, DisponibilidadeCreate, DisponibilidadeDeleteOneById, DisponibilidadeDia, DisponibilidadeDiaCreate, DisponibilidadeDiaDeleteOneById, DisponibilidadeDiaFindOneById, DisponibilidadeDiaFindOneInputView, DisponibilidadeDiaFindOneResultView, DisponibilidadeDiaInputCreateView, DisponibilidadeDiaInputUpdateView, DisponibilidadeDiaList, DisponibilidadeDiaListResultView, DisponibilidadeDiaUpdateOneById, DisponibilidadeDiaView, DisponibilidadeFindOneById, DisponibilidadeFindOneInputView, DisponibilidadeFindOneResultView, DisponibilidadeInputCreateView, DisponibilidadeInputUpdateView, DisponibilidadeList, DisponibilidadeListResultView, DisponibilidadeUpdateOneById, DisponibilidadeView, Endereco, EnderecoFindOneById, EnderecoFindOneInputView, EnderecoFindOneResultView, EnderecoInputView, EnderecoView, Estado, EstadoFindOneById, EstadoFindOneInputView, EstadoFindOneResultView, EstadoList, EstadoListResultView, EstadoView, Etapa, EtapaCreate, EtapaDeleteOneById, EtapaFindOneById, EtapaFindOneInputView, EtapaFindOneResultView, EtapaInputCreateView, EtapaInputUpdateView, EtapaList, EtapaListResultView, EtapaUpdateOneById, EtapaView, Evento, EventoCreate, EventoDeleteOneById, EventoFindOneById, EventoFindOneInputView, EventoFindOneResultView, EventoInputCreateView, EventoInputUpdateView, EventoList, EventoListResultView, EventoUpdateOneById, EventoView, GetImagem, GradeHorarioOfertaFormacao, GradeHorarioOfertaFormacaoCreate, GradeHorarioOfertaFormacaoDeleteOneById, GradeHorarioOfertaFormacaoFindOneById, GradeHorarioOfertaFormacaoFindOneInputView, GradeHorarioOfertaFormacaoFindOneResultView, GradeHorarioOfertaFormacaoInputCreateView, GradeHorarioOfertaFormacaoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempo, GradeHorarioOfertaFormacaoIntervaloDeTempoCreate, GradeHorarioOfertaFormacaoIntervaloDeTempoDeleteOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneInputView, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputCreateView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempoList, GradeHorarioOfertaFormacaoIntervaloDeTempoListResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoUpdateOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoView, GradeHorarioOfertaFormacaoList, GradeHorarioOfertaFormacaoListResultView, GradeHorarioOfertaFormacaoUpdateOneById, GradeHorarioOfertaFormacaoView, HorarioGerado, HorarioGeradoAula, HorarioGeradoAulaCreate, HorarioGeradoAulaDeleteOneById, HorarioGeradoAulaFindOneById, HorarioGeradoAulaFindOneInputView, HorarioGeradoAulaFindOneResultView, HorarioGeradoAulaInputCreateView, HorarioGeradoAulaInputUpdateView, HorarioGeradoAulaList, HorarioGeradoAulaListResultView, HorarioGeradoAulaUpdateOneById, HorarioGeradoAulaView, HorarioGeradoCreate, HorarioGeradoDeleteOneById, HorarioGeradoFindOneById, HorarioGeradoFindOneInputView, HorarioGeradoFindOneResultView, HorarioGeradoInputCreateView, HorarioGeradoInputUpdateView, HorarioGeradoList, HorarioGeradoListResultView, HorarioGeradoUpdateOneById, HorarioGeradoView, ImageFindOneFromImagemArquivoResultView, Imagem, ImagemArquivo, ImagemArquivoFindOneFromImagemResultView, ImagemArquivoFindOneInputView, ImagemArquivoFindOneResultView, ImagemArquivoView, ImagemFindOneInputView, ImagemFindOneResultView, ImagemView, IntervaloDeTempo, IntervaloDeTempoFindOneResultView, IntervaloDeTempoInputView, IntervaloDeTempoView, Modalidade, ModalidadeCreate, ModalidadeDeleteOneById, ModalidadeFindOneById, ModalidadeFindOneInputView, ModalidadeFindOneResultView, ModalidadeInputCreateView, ModalidadeInputUpdateView, ModalidadeList, ModalidadeListResultView, ModalidadeUpdateOneById, ModalidadeView, NivelDeFormacao, NivelDeFormacaoCreate, NivelDeFormacaoDeleteOneById, NivelDeFormacaoFindOneById, NivelDeFormacaoFindOneInputView, NivelDeFormacaoFindOneResultView, NivelDeFormacaoInputCreateView, NivelDeFormacaoInputUpdateView, NivelDeFormacaoList, NivelDeFormacaoListResultView, NivelDeFormacaoUpdateOneById, NivelDeFormacaoView, OfertaFormacao, OfertaFormacaoCreate, OfertaFormacaoDeleteOneById, OfertaFormacaoFindOneById, OfertaFormacaoFindOneInputView, OfertaFormacaoFindOneResultView, OfertaFormacaoInputCreateView, OfertaFormacaoInputUpdateView, OfertaFormacaoList, OfertaFormacaoListResultView, OfertaFormacaoNivelFormacao, OfertaFormacaoNivelFormacaoCreate, OfertaFormacaoNivelFormacaoDeleteOneById, OfertaFormacaoNivelFormacaoFindOneById, OfertaFormacaoNivelFormacaoFindOneInputView, OfertaFormacaoNivelFormacaoFindOneResultView, OfertaFormacaoNivelFormacaoInputCreateView, OfertaFormacaoNivelFormacaoInputUpdateView, OfertaFormacaoNivelFormacaoList, OfertaFormacaoNivelFormacaoListResultView, OfertaFormacaoNivelFormacaoUpdateOneById, OfertaFormacaoNivelFormacaoView, OfertaFormacaoUpdateOneById, OfertaFormacaoView, PaginatedFilterView, PaginatedInputBaseView, PaginatedInputView, PaginatedResultLinksView, PaginatedResultMetaView, PaginatedResultView, PaginatedSortByView, Perfil, PerfilCreate, PerfilDeleteOneById, PerfilFindOneById, PerfilFindOneInputView, PerfilFindOneResultView, PerfilInputCreateView, PerfilInputUpdateView, PerfilList, PerfilListResultView, PerfilUpdateOneById, PerfilView, ProfessorDisponibilidade, ProfessorDisponibilidadeCreate, ProfessorDisponibilidadeDeleteOneById, ProfessorDisponibilidadeFindOneById, ProfessorDisponibilidadeFindOneInputView, ProfessorDisponibilidadeFindOneResultView, ProfessorDisponibilidadeInputCreateView, ProfessorDisponibilidadeInputUpdateView, ProfessorDisponibilidadeList, ProfessorDisponibilidadeListResultView, ProfessorDisponibilidadeUpdateOneById, ProfessorDisponibilidadeView, Reserva, ReservaCreate, ReservaDeleteOneById, ReservaFindOneById, ReservaFindOneInputView, ReservaFindOneResultView, ReservaInputCreateView, ReservaInputUpdateView, ReservaList, ReservaListResultView, ReservaUpdateOneById, ReservaView, SearchInputView, SetImagem, Turma, TurmaCreate, TurmaDeleteOneById, TurmaDisponibilidade, TurmaDisponibilidadeCreate, TurmaDisponibilidadeDeleteOneById, TurmaDisponibilidadeFindOneById, TurmaDisponibilidadeFindOneInputView, TurmaDisponibilidadeFindOneResultView, TurmaDisponibilidadeInputCreateView, TurmaDisponibilidadeInputUpdateView, TurmaDisponibilidadeList, TurmaDisponibilidadeListResultView, TurmaDisponibilidadeUpdateOneById, TurmaDisponibilidadeView, TurmaFindOneById, TurmaFindOneInputView, TurmaFindOneResultView, TurmaGetImagemCapa, TurmaInputCreateView, TurmaInputUpdateView, TurmaList, TurmaListResultView, TurmaSetImagemCapa, TurmaUpdateOneById, TurmaView, Usuario, UsuarioCreate, UsuarioDeleteOneById, UsuarioFindOneById, UsuarioFindOneInputView, UsuarioFindOneResultView, UsuarioGetImagemCapa, UsuarioGetImagemPerfil, UsuarioInputCreateView, UsuarioInputUpdateView, UsuarioList, UsuarioListResultView, UsuarioSetImagemCapa, UsuarioSetImagemPerfil, UsuarioUpdateOneById, UsuarioView };
+    public enum TokensEnum { Ambiente, AmbienteCreate, AmbienteDeleteOneById, AmbienteFindOneById, AmbienteFindOneInputView, AmbienteFindOneResultView, AmbienteGetImagemCapa, AmbienteInputCreateView, AmbienteInputUpdateView, AmbienteList, AmbienteListResultView, AmbienteSetImagemCapa, AmbienteUpdateOneById, AmbienteView, Arquivo, ArquivoFindOneInputView, ArquivoFindOneResultView, ArquivoGetFile, ArquivoView, Aula, AulaCreate, AulaDeleteOneById, AulaFindOneById, AulaFindOneInputView, AulaFindOneResultView, AulaInputCreateView, AulaInputUpdateView, AulaList, AulaListResultView, AulaUpdateOneById, AulaView, AuthLogin, AuthLoginInputView, AuthRefresh, AuthRefreshInputView, AuthSessionCredentialsView, AuthSetInitialPassword, AuthSetInitialPasswordInputView, AuthWhoAmI, AuthWhoAmIInputView, Bloco, BlocoCreate, BlocoDeleteOneById, BlocoFindOneById, BlocoFindOneInputView, BlocoFindOneResultView, BlocoGetImagemCapa, BlocoInputCreateView, BlocoInputUpdateView, BlocoList, BlocoListResultView, BlocoSetImagemCapa, BlocoUpdateOneById, BlocoView, CalendarioLetivo, CalendarioLetivoCreate, CalendarioLetivoDeleteOneById, CalendarioLetivoFindOneById, CalendarioLetivoFindOneInputView, CalendarioLetivoFindOneResultView, CalendarioLetivoInputCreateView, CalendarioLetivoInputUpdateView, CalendarioLetivoList, CalendarioLetivoListResultView, CalendarioLetivoUpdateOneById, CalendarioLetivoView, Campus, CampusCreate, CampusDeleteOneById, CampusFindOneById, CampusFindOneInputView, CampusFindOneResultView, CampusInputCreateView, CampusInputUpdateView, CampusList, CampusListResultView, CampusUpdateOneById, CampusView, Cidade, CidadeFindOneById, CidadeFindOneInputView, CidadeFindOneResultView, CidadeList, CidadeListResultView, CidadeView, Curso, CursoCreate, CursoDeleteOneById, CursoFindOneById, CursoFindOneInputView, CursoFindOneResultView, CursoGetImagemCapa, CursoInputCreateView, CursoInputUpdateView, CursoList, CursoListResultView, CursoSetImagemCapa, CursoUpdateOneById, CursoView, DiaCalendario, DiaCalendarioCreate, DiaCalendarioDeleteOneById, DiaCalendarioFindOneById, DiaCalendarioFindOneInputView, DiaCalendarioFindOneResultView, DiaCalendarioInputCreateView, DiaCalendarioInputUpdateView, DiaCalendarioList, DiaCalendarioListResultView, DiaCalendarioUpdateOneById, DiaCalendarioView, Diario, DiarioCreate, DiarioDeleteOneById, DiarioFindOneById, DiarioFindOneInputView, DiarioFindOneResultView, DiarioGetImagemCapa, DiarioInputCreateView, DiarioInputUpdateView, DiarioList, DiarioListResultView, DiarioPreferenciaAgrupamento, DiarioPreferenciaAgrupamentoCreate, DiarioPreferenciaAgrupamentoDeleteOneById, DiarioPreferenciaAgrupamentoFindOneById, DiarioPreferenciaAgrupamentoFindOneInputView, DiarioPreferenciaAgrupamentoFindOneResultView, DiarioPreferenciaAgrupamentoInputCreateView, DiarioPreferenciaAgrupamentoInputUpdateView, DiarioPreferenciaAgrupamentoList, DiarioPreferenciaAgrupamentoListResultView, DiarioPreferenciaAgrupamentoUpdateOneById, DiarioPreferenciaAgrupamentoView, DiarioProfessor, DiarioProfessorCreate, DiarioProfessorDeleteOneById, DiarioProfessorFindOneById, DiarioProfessorFindOneInputView, DiarioProfessorFindOneResultView, DiarioProfessorInputCreateView, DiarioProfessorInputUpdateView, DiarioProfessorList, DiarioProfessorListResultView, DiarioProfessorUpdateOneById, DiarioProfessorView, DiarioSetImagemCapa, DiarioUpdateOneById, DiarioView, Disciplina, DisciplinaCreate, DisciplinaDeleteOneById, DisciplinaFindOneById, DisciplinaFindOneInputView, DisciplinaFindOneResultView, DisciplinaGetImagemCapa, DisciplinaInputCreateView, DisciplinaInputUpdateView, DisciplinaList, DisciplinaListResultView, DisciplinaSetImagemCapa, DisciplinaUpdateOneById, DisciplinaView, Disponibilidade, DisponibilidadeCreate, DisponibilidadeDeleteOneById, DisponibilidadeDia, DisponibilidadeDiaCreate, DisponibilidadeDiaDeleteOneById, DisponibilidadeDiaFindOneById, DisponibilidadeDiaFindOneInputView, DisponibilidadeDiaFindOneResultView, DisponibilidadeDiaInputCreateView, DisponibilidadeDiaInputUpdateView, DisponibilidadeDiaList, DisponibilidadeDiaListResultView, DisponibilidadeDiaUpdateOneById, DisponibilidadeDiaView, DisponibilidadeFindOneById, DisponibilidadeFindOneInputView, DisponibilidadeFindOneResultView, DisponibilidadeInputCreateView, DisponibilidadeInputUpdateView, DisponibilidadeList, DisponibilidadeListResultView, DisponibilidadeUpdateOneById, DisponibilidadeView, Endereco, EnderecoFindOneById, EnderecoFindOneInputView, EnderecoFindOneResultView, EnderecoInputView, EnderecoView, Estado, EstadoFindOneById, EstadoFindOneInputView, EstadoFindOneResultView, EstadoList, EstadoListResultView, EstadoView, Etapa, EtapaCreate, EtapaDeleteOneById, EtapaFindOneById, EtapaFindOneInputView, EtapaFindOneResultView, EtapaInputCreateView, EtapaInputUpdateView, EtapaList, EtapaListResultView, EtapaUpdateOneById, EtapaView, Evento, EventoCreate, EventoDeleteOneById, EventoFindOneById, EventoFindOneInputView, EventoFindOneResultView, EventoInputCreateView, EventoInputUpdateView, EventoList, EventoListResultView, EventoUpdateOneById, EventoView, GetImagem, GradeHorarioOfertaFormacao, GradeHorarioOfertaFormacaoCreate, GradeHorarioOfertaFormacaoDeleteOneById, GradeHorarioOfertaFormacaoFindOneById, GradeHorarioOfertaFormacaoFindOneInputView, GradeHorarioOfertaFormacaoFindOneResultView, GradeHorarioOfertaFormacaoInputCreateView, GradeHorarioOfertaFormacaoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempo, GradeHorarioOfertaFormacaoIntervaloDeTempoCreate, GradeHorarioOfertaFormacaoIntervaloDeTempoDeleteOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneInputView, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputCreateView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempoList, GradeHorarioOfertaFormacaoIntervaloDeTempoListResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoUpdateOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoView, GradeHorarioOfertaFormacaoList, GradeHorarioOfertaFormacaoListResultView, GradeHorarioOfertaFormacaoUpdateOneById, GradeHorarioOfertaFormacaoView, HorarioGerado, HorarioGeradoAula, HorarioGeradoAulaCreate, HorarioGeradoAulaDeleteOneById, HorarioGeradoAulaFindOneById, HorarioGeradoAulaFindOneInputView, HorarioGeradoAulaFindOneResultView, HorarioGeradoAulaInputCreateView, HorarioGeradoAulaInputUpdateView, HorarioGeradoAulaList, HorarioGeradoAulaListResultView, HorarioGeradoAulaUpdateOneById, HorarioGeradoAulaView, HorarioGeradoCreate, HorarioGeradoDeleteOneById, HorarioGeradoFindOneById, HorarioGeradoFindOneInputView, HorarioGeradoFindOneResultView, HorarioGeradoInputCreateView, HorarioGeradoInputUpdateView, HorarioGeradoList, HorarioGeradoListResultView, HorarioGeradoUpdateOneById, HorarioGeradoView, ImageFindOneFromImagemArquivoResultView, Imagem, ImagemArquivo, ImagemArquivoFindOneFromImagemResultView, ImagemArquivoFindOneInputView, ImagemArquivoFindOneResultView, ImagemArquivoView, ImagemFindOneInputView, ImagemFindOneResultView, ImagemView, IntervaloDeTempo, IntervaloDeTempoFindOneResultView, IntervaloDeTempoInputView, IntervaloDeTempoView, Modalidade, ModalidadeCreate, ModalidadeDeleteOneById, ModalidadeFindOneById, ModalidadeFindOneInputView, ModalidadeFindOneResultView, ModalidadeInputCreateView, ModalidadeInputUpdateView, ModalidadeList, ModalidadeListResultView, ModalidadeUpdateOneById, ModalidadeView, NivelFormacao, NivelFormacaoCreate, NivelFormacaoDeleteOneById, NivelFormacaoFindOneById, NivelFormacaoFindOneInputView, NivelFormacaoFindOneResultView, NivelFormacaoInputCreateView, NivelFormacaoInputUpdateView, NivelFormacaoList, NivelFormacaoListResultView, NivelFormacaoUpdateOneById, NivelFormacaoView, OfertaFormacao, OfertaFormacaoCreate, OfertaFormacaoDeleteOneById, OfertaFormacaoFindOneById, OfertaFormacaoFindOneInputView, OfertaFormacaoFindOneResultView, OfertaFormacaoInputCreateView, OfertaFormacaoInputUpdateView, OfertaFormacaoList, OfertaFormacaoListResultView, OfertaFormacaoNivelFormacao, OfertaFormacaoNivelFormacaoCreate, OfertaFormacaoNivelFormacaoDeleteOneById, OfertaFormacaoNivelFormacaoFindOneById, OfertaFormacaoNivelFormacaoFindOneInputView, OfertaFormacaoNivelFormacaoFindOneResultView, OfertaFormacaoNivelFormacaoInputCreateView, OfertaFormacaoNivelFormacaoInputUpdateView, OfertaFormacaoNivelFormacaoList, OfertaFormacaoNivelFormacaoListResultView, OfertaFormacaoNivelFormacaoUpdateOneById, OfertaFormacaoNivelFormacaoView, OfertaFormacaoUpdateOneById, OfertaFormacaoView, PaginatedFilterView, PaginatedInputBaseView, PaginatedInputView, PaginatedResultLinksView, PaginatedResultMetaView, PaginatedResultView, PaginatedSortByView, Perfil, PerfilCreate, PerfilDeleteOneById, PerfilFindOneById, PerfilFindOneInputView, PerfilFindOneResultView, PerfilInputCreateView, PerfilInputUpdateView, PerfilList, PerfilListResultView, PerfilUpdateOneById, PerfilView, ProfessorDisponibilidade, ProfessorDisponibilidadeCreate, ProfessorDisponibilidadeDeleteOneById, ProfessorDisponibilidadeFindOneById, ProfessorDisponibilidadeFindOneInputView, ProfessorDisponibilidadeFindOneResultView, ProfessorDisponibilidadeInputCreateView, ProfessorDisponibilidadeInputUpdateView, ProfessorDisponibilidadeList, ProfessorDisponibilidadeListResultView, ProfessorDisponibilidadeUpdateOneById, ProfessorDisponibilidadeView, Reserva, ReservaCreate, ReservaDeleteOneById, ReservaFindOneById, ReservaFindOneInputView, ReservaFindOneResultView, ReservaInputCreateView, ReservaInputUpdateView, ReservaList, ReservaListResultView, ReservaUpdateOneById, ReservaView, SearchInputView, SetImagem, Turma, TurmaCreate, TurmaDeleteOneById, TurmaDisponibilidade, TurmaDisponibilidadeCreate, TurmaDisponibilidadeDeleteOneById, TurmaDisponibilidadeFindOneById, TurmaDisponibilidadeFindOneInputView, TurmaDisponibilidadeFindOneResultView, TurmaDisponibilidadeInputCreateView, TurmaDisponibilidadeInputUpdateView, TurmaDisponibilidadeList, TurmaDisponibilidadeListResultView, TurmaDisponibilidadeUpdateOneById, TurmaDisponibilidadeView, TurmaFindOneById, TurmaFindOneInputView, TurmaFindOneResultView, TurmaGetImagemCapa, TurmaInputCreateView, TurmaInputUpdateView, TurmaList, TurmaListResultView, TurmaSetImagemCapa, TurmaUpdateOneById, TurmaView, Usuario, UsuarioCreate, UsuarioDeleteOneById, UsuarioFindOneById, UsuarioFindOneInputView, UsuarioFindOneResultView, UsuarioGetImagemCapa, UsuarioGetImagemPerfil, UsuarioInputCreateView, UsuarioInputUpdateView, UsuarioList, UsuarioListResultView, UsuarioSetImagemCapa, UsuarioSetImagemPerfil, UsuarioUpdateOneById, UsuarioView };
 
     public partial class Ambiente
     {
@@ -21359,64 +21477,64 @@ namespace Ladesa.Dtos
         public static ModalidadeView FromJson(string json) => JsonSerializer.Deserialize<ModalidadeView>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacao
+    public partial class NivelFormacao
     {
-        public static NivelDeFormacao FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacao>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacao FromJson(string json) => JsonSerializer.Deserialize<NivelFormacao>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoCreateOperation
+    public partial class NivelFormacaoCreateOperation
     {
-        public static NivelDeFormacaoCreateOperation FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoCreateOperation>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoCreateOperation FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoCreateOperation>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoDeleteByIdOperation
+    public partial class NivelFormacaoDeleteByIdOperation
     {
-        public static NivelDeFormacaoDeleteByIdOperation FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoDeleteByIdOperation>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoDeleteByIdOperation FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoDeleteByIdOperation>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoFindOneByIdOperation
+    public partial class NivelFormacaoFindOneByIdOperation
     {
-        public static NivelDeFormacaoFindOneByIdOperation FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoFindOneByIdOperation>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoFindOneByIdOperation FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoFindOneByIdOperation>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoFindOneInputView
+    public partial class NivelFormacaoFindOneInputView
     {
-        public static NivelDeFormacaoFindOneInputView FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoFindOneInputView>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoFindOneInputView FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoFindOneInputView>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoFindOneResultView
+    public partial class NivelFormacaoFindOneResultView
     {
-        public static NivelDeFormacaoFindOneResultView FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoFindOneResultView>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoFindOneResultView FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoFindOneResultView>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoInputCreateView
+    public partial class NivelFormacaoInputCreateView
     {
-        public static NivelDeFormacaoInputCreateView FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoInputCreateView>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoInputCreateView FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoInputCreateView>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoInputUpdateView
+    public partial class NivelFormacaoInputUpdateView
     {
-        public static NivelDeFormacaoInputUpdateView FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoInputUpdateView>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoInputUpdateView FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoInputUpdateView>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoListOperation
+    public partial class NivelFormacaoListOperation
     {
-        public static NivelDeFormacaoListOperation FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoListOperation>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoListOperation FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoListOperation>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoListResultView
+    public partial class NivelFormacaoListResultView
     {
-        public static NivelDeFormacaoListResultView FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoListResultView>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoListResultView FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoListResultView>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoUpdateByIdOperation
+    public partial class NivelFormacaoUpdateByIdOperation
     {
-        public static NivelDeFormacaoUpdateByIdOperation FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoUpdateByIdOperation>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoUpdateByIdOperation FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoUpdateByIdOperation>(json, Ladesa.Dtos.Converter.Settings);
     }
 
-    public partial class NivelDeFormacaoView
+    public partial class NivelFormacaoView
     {
-        public static NivelDeFormacaoView FromJson(string json) => JsonSerializer.Deserialize<NivelDeFormacaoView>(json, Ladesa.Dtos.Converter.Settings);
+        public static NivelFormacaoView FromJson(string json) => JsonSerializer.Deserialize<NivelFormacaoView>(json, Ladesa.Dtos.Converter.Settings);
     }
 
     public partial class ObjectIntegerId
@@ -22290,18 +22408,18 @@ namespace Ladesa.Dtos
         public static string ToJson(this ModalidadeListResultView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this ModalidadeUpdateByIdOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this ModalidadeView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacao self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoCreateOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoDeleteByIdOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoFindOneByIdOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoFindOneInputView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoFindOneResultView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoInputCreateView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoInputUpdateView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoListOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoListResultView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoUpdateByIdOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
-        public static string ToJson(this NivelDeFormacaoView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacao self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoCreateOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoDeleteByIdOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoFindOneByIdOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoFindOneInputView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoFindOneResultView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoInputCreateView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoInputUpdateView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoListOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoListResultView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoUpdateByIdOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this NivelFormacaoView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this ObjectIntegerId self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this ObjectUuid self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this OfertaFormacao self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
@@ -23064,30 +23182,30 @@ namespace Ladesa.Dtos
                     return TokensEnum.ModalidadeUpdateOneById;
                 case "ModalidadeView":
                     return TokensEnum.ModalidadeView;
-                case "NivelDeFormacao":
-                    return TokensEnum.NivelDeFormacao;
-                case "NivelDeFormacaoCreate":
-                    return TokensEnum.NivelDeFormacaoCreate;
-                case "NivelDeFormacaoDeleteOneById":
-                    return TokensEnum.NivelDeFormacaoDeleteOneById;
-                case "NivelDeFormacaoFindOneById":
-                    return TokensEnum.NivelDeFormacaoFindOneById;
-                case "NivelDeFormacaoFindOneInputView":
-                    return TokensEnum.NivelDeFormacaoFindOneInputView;
-                case "NivelDeFormacaoFindOneResultView":
-                    return TokensEnum.NivelDeFormacaoFindOneResultView;
-                case "NivelDeFormacaoInputCreateView":
-                    return TokensEnum.NivelDeFormacaoInputCreateView;
-                case "NivelDeFormacaoInputUpdateView":
-                    return TokensEnum.NivelDeFormacaoInputUpdateView;
-                case "NivelDeFormacaoList":
-                    return TokensEnum.NivelDeFormacaoList;
-                case "NivelDeFormacaoListResultView":
-                    return TokensEnum.NivelDeFormacaoListResultView;
-                case "NivelDeFormacaoUpdateOneById":
-                    return TokensEnum.NivelDeFormacaoUpdateOneById;
-                case "NivelDeFormacaoView":
-                    return TokensEnum.NivelDeFormacaoView;
+                case "NivelFormacao":
+                    return TokensEnum.NivelFormacao;
+                case "NivelFormacaoCreate":
+                    return TokensEnum.NivelFormacaoCreate;
+                case "NivelFormacaoDeleteOneById":
+                    return TokensEnum.NivelFormacaoDeleteOneById;
+                case "NivelFormacaoFindOneById":
+                    return TokensEnum.NivelFormacaoFindOneById;
+                case "NivelFormacaoFindOneInputView":
+                    return TokensEnum.NivelFormacaoFindOneInputView;
+                case "NivelFormacaoFindOneResultView":
+                    return TokensEnum.NivelFormacaoFindOneResultView;
+                case "NivelFormacaoInputCreateView":
+                    return TokensEnum.NivelFormacaoInputCreateView;
+                case "NivelFormacaoInputUpdateView":
+                    return TokensEnum.NivelFormacaoInputUpdateView;
+                case "NivelFormacaoList":
+                    return TokensEnum.NivelFormacaoList;
+                case "NivelFormacaoListResultView":
+                    return TokensEnum.NivelFormacaoListResultView;
+                case "NivelFormacaoUpdateOneById":
+                    return TokensEnum.NivelFormacaoUpdateOneById;
+                case "NivelFormacaoView":
+                    return TokensEnum.NivelFormacaoView;
                 case "OfertaFormacao":
                     return TokensEnum.OfertaFormacao;
                 case "OfertaFormacaoCreate":
@@ -24215,41 +24333,41 @@ namespace Ladesa.Dtos
                 case TokensEnum.ModalidadeView:
                     JsonSerializer.Serialize(writer, "ModalidadeView", options);
                     return;
-                case TokensEnum.NivelDeFormacao:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacao", options);
+                case TokensEnum.NivelFormacao:
+                    JsonSerializer.Serialize(writer, "NivelFormacao", options);
                     return;
-                case TokensEnum.NivelDeFormacaoCreate:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoCreate", options);
+                case TokensEnum.NivelFormacaoCreate:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoCreate", options);
                     return;
-                case TokensEnum.NivelDeFormacaoDeleteOneById:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoDeleteOneById", options);
+                case TokensEnum.NivelFormacaoDeleteOneById:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoDeleteOneById", options);
                     return;
-                case TokensEnum.NivelDeFormacaoFindOneById:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoFindOneById", options);
+                case TokensEnum.NivelFormacaoFindOneById:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoFindOneById", options);
                     return;
-                case TokensEnum.NivelDeFormacaoFindOneInputView:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoFindOneInputView", options);
+                case TokensEnum.NivelFormacaoFindOneInputView:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoFindOneInputView", options);
                     return;
-                case TokensEnum.NivelDeFormacaoFindOneResultView:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoFindOneResultView", options);
+                case TokensEnum.NivelFormacaoFindOneResultView:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoFindOneResultView", options);
                     return;
-                case TokensEnum.NivelDeFormacaoInputCreateView:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoInputCreateView", options);
+                case TokensEnum.NivelFormacaoInputCreateView:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoInputCreateView", options);
                     return;
-                case TokensEnum.NivelDeFormacaoInputUpdateView:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoInputUpdateView", options);
+                case TokensEnum.NivelFormacaoInputUpdateView:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoInputUpdateView", options);
                     return;
-                case TokensEnum.NivelDeFormacaoList:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoList", options);
+                case TokensEnum.NivelFormacaoList:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoList", options);
                     return;
-                case TokensEnum.NivelDeFormacaoListResultView:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoListResultView", options);
+                case TokensEnum.NivelFormacaoListResultView:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoListResultView", options);
                     return;
-                case TokensEnum.NivelDeFormacaoUpdateOneById:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoUpdateOneById", options);
+                case TokensEnum.NivelFormacaoUpdateOneById:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoUpdateOneById", options);
                     return;
-                case TokensEnum.NivelDeFormacaoView:
-                    JsonSerializer.Serialize(writer, "NivelDeFormacaoView", options);
+                case TokensEnum.NivelFormacaoView:
+                    JsonSerializer.Serialize(writer, "NivelFormacaoView", options);
                     return;
                 case TokensEnum.OfertaFormacao:
                     JsonSerializer.Serialize(writer, "OfertaFormacao", options);

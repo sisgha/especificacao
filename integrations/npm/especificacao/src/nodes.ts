@@ -221,84 +221,6 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoListOperation.json",
-    type: "object",
-    properties: {
-      input: {
-        type: "object",
-        properties: {
-          queries: {
-            type: "object",
-            properties: {
-              page: {
-                anyOf: [
-                  {
-                    type: "integer",
-                  },
-                  {
-                    type: "null",
-                  },
-                ],
-                minimum: 1,
-                description: "Página de consulta.",
-              },
-              limit: {
-                anyOf: [
-                  {
-                    type: "integer",
-                  },
-                  {
-                    type: "null",
-                  },
-                ],
-                minimum: 1,
-                description: "Limite da quantidade de resultados por página.",
-              },
-              search: {
-                anyOf: [
-                  {
-                    type: "string",
-                  },
-                  {
-                    type: "null",
-                  },
-                ],
-                description: "Busca textual.",
-              },
-              sortBy: {
-                type: "array",
-                items: {
-                  type: "string",
-                },
-                description: "Ordenação.",
-              },
-            },
-          },
-        },
-        required: ["queries"],
-      },
-      output: {
-        type: "object",
-        properties: {
-          success: {
-            $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoListResultView.json",
-          },
-        },
-        required: ["success"],
-      },
-    },
-    required: ["input", "output"],
-    "x-unispec-kind": "operation",
-    "x-unispec-operation-id": "NivelDeFormacaoList",
-    additionalProperties: false,
-    "x-unispec-operation-meta": {
-      gql: {
-        kind: "query",
-      },
-    },
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/GenericSearchInputView.json",
     type: "object",
     properties: {
@@ -649,6 +571,10 @@ export const Nodes: readonly any[] = [
         minLength: 1,
         description: "Apelido da oferta de formação.",
       },
+      modalidade: {
+        $ref: "ladesa://schemas/v3/generics/ModalidadeFindOneResultView.json",
+        description: "Modalidade da oferta de formação.",
+      },
       dateCreated: {
         $ref: "ladesa://schemas/v3/generics/date_time.json",
         description: "Data e hora da criação do registro.",
@@ -669,7 +595,7 @@ export const Nodes: readonly any[] = [
         description: "Data e hora da exclusão do registro.",
       },
     },
-    required: ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+    required: ["id", "nome", "slug", "modalidade", "dateCreated", "dateUpdated", "dateDeleted"],
     description: "Visão FindOne de uma oferta de formação.",
     "x-unispec-entity-partial-of": "OfertaFormacaoView",
     "x-unispec-kind": "entity",
@@ -749,6 +675,23 @@ export const Nodes: readonly any[] = [
     description: "Dados de entrada para encontrar uma Aula por ID.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "AulaFindOneInputView",
+    additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoFindOneInputView.json",
+    type: "object",
+    properties: {
+      id: {
+        $ref: "ladesa://schemas/v3/generics/uuid.json",
+        description: "Identificador do registro (uuid).",
+        "x-unispec-constraint-entity-exists": "NivelFormacao",
+      },
+    },
+    required: ["id"],
+    description: "Dados de entrada para encontrar um nível de formação por ID.",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "NivelFormacaoFindOneInputView",
     additionalProperties: false,
   },
   {
@@ -1092,46 +1035,6 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoView.json",
-    type: "object",
-    properties: {
-      id: {
-        $ref: "ladesa://schemas/v3/generics/uuid.json",
-        description: "Identificador do registro (uuid).",
-      },
-      slug: {
-        type: "string",
-        minLength: 1,
-        description: "Apelido do nível de formação.",
-      },
-      dateCreated: {
-        $ref: "ladesa://schemas/v3/generics/date_time.json",
-        description: "Data e hora da criação do registro.",
-      },
-      dateUpdated: {
-        $ref: "ladesa://schemas/v3/generics/date_time.json",
-        description: "Data e hora da alteração do registro.",
-      },
-      dateDeleted: {
-        anyOf: [
-          {
-            $ref: "ladesa://schemas/v3/generics/date_time.json",
-          },
-          {
-            type: "null",
-          },
-        ],
-        description: "Data e hora da exclusão do registro.",
-      },
-    },
-    required: ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
-    description: "Visão completa de um nível de formação.",
-    "x-unispec-kind": "entity",
-    "x-unispec-entity-id": "NivelDeFormacaoView",
-    additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/DiarioPreferenciaAgrupamentoListResultView.json",
     type: "object",
     properties: {
@@ -1346,6 +1249,10 @@ export const Nodes: readonly any[] = [
         minLength: 1,
         description: "Apelido da oferta de formação.",
       },
+      modalidade: {
+        $ref: "ladesa://schemas/v3/generics/Modalidade.json",
+        description: "Modalidade da oferta de formação.",
+      },
       dateCreated: {
         $ref: "ladesa://schemas/v3/generics/date_time.json",
         description: "Data e hora da criação do registro.",
@@ -1366,7 +1273,7 @@ export const Nodes: readonly any[] = [
         description: "Data e hora da exclusão do registro.",
       },
     },
-    required: ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+    required: ["id", "nome", "slug", "modalidade", "dateCreated", "dateUpdated", "dateDeleted"],
     description: "OfertaFormacao.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacao",
@@ -1529,7 +1436,7 @@ export const Nodes: readonly any[] = [
         $ref: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneResultView.json",
       },
       nivelFormcao: {
-        $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json",
+        $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
       },
     },
     required: ["id", "dateCreated", "dateUpdated", "dateDeleted", "ofertaFormacao", "nivelFormcao"],
@@ -3105,51 +3012,6 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoUpdateByIdOperation.json",
-    type: "object",
-    properties: {
-      input: {
-        type: "object",
-        properties: {
-          params: {
-            type: "object",
-            properties: {
-              id: {
-                $ref: "ladesa://schemas/v3/generics/uuid.json",
-                description: "Identificador do registro (uuid).",
-                "x-unispec-constraint-entity-exists": "NivelDeFormacao",
-              },
-            },
-            required: ["id"],
-          },
-          body: {
-            $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoInputUpdateView.json",
-          },
-        },
-        required: ["params", "body"],
-      },
-      output: {
-        type: "object",
-        properties: {
-          success: {
-            $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json",
-          },
-        },
-        required: ["success"],
-      },
-    },
-    required: ["input", "output"],
-    "x-unispec-kind": "operation",
-    "x-unispec-operation-id": "NivelDeFormacaoUpdateOneById",
-    additionalProperties: false,
-    "x-unispec-operation-meta": {
-      gql: {
-        kind: "mutation",
-      },
-    },
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/EtapaInputCreateView.json",
     type: "object",
     properties: {
@@ -3343,6 +3205,48 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoFindOneByIdOperation.json",
+    type: "object",
+    properties: {
+      input: {
+        type: "object",
+        properties: {
+          params: {
+            type: "object",
+            properties: {
+              id: {
+                $ref: "ladesa://schemas/v3/generics/uuid.json",
+                description: "Identificador do registro (uuid).",
+                "x-unispec-constraint-entity-exists": "NivelFormacao",
+              },
+            },
+            required: ["id"],
+          },
+        },
+        required: ["params"],
+      },
+      output: {
+        type: "object",
+        properties: {
+          success: {
+            $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
+          },
+        },
+        required: ["success"],
+      },
+    },
+    required: ["input", "output"],
+    "x-unispec-kind": "operation",
+    "x-unispec-operation-id": "NivelFormacaoFindOneById",
+    additionalProperties: false,
+    "x-unispec-operation-meta": {
+      gql: {
+        kind: "query",
+      },
+    },
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/GradeHorarioOfertaFormacaoIntervaloDeTempoUpdateByIdOperation.json",
     type: "object",
     properties: {
@@ -3379,48 +3283,6 @@ export const Nodes: readonly any[] = [
     required: ["input", "output"],
     "x-unispec-kind": "operation",
     "x-unispec-operation-id": "GradeHorarioOfertaFormacaoIntervaloDeTempoUpdateOneById",
-    additionalProperties: false,
-    "x-unispec-operation-meta": {
-      gql: {
-        kind: "mutation",
-      },
-    },
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoDeleteByIdOperation.json",
-    type: "object",
-    properties: {
-      input: {
-        type: "object",
-        properties: {
-          params: {
-            type: "object",
-            properties: {
-              id: {
-                $ref: "ladesa://schemas/v3/generics/uuid.json",
-                description: "Identificador do registro (uuid).",
-                "x-unispec-constraint-entity-exists": "NivelDeFormacao",
-              },
-            },
-            required: ["id"],
-          },
-        },
-        required: ["params"],
-      },
-      output: {
-        type: "object",
-        properties: {
-          success: {
-            type: "boolean",
-          },
-        },
-        required: ["success"],
-      },
-    },
-    required: ["input", "output"],
-    "x-unispec-kind": "operation",
-    "x-unispec-operation-id": "NivelDeFormacaoDeleteOneById",
     additionalProperties: false,
     "x-unispec-operation-meta": {
       gql: {
@@ -6555,6 +6417,47 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
+    type: "object",
+    properties: {
+      id: {
+        $ref: "ladesa://schemas/v3/generics/uuid.json",
+        description: "Identificador do registro (uuid).",
+      },
+      slug: {
+        type: "string",
+        minLength: 1,
+        description: "Apelido do nível de formação.",
+      },
+      dateCreated: {
+        $ref: "ladesa://schemas/v3/generics/date_time.json",
+        description: "Data e hora da criação do registro.",
+      },
+      dateUpdated: {
+        $ref: "ladesa://schemas/v3/generics/date_time.json",
+        description: "Data e hora da alteração do registro.",
+      },
+      dateDeleted: {
+        anyOf: [
+          {
+            $ref: "ladesa://schemas/v3/generics/date_time.json",
+          },
+          {
+            type: "null",
+          },
+        ],
+        description: "Data e hora da exclusão do registro.",
+      },
+    },
+    required: ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+    description: "Visão FindOne de um nível de formação.",
+    "x-unispec-entity-partial-of": "NivelFormacaoView",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "NivelFormacaoFindOneResultView",
+    additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/ModalidadeCreateOperation.json",
     type: "object",
     properties: {
@@ -6889,48 +6792,6 @@ export const Nodes: readonly any[] = [
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "UsuarioView",
     additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneByIdOperation.json",
-    type: "object",
-    properties: {
-      input: {
-        type: "object",
-        properties: {
-          params: {
-            type: "object",
-            properties: {
-              id: {
-                $ref: "ladesa://schemas/v3/generics/uuid.json",
-                description: "Identificador do registro (uuid).",
-                "x-unispec-constraint-entity-exists": "NivelDeFormacao",
-              },
-            },
-            required: ["id"],
-          },
-        },
-        required: ["params"],
-      },
-      output: {
-        type: "object",
-        properties: {
-          success: {
-            $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json",
-          },
-        },
-        required: ["success"],
-      },
-    },
-    required: ["input", "output"],
-    "x-unispec-kind": "operation",
-    "x-unispec-operation-id": "NivelDeFormacaoFindOneById",
-    additionalProperties: false,
-    "x-unispec-operation-meta": {
-      gql: {
-        kind: "query",
-      },
-    },
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
@@ -8185,18 +8046,18 @@ export const Nodes: readonly any[] = [
       "PerfilList",
       "PerfilCreate",
       "PerfilUpdateOneById",
-      "NivelDeFormacao",
-      "NivelDeFormacaoView",
-      "NivelDeFormacaoFindOneInputView",
-      "NivelDeFormacaoFindOneResultView",
-      "NivelDeFormacaoListResultView",
-      "NivelDeFormacaoInputCreateView",
-      "NivelDeFormacaoInputUpdateView",
-      "NivelDeFormacaoFindOneById",
-      "NivelDeFormacaoDeleteOneById",
-      "NivelDeFormacaoUpdateOneById",
-      "NivelDeFormacaoList",
-      "NivelDeFormacaoCreate",
+      "NivelFormacao",
+      "NivelFormacaoView",
+      "NivelFormacaoFindOneInputView",
+      "NivelFormacaoFindOneResultView",
+      "NivelFormacaoListResultView",
+      "NivelFormacaoInputCreateView",
+      "NivelFormacaoInputUpdateView",
+      "NivelFormacaoFindOneById",
+      "NivelFormacaoDeleteOneById",
+      "NivelFormacaoUpdateOneById",
+      "NivelFormacaoList",
+      "NivelFormacaoCreate",
       "Modalidade",
       "ModalidadeView",
       "ModalidadeFindOneInputView",
@@ -9476,22 +9337,6 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoInputUpdateView.json",
-    type: "object",
-    properties: {
-      slug: {
-        type: "string",
-        minLength: 1,
-        description: "Apelido do nível de formação.",
-      },
-    },
-    description: "Dados de entrada para a atualização de um nível de formação.",
-    "x-unispec-kind": "entity",
-    "x-unispec-entity-id": "NivelDeFormacaoInputUpdateView",
-    additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/DiaCalendarioInputCreateView.json",
     type: "object",
     properties: {
@@ -9520,6 +9365,48 @@ export const Nodes: readonly any[] = [
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "DiaCalendarioInputCreateView",
     additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoDeleteByIdOperation.json",
+    type: "object",
+    properties: {
+      input: {
+        type: "object",
+        properties: {
+          params: {
+            type: "object",
+            properties: {
+              id: {
+                $ref: "ladesa://schemas/v3/generics/uuid.json",
+                description: "Identificador do registro (uuid).",
+                "x-unispec-constraint-entity-exists": "NivelFormacao",
+              },
+            },
+            required: ["id"],
+          },
+        },
+        required: ["params"],
+      },
+      output: {
+        type: "object",
+        properties: {
+          success: {
+            type: "boolean",
+          },
+        },
+        required: ["success"],
+      },
+    },
+    required: ["input", "output"],
+    "x-unispec-kind": "operation",
+    "x-unispec-operation-id": "NivelFormacaoDeleteOneById",
+    additionalProperties: false,
+    "x-unispec-operation-meta": {
+      gql: {
+        kind: "mutation",
+      },
+    },
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
@@ -9566,6 +9453,22 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoInputUpdateView.json",
+    type: "object",
+    properties: {
+      slug: {
+        type: "string",
+        minLength: 1,
+        description: "Apelido do nível de formação.",
+      },
+    },
+    description: "Dados de entrada para a atualização de um nível de formação.",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "NivelFormacaoInputUpdateView",
+    additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/OfertaFormacaoInputUpdateView.json",
     type: "object",
     properties: {
@@ -9578,6 +9481,10 @@ export const Nodes: readonly any[] = [
         type: "string",
         minLength: 1,
         description: "Apelido da oferta de formação.",
+      },
+      modalidade: {
+        $ref: "ladesa://schemas/v3/generics/ModalidadeFindOneInputView.json",
+        description: "Modalidade da oferta de formação.",
       },
     },
     description: "Dados de entrada para a atualização de uma oferta de formação.",
@@ -10016,6 +9923,84 @@ export const Nodes: readonly any[] = [
     required: ["input", "output"],
     "x-unispec-kind": "operation",
     "x-unispec-operation-id": "GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneById",
+    additionalProperties: false,
+    "x-unispec-operation-meta": {
+      gql: {
+        kind: "query",
+      },
+    },
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoListOperation.json",
+    type: "object",
+    properties: {
+      input: {
+        type: "object",
+        properties: {
+          queries: {
+            type: "object",
+            properties: {
+              page: {
+                anyOf: [
+                  {
+                    type: "integer",
+                  },
+                  {
+                    type: "null",
+                  },
+                ],
+                minimum: 1,
+                description: "Página de consulta.",
+              },
+              limit: {
+                anyOf: [
+                  {
+                    type: "integer",
+                  },
+                  {
+                    type: "null",
+                  },
+                ],
+                minimum: 1,
+                description: "Limite da quantidade de resultados por página.",
+              },
+              search: {
+                anyOf: [
+                  {
+                    type: "string",
+                  },
+                  {
+                    type: "null",
+                  },
+                ],
+                description: "Busca textual.",
+              },
+              sortBy: {
+                type: "array",
+                items: {
+                  type: "string",
+                },
+                description: "Ordenação.",
+              },
+            },
+          },
+        },
+        required: ["queries"],
+      },
+      output: {
+        type: "object",
+        properties: {
+          success: {
+            $ref: "ladesa://schemas/v3/generics/NivelFormacaoListResultView.json",
+          },
+        },
+        required: ["success"],
+      },
+    },
+    required: ["input", "output"],
+    "x-unispec-kind": "operation",
+    "x-unispec-operation-id": "NivelFormacaoList",
     additionalProperties: false,
     "x-unispec-operation-meta": {
       gql: {
@@ -10784,46 +10769,6 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacao.json",
-    type: "object",
-    properties: {
-      id: {
-        $ref: "ladesa://schemas/v3/generics/uuid.json",
-        description: "Identificador do registro (uuid).",
-      },
-      slug: {
-        type: "string",
-        minLength: 1,
-        description: "Apelido do nível de formação.",
-      },
-      dateCreated: {
-        $ref: "ladesa://schemas/v3/generics/date_time.json",
-        description: "Data e hora da criação do registro.",
-      },
-      dateUpdated: {
-        $ref: "ladesa://schemas/v3/generics/date_time.json",
-        description: "Data e hora da alteração do registro.",
-      },
-      dateDeleted: {
-        anyOf: [
-          {
-            $ref: "ladesa://schemas/v3/generics/date_time.json",
-          },
-          {
-            type: "null",
-          },
-        ],
-        description: "Data e hora da exclusão do registro.",
-      },
-    },
-    required: ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
-    description: "NivelDeFormacao.",
-    "x-unispec-kind": "entity",
-    "x-unispec-entity-id": "NivelDeFormacao",
-    additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/CalendarioLetivoUpdateByIdOperation.json",
     type: "object",
     properties: {
@@ -10949,23 +10894,6 @@ export const Nodes: readonly any[] = [
     description: "GradeHorarioOfertaFormacao.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "GradeHorarioOfertaFormacao",
-    additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoInputCreateView.json",
-    type: "object",
-    properties: {
-      slug: {
-        type: "string",
-        minLength: 1,
-        description: "Apelido do nível de formação.",
-      },
-    },
-    required: ["slug"],
-    description: "Dados de entrada para a criação de um nível de formação.",
-    "x-unispec-kind": "entity",
-    "x-unispec-entity-id": "NivelDeFormacaoInputCreateView",
     additionalProperties: false,
   },
   {
@@ -12204,8 +12132,12 @@ export const Nodes: readonly any[] = [
         minLength: 1,
         description: "Apelido da oferta de formação.",
       },
+      modalidade: {
+        $ref: "ladesa://schemas/v3/generics/ModalidadeFindOneInputView.json",
+        description: "Modalidade da oferta de formação.",
+      },
     },
-    required: ["nome", "slug"],
+    required: ["nome", "slug", "modalidade"],
     description: "Dados de entrada para a criação de uma oferta de formação.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacaoInputCreateView",
@@ -13160,6 +13092,51 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoUpdateByIdOperation.json",
+    type: "object",
+    properties: {
+      input: {
+        type: "object",
+        properties: {
+          params: {
+            type: "object",
+            properties: {
+              id: {
+                $ref: "ladesa://schemas/v3/generics/uuid.json",
+                description: "Identificador do registro (uuid).",
+                "x-unispec-constraint-entity-exists": "NivelFormacao",
+              },
+            },
+            required: ["id"],
+          },
+          body: {
+            $ref: "ladesa://schemas/v3/generics/NivelFormacaoInputUpdateView.json",
+          },
+        },
+        required: ["params", "body"],
+      },
+      output: {
+        type: "object",
+        properties: {
+          success: {
+            $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
+          },
+        },
+        required: ["success"],
+      },
+    },
+    required: ["input", "output"],
+    "x-unispec-kind": "operation",
+    "x-unispec-operation-id": "NivelFormacaoUpdateOneById",
+    additionalProperties: false,
+    "x-unispec-operation-meta": {
+      gql: {
+        kind: "mutation",
+      },
+    },
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/CidadeView.json",
     type: "object",
     properties: {
@@ -13757,6 +13734,57 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoCreateOperation.json",
+    type: "object",
+    properties: {
+      input: {
+        type: "object",
+        properties: {
+          body: {
+            $ref: "ladesa://schemas/v3/generics/NivelFormacaoInputCreateView.json",
+          },
+        },
+        required: ["body"],
+      },
+      output: {
+        type: "object",
+        properties: {
+          success: {
+            $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
+          },
+        },
+        required: ["success"],
+      },
+    },
+    required: ["input", "output"],
+    "x-unispec-kind": "operation",
+    "x-unispec-operation-id": "NivelFormacaoCreate",
+    additionalProperties: false,
+    "x-unispec-operation-meta": {
+      gql: {
+        kind: "mutation",
+      },
+    },
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoInputCreateView.json",
+    type: "object",
+    properties: {
+      slug: {
+        type: "string",
+        minLength: 1,
+        description: "Apelido do nível de formação.",
+      },
+    },
+    required: ["slug"],
+    description: "Dados de entrada para a criação de um nível de formação.",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "NivelFormacaoInputCreateView",
+    additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneInputView.json",
     type: "object",
     properties: {
@@ -13771,40 +13799,6 @@ export const Nodes: readonly any[] = [
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacaoFindOneInputView",
     additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoCreateOperation.json",
-    type: "object",
-    properties: {
-      input: {
-        type: "object",
-        properties: {
-          body: {
-            $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoInputCreateView.json",
-          },
-        },
-        required: ["body"],
-      },
-      output: {
-        type: "object",
-        properties: {
-          success: {
-            $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json",
-          },
-        },
-        required: ["success"],
-      },
-    },
-    required: ["input", "output"],
-    "x-unispec-kind": "operation",
-    "x-unispec-operation-id": "NivelDeFormacaoCreate",
-    additionalProperties: false,
-    "x-unispec-operation-meta": {
-      gql: {
-        kind: "mutation",
-      },
-    },
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
@@ -13875,23 +13869,6 @@ export const Nodes: readonly any[] = [
         kind: "mutation",
       },
     },
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneInputView.json",
-    type: "object",
-    properties: {
-      id: {
-        $ref: "ladesa://schemas/v3/generics/uuid.json",
-        description: "Identificador do registro (uuid).",
-        "x-unispec-constraint-entity-exists": "NivelDeFormacao",
-      },
-    },
-    required: ["id"],
-    description: "Dados de entrada para encontrar um nível de formação por ID.",
-    "x-unispec-kind": "entity",
-    "x-unispec-entity-id": "NivelDeFormacaoFindOneInputView",
-    additionalProperties: false,
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
@@ -14000,47 +13977,6 @@ export const Nodes: readonly any[] = [
     description: "Resultados da busca a GradeHorarioOfertaFormacaoIntervaloDeTempos.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "GradeHorarioOfertaFormacaoIntervaloDeTempoListResultView",
-    additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json",
-    type: "object",
-    properties: {
-      id: {
-        $ref: "ladesa://schemas/v3/generics/uuid.json",
-        description: "Identificador do registro (uuid).",
-      },
-      slug: {
-        type: "string",
-        minLength: 1,
-        description: "Apelido do nível de formação.",
-      },
-      dateCreated: {
-        $ref: "ladesa://schemas/v3/generics/date_time.json",
-        description: "Data e hora da criação do registro.",
-      },
-      dateUpdated: {
-        $ref: "ladesa://schemas/v3/generics/date_time.json",
-        description: "Data e hora da alteração do registro.",
-      },
-      dateDeleted: {
-        anyOf: [
-          {
-            $ref: "ladesa://schemas/v3/generics/date_time.json",
-          },
-          {
-            type: "null",
-          },
-        ],
-        description: "Data e hora da exclusão do registro.",
-      },
-    },
-    required: ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
-    description: "Visão FindOne de um nível de formação.",
-    "x-unispec-entity-partial-of": "NivelDeFormacaoView",
-    "x-unispec-kind": "entity",
-    "x-unispec-entity-id": "NivelDeFormacaoFindOneResultView",
     additionalProperties: false,
   },
   {
@@ -14301,6 +14237,46 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacao.json",
+    type: "object",
+    properties: {
+      id: {
+        $ref: "ladesa://schemas/v3/generics/uuid.json",
+        description: "Identificador do registro (uuid).",
+      },
+      slug: {
+        type: "string",
+        minLength: 1,
+        description: "Apelido do nível de formação.",
+      },
+      dateCreated: {
+        $ref: "ladesa://schemas/v3/generics/date_time.json",
+        description: "Data e hora da criação do registro.",
+      },
+      dateUpdated: {
+        $ref: "ladesa://schemas/v3/generics/date_time.json",
+        description: "Data e hora da alteração do registro.",
+      },
+      dateDeleted: {
+        anyOf: [
+          {
+            $ref: "ladesa://schemas/v3/generics/date_time.json",
+          },
+          {
+            type: "null",
+          },
+        ],
+        description: "Data e hora da exclusão do registro.",
+      },
+    },
+    required: ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+    description: "NivelFormacao.",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "NivelFormacao",
+    additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/AulaFindOneByIdOperation.json",
     type: "object",
     properties: {
@@ -14476,33 +14452,6 @@ export const Nodes: readonly any[] = [
     description: "Visão completa de uma Reserva.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "ReservaView",
-    additionalProperties: false,
-  },
-  {
-    $schema: "https://json-schema.org/draft/2020-12/schema",
-    $id: "ladesa://schemas/v3/generics/NivelDeFormacaoListResultView.json",
-    type: "object",
-    properties: {
-      meta: {
-        $ref: "ladesa://schemas/v3/generics/PaginationResultMeta.json",
-        description: "Metadados da busca.",
-      },
-      data: {
-        type: "array",
-        items: {
-          $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json",
-        },
-        description: "Resultados da busca atual.",
-      },
-      links: {
-        $ref: "ladesa://schemas/v3/generics/PaginationResultLinks.json",
-        description: "Links da busca.",
-      },
-    },
-    required: ["meta", "data", "links"],
-    description: "Resultados da busca aos níveis de formações.",
-    "x-unispec-kind": "entity",
-    "x-unispec-entity-id": "NivelDeFormacaoListResultView",
     additionalProperties: false,
   },
   {
@@ -15002,7 +14951,7 @@ export const Nodes: readonly any[] = [
         $ref: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneInputView.json",
       },
       nivelFormcao: {
-        $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneInputView.json",
+        $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneInputView.json",
       },
     },
     description: "Dados de entrada para a atualização de uma oferta de formação.",
@@ -15507,11 +15456,42 @@ export const Nodes: readonly any[] = [
         ],
         description: "Data e hora da exclusão do registro.",
       },
+      modalidade: {
+        $ref: "ladesa://schemas/v3/generics/ModalidadeFindOneResultView.json",
+        description: "Modalidade da oferta de formação.",
+      },
     },
-    required: ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+    required: ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted", "modalidade"],
     description: "Visão completa de uma oferta de formação.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacaoView",
+    additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoListResultView.json",
+    type: "object",
+    properties: {
+      meta: {
+        $ref: "ladesa://schemas/v3/generics/PaginationResultMeta.json",
+        description: "Metadados da busca.",
+      },
+      data: {
+        type: "array",
+        items: {
+          $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
+        },
+        description: "Resultados da busca atual.",
+      },
+      links: {
+        $ref: "ladesa://schemas/v3/generics/PaginationResultLinks.json",
+        description: "Links da busca.",
+      },
+    },
+    required: ["meta", "data", "links"],
+    description: "Resultados da busca aos níveis de formações.",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "NivelFormacaoListResultView",
     additionalProperties: false,
   },
   {
@@ -16300,7 +16280,7 @@ export const Nodes: readonly any[] = [
         $ref: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneInputView.json",
       },
       nivelFormcao: {
-        $ref: "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneInputView.json",
+        $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneInputView.json",
       },
     },
     required: ["ofertaFormacao", "nivelFormcao"],
@@ -16418,7 +16398,7 @@ export const Nodes: readonly any[] = [
         description: "Oferta de formação.",
       },
       nivelFormacao: {
-        $ref: "ladesa://schemas/v3/generics/NivelDeFormacao.json",
+        $ref: "ladesa://schemas/v3/generics/NivelFormacao.json",
         description: "Nível de formação.",
       },
       dateCreated: {
@@ -18039,6 +18019,46 @@ export const Nodes: readonly any[] = [
     description: "Dados de entrada para refresh de autenticação.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "AuthRefreshInputView",
+    additionalProperties: false,
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/NivelFormacaoView.json",
+    type: "object",
+    properties: {
+      id: {
+        $ref: "ladesa://schemas/v3/generics/uuid.json",
+        description: "Identificador do registro (uuid).",
+      },
+      slug: {
+        type: "string",
+        minLength: 1,
+        description: "Apelido do nível de formação.",
+      },
+      dateCreated: {
+        $ref: "ladesa://schemas/v3/generics/date_time.json",
+        description: "Data e hora da criação do registro.",
+      },
+      dateUpdated: {
+        $ref: "ladesa://schemas/v3/generics/date_time.json",
+        description: "Data e hora da alteração do registro.",
+      },
+      dateDeleted: {
+        anyOf: [
+          {
+            $ref: "ladesa://schemas/v3/generics/date_time.json",
+          },
+          {
+            type: "null",
+          },
+        ],
+        description: "Data e hora da exclusão do registro.",
+      },
+    },
+    required: ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+    description: "Visão completa de um nível de formação.",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "NivelFormacaoView",
     additionalProperties: false,
   },
   {

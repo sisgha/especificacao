@@ -7,7 +7,7 @@
       "$ref": "ladesa://schemas/v3/generics/OfertaFormacaoFindOneInputView.json"
     },
     "nivelFormcao": {
-      "$ref": "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneInputView.json"
+      "$ref": "ladesa://schemas/v3/generics/NivelFormacaoFindOneInputView.json"
     }
   },
   "description": "Dados de entrada para a atualização de uma oferta de formação.",

@@ -180,19 +180,19 @@ enum Tokens {
   Perfil_Operations_UpdateOneById: "PerfilUpdateOneById",
 
   //
-  NivelDeFormacao: "NivelDeFormacao",
+  NivelFormacao: "NivelFormacao",
 
-  NivelDeFormacao_View: "NivelDeFormacaoView",
-  NivelDeFormacao_FindOneInput_View: "NivelDeFormacaoFindOneInputView",
-  NivelDeFormacao_FindOneResult_View: "NivelDeFormacaoFindOneResultView",
-  NivelDeFormacao_ListResult_View: "NivelDeFormacaoListResultView",
-  NivelDeFormacao_InputCreate_View: "NivelDeFormacaoInputCreateView",
-  NivelDeFormacao_InputUpdate_View: "NivelDeFormacaoInputUpdateView",
-  NivelDeFormacao_Operations_FindOneById: "NivelDeFormacaoFindOneById",
-  NivelDeFormacao_Operations_DeleteOneById: "NivelDeFormacaoDeleteOneById",
-  NivelDeFormacao_Operations_UpdateOneById: "NivelDeFormacaoUpdateOneById",
-  NivelDeFormacao_Operations_List: "NivelDeFormacaoList",
-  NivelDeFormacao_Operations_Create: "NivelDeFormacaoCreate",
+  NivelFormacao_View: "NivelFormacaoView",
+  NivelFormacao_FindOneInput_View: "NivelFormacaoFindOneInputView",
+  NivelFormacao_FindOneResult_View: "NivelFormacaoFindOneResultView",
+  NivelFormacao_ListResult_View: "NivelFormacaoListResultView",
+  NivelFormacao_InputCreate_View: "NivelFormacaoInputCreateView",
+  NivelFormacao_InputUpdate_View: "NivelFormacaoInputUpdateView",
+  NivelFormacao_Operations_FindOneById: "NivelFormacaoFindOneById",
+  NivelFormacao_Operations_DeleteOneById: "NivelFormacaoDeleteOneById",
+  NivelFormacao_Operations_UpdateOneById: "NivelFormacaoUpdateOneById",
+  NivelFormacao_Operations_List: "NivelFormacaoList",
+  NivelFormacao_Operations_Create: "NivelFormacaoCreate",
 
   //
   Modalidade: "Modalidade",

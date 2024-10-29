@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ladesa://schemas/v3/generics/NivelDeFormacaoCreateOperation.json",
+  "$id": "ladesa://schemas/v3/generics/NivelFormacaoCreateOperation.json",
   "type": "object",
   "properties": {
     "input": {
       "type": "object",
       "properties": {
         "body": {
-          "$ref": "ladesa://schemas/v3/generics/NivelDeFormacaoInputCreateView.json"
+          "$ref": "ladesa://schemas/v3/generics/NivelFormacaoInputCreateView.json"
         }
       },
       "required": ["body"]
@@ -16,7 +16,7 @@
       "type": "object",
       "properties": {
         "success": {
-          "$ref": "ladesa://schemas/v3/generics/NivelDeFormacaoFindOneResultView.json"
+          "$ref": "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json"
         }
       },
       "required": ["success"]
@@ -24,7 +24,7 @@
   },
   "required": ["input", "output"],
   "x-unispec-kind": "operation",
-  "x-unispec-operation-id": "NivelDeFormacaoCreate",
+  "x-unispec-operation-id": "NivelFormacaoCreate",
   "additionalProperties": false,
   "x-unispec-operation-meta": {
     "gql": {

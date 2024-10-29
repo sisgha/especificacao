@@ -17,6 +17,10 @@
       "minLength": 1,
       "description": "Apelido da oferta de formação."
     },
+    "modalidade": {
+      "$ref": "ladesa://schemas/v3/generics/Modalidade.json",
+      "description": "Modalidade da oferta de formação."
+    },
     "dateCreated": {
       "$ref": "ladesa://schemas/v3/generics/date_time.json",
       "description": "Data e hora da criação do registro."
@@ -37,7 +41,7 @@
       "description": "Data e hora da exclusão do registro."
     }
   },
-  "required": ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
+  "required": ["id", "nome", "slug", "modalidade", "dateCreated", "dateUpdated", "dateDeleted"],
   "description": "OfertaFormacao.",
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "OfertaFormacao",

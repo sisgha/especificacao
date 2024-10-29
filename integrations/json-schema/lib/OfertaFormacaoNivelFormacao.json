@@ -12,7 +12,7 @@
       "description": "Oferta de formação."
     },
     "nivelFormacao": {
-      "$ref": "ladesa://schemas/v3/generics/NivelDeFormacao.json",
+      "$ref": "ladesa://schemas/v3/generics/NivelFormacao.json",
       "description": "Nível de formação."
     },
     "dateCreated": {

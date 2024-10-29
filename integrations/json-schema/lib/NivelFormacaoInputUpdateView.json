@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ladesa://schemas/v3/generics/NivelDeFormacaoInputCreateView.json",
+  "$id": "ladesa://schemas/v3/generics/NivelFormacaoInputUpdateView.json",
   "type": "object",
   "properties": {
     "slug": {
@@ -9,9 +9,8 @@
       "description": "Apelido do nível de formação."
     }
   },
-  "required": ["slug"],
-  "description": "Dados de entrada para a criação de um nível de formação.",
+  "description": "Dados de entrada para a atualização de um nível de formação.",
   "x-unispec-kind": "entity",
-  "x-unispec-entity-id": "NivelDeFormacaoInputCreateView",
+  "x-unispec-entity-id": "NivelFormacaoInputUpdateView",
   "additionalProperties": false
 }

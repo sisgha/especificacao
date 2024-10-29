@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "ladesa://schemas/v3/generics/NivelDeFormacao.json",
+  "$id": "ladesa://schemas/v3/generics/NivelFormacaoView.json",
   "type": "object",
   "properties": {
     "id": {
@@ -33,8 +33,8 @@
     }
   },
   "required": ["id", "slug", "dateCreated", "dateUpdated", "dateDeleted"],
-  "description": "NivelDeFormacao.",
+  "description": "Visão completa de um nível de formação.",
   "x-unispec-kind": "entity",
-  "x-unispec-entity-id": "NivelDeFormacao",
+  "x-unispec-entity-id": "NivelFormacaoView",
   "additionalProperties": false
 }

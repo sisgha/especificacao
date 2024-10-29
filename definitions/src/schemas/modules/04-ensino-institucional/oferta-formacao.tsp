@@ -18,13 +18,19 @@ model OfertaFormacao {
   @minLength(1)
   slug: string;
 
+  /** Modalidade da oferta de formação. */
+  modalidade: Modalidade;
+
   ...DatedObject;
 }
 
 /** Visão completa de uma oferta de formação. */
 @entity(Tokens.OfertaFormacao_View)
 model OfertaFormacaoView {
-  ...OfertaFormacao;
+  ...OmitProperties<OfertaFormacao, "modalidade">;
+
+  /** Modalidade da oferta de formação. */
+  modalidade: ModalidadeFindOneResultView;
 }
 
 /** Dados de entrada para encontrar uma oferta de formação por ID. */
@@ -41,6 +47,7 @@ model OfertaFormacaoFindOneResultView {
   ...PickProperties<OfertaFormacaoView, "id">;
   ...PickProperties<OfertaFormacaoView, "nome">;
   ...PickProperties<OfertaFormacaoView, "slug">;
+  ...PickProperties<OfertaFormacaoView, "modalidade">;
   ...PickProperties<OfertaFormacaoView, "dateCreated" | "dateUpdated" | "dateDeleted">;
 }
 
@@ -49,6 +56,9 @@ model OfertaFormacaoFindOneResultView {
 model OfertaFormacaoInputCreateView {
   ...PickProperties<OfertaFormacaoView, "nome">;
   ...PickProperties<OfertaFormacaoView, "slug">;
+
+  /** Modalidade da oferta de formação. */
+  modalidade: ModalidadeFindOneInputView;
 }
 
 /** Dados de entrada para a atualização de uma oferta de formação. */
