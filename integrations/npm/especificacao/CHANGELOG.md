@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.5
+
+### Patch Changes
+
+- cf0ceba: feat(definitions): add modalidade into OfertaFormacao
+
 ## 3.3.4
 
 ### Patch Changes
