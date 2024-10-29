@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-dotnet
 
+## 3.2.4
+
+### Patch Changes
+
+- cf0ceba: feat(definitions): add modalidade into OfertaFormacao
+
 ## 3.2.3
 
 ### Patch Changes
