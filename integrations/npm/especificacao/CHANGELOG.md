@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.6
+
+### Patch Changes
+
+- 8228400: fix(definitions): typo on nivelFormacao of OfertaFormacaoNivelFormacaoView
+
 ## 3.3.5
 
 ### Patch Changes
