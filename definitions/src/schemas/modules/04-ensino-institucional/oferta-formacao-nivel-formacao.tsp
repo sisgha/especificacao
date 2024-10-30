@@ -24,7 +24,7 @@ model OfertaFormacaoNivelFormacao {
 model OfertaFormacaoNivelFormacaoView {
   ...OmitProperties<OfertaFormacaoNivelFormacao, "ofertaFormacao" | "nivelFormacao">;
   ofertaFormacao: OfertaFormacaoFindOneResultView;
-  nivelFormcao: NivelFormacaoFindOneResultView;
+  nivelFormacao: NivelFormacaoFindOneResultView;
 }
 
 /** Dados de entrada para encontrar uma oferta de formação por ID. */
@@ -47,7 +47,7 @@ model OfertaFormacaoNivelFormacaoFindOneResultView {
 @entity(Tokens.OfertaFormacaoNivelFormacao_InputCreate_View)
 model OfertaFormacaoNivelFormacaoInputCreateView {
   ofertaFormacao: OfertaFormacaoFindOneInputView;
-  nivelFormcao: NivelFormacaoFindOneInputView;
+  nivelFormacao: NivelFormacaoFindOneInputView;
 }
 
 /** Dados de entrada para a atualização de uma oferta de formação. */

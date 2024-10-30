@@ -6,7 +6,7 @@
     "ofertaFormacao": {
       "$ref": "ladesa://schemas/v3/generics/OfertaFormacaoFindOneInputView.json"
     },
-    "nivelFormcao": {
+    "nivelFormacao": {
       "$ref": "ladesa://schemas/v3/generics/NivelFormacaoFindOneInputView.json"
     }
   },

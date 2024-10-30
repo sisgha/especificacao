@@ -449,6 +449,9 @@ export const Nodes: readonly any[] = [
       ofertaFormacao: {
         $ref: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneResultView.json",
       },
+      nivelFormacao: {
+        $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
+      },
       dateCreated: {
         $ref: "ladesa://schemas/v3/generics/date_time.json",
         description: "Data e hora da criação do registro.",
@@ -469,7 +472,7 @@ export const Nodes: readonly any[] = [
         description: "Data e hora da exclusão do registro.",
       },
     },
-    required: ["id", "ofertaFormacao", "dateCreated", "dateUpdated", "dateDeleted"],
+    required: ["id", "ofertaFormacao", "nivelFormacao", "dateCreated", "dateUpdated", "dateDeleted"],
     description: "Visão FindOne de uma oferta de formação.",
     "x-unispec-entity-partial-of": "OfertaFormacaoNivelFormacaoView",
     "x-unispec-kind": "entity",
@@ -1435,11 +1438,11 @@ export const Nodes: readonly any[] = [
       ofertaFormacao: {
         $ref: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneResultView.json",
       },
-      nivelFormcao: {
+      nivelFormacao: {
         $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json",
       },
     },
-    required: ["id", "dateCreated", "dateUpdated", "dateDeleted", "ofertaFormacao", "nivelFormcao"],
+    required: ["id", "dateCreated", "dateUpdated", "dateDeleted", "ofertaFormacao", "nivelFormacao"],
     description: "Visão completa de uma oferta de formação.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacaoNivelFormacaoView",
@@ -14950,7 +14953,7 @@ export const Nodes: readonly any[] = [
       ofertaFormacao: {
         $ref: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneInputView.json",
       },
-      nivelFormcao: {
+      nivelFormacao: {
         $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneInputView.json",
       },
     },
@@ -16279,11 +16282,11 @@ export const Nodes: readonly any[] = [
       ofertaFormacao: {
         $ref: "ladesa://schemas/v3/generics/OfertaFormacaoFindOneInputView.json",
       },
-      nivelFormcao: {
+      nivelFormacao: {
         $ref: "ladesa://schemas/v3/generics/NivelFormacaoFindOneInputView.json",
       },
     },
-    required: ["ofertaFormacao", "nivelFormcao"],
+    required: ["ofertaFormacao", "nivelFormacao"],
     description: "Dados de entrada para a criação de uma oferta de formação.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacaoNivelFormacaoInputCreateView",

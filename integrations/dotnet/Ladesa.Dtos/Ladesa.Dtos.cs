@@ -15379,13 +15379,13 @@ namespace Ladesa.Dtos
     public partial class NivelFormacaoCreateOperationOutput
     {
         [JsonPropertyName("success")]
-        public NivelFormcaoElement Success { get; set; }
+        public NivelFormacaoElement Success { get; set; }
     }
 
     /// <summary>
     /// Visão FindOne de um nível de formação.
     /// </summary>
-    public partial class NivelFormcaoElement
+    public partial class NivelFormacaoElement
     {
         /// <summary>
         /// Data e hora da criação do registro.
@@ -15476,7 +15476,7 @@ namespace Ladesa.Dtos
     public partial class NivelFormacaoFindOneByIdOperationOutput
     {
         [JsonPropertyName("success")]
-        public NivelFormcaoElement Success { get; set; }
+        public NivelFormacaoElement Success { get; set; }
     }
 
     /// <summary>
@@ -15613,7 +15613,7 @@ namespace Ladesa.Dtos
         /// Resultados da busca atual.
         /// </summary>
         [JsonPropertyName("data")]
-        public NivelFormcaoElement[] Data { get; set; }
+        public NivelFormacaoElement[] Data { get; set; }
 
         /// <summary>
         /// Links da busca.
@@ -15637,7 +15637,7 @@ namespace Ladesa.Dtos
         /// Resultados da busca atual.
         /// </summary>
         [JsonPropertyName("data")]
-        public NivelFormcaoElement[] Data { get; set; }
+        public NivelFormacaoElement[] Data { get; set; }
 
         /// <summary>
         /// Links da busca.
@@ -15696,7 +15696,7 @@ namespace Ladesa.Dtos
     public partial class NivelFormacaoUpdateByIdOperationOutput
     {
         [JsonPropertyName("success")]
-        public NivelFormcaoElement Success { get; set; }
+        public NivelFormacaoElement Success { get; set; }
     }
 
     /// <summary>
@@ -16178,7 +16178,7 @@ namespace Ladesa.Dtos
         /// Nível de formação.
         /// </summary>
         [JsonPropertyName("nivelFormacao")]
-        public NivelFormacaoClass NivelFormacao { get; set; }
+        public OfertaFormacaoNivelFormacaoNivelFormacao NivelFormacao { get; set; }
 
         /// <summary>
         /// Oferta de formação.
@@ -16192,7 +16192,7 @@ namespace Ladesa.Dtos
     ///
     /// NivelFormacao.
     /// </summary>
-    public partial class NivelFormacaoClass
+    public partial class OfertaFormacaoNivelFormacaoNivelFormacao
     {
         /// <summary>
         /// Data e hora da criação do registro.
@@ -16246,8 +16246,8 @@ namespace Ladesa.Dtos
     /// </summary>
     public partial class Body34
     {
-        [JsonPropertyName("nivelFormcao")]
-        public NivelForm NivelFormcao { get; set; }
+        [JsonPropertyName("nivelFormacao")]
+        public BodyNivelFormacao NivelFormacao { get; set; }
 
         [JsonPropertyName("ofertaFormacao")]
         public BodyOfertaFormacao OfertaFormacao { get; set; }
@@ -16256,7 +16256,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para encontrar um nível de formação por ID.
     /// </summary>
-    public partial class NivelForm
+    public partial class BodyNivelFormacao
     {
         /// <summary>
         /// Identificador do registro (uuid).
@@ -16299,6 +16299,9 @@ namespace Ladesa.Dtos
         /// </summary>
         [JsonPropertyName("id")]
         public Guid Id { get; set; }
+
+        [JsonPropertyName("nivelFormacao")]
+        public NivelFormacaoElement NivelFormacao { get; set; }
 
         [JsonPropertyName("ofertaFormacao")]
         public OfertaFormacaoElement OfertaFormacao { get; set; }
@@ -16405,6 +16408,9 @@ namespace Ladesa.Dtos
         [JsonPropertyName("id")]
         public Guid Id { get; set; }
 
+        [JsonPropertyName("nivelFormacao")]
+        public NivelFormacaoElement NivelFormacao { get; set; }
+
         [JsonPropertyName("ofertaFormacao")]
         public OfertaFormacaoElement OfertaFormacao { get; set; }
     }
@@ -16414,8 +16420,8 @@ namespace Ladesa.Dtos
     /// </summary>
     public partial class OfertaFormacaoNivelFormacaoInputCreateView
     {
-        [JsonPropertyName("nivelFormcao")]
-        public NivelForm NivelFormcao { get; set; }
+        [JsonPropertyName("nivelFormacao")]
+        public BodyNivelFormacao NivelFormacao { get; set; }
 
         [JsonPropertyName("ofertaFormacao")]
         public BodyOfertaFormacao OfertaFormacao { get; set; }
@@ -16427,8 +16433,8 @@ namespace Ladesa.Dtos
     public partial class OfertaFormacaoNivelFormacaoInputUpdateView
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("nivelFormcao")]
-        public NivelForm NivelFormcao { get; set; }
+        [JsonPropertyName("nivelFormacao")]
+        public BodyNivelFormacao NivelFormacao { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("ofertaFormacao")]
@@ -16556,8 +16562,8 @@ namespace Ladesa.Dtos
     public partial class Body35
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("nivelFormcao")]
-        public NivelForm NivelFormcao { get; set; }
+        [JsonPropertyName("nivelFormacao")]
+        public BodyNivelFormacao NivelFormacao { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("ofertaFormacao")]
@@ -16608,8 +16614,8 @@ namespace Ladesa.Dtos
         [JsonPropertyName("id")]
         public Guid Id { get; set; }
 
-        [JsonPropertyName("nivelFormcao")]
-        public NivelFormcaoElement NivelFormcao { get; set; }
+        [JsonPropertyName("nivelFormacao")]
+        public NivelFormacaoElement NivelFormacao { get; set; }
 
         [JsonPropertyName("ofertaFormacao")]
         public OfertaFormacaoElement OfertaFormacao { get; set; }

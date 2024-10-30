@@ -10,6 +10,9 @@
     "ofertaFormacao": {
       "$ref": "ladesa://schemas/v3/generics/OfertaFormacaoFindOneResultView.json"
     },
+    "nivelFormacao": {
+      "$ref": "ladesa://schemas/v3/generics/NivelFormacaoFindOneResultView.json"
+    },
     "dateCreated": {
       "$ref": "ladesa://schemas/v3/generics/date_time.json",
       "description": "Data e hora da criação do registro."
@@ -30,7 +33,7 @@
       "description": "Data e hora da exclusão do registro."
     }
   },
-  "required": ["id", "ofertaFormacao", "dateCreated", "dateUpdated", "dateDeleted"],
+  "required": ["id", "ofertaFormacao", "nivelFormacao", "dateCreated", "dateUpdated", "dateDeleted"],
   "description": "Visão FindOne de uma oferta de formação.",
   "x-unispec-entity-partial-of": "OfertaFormacaoNivelFormacaoView",
   "x-unispec-kind": "entity",
