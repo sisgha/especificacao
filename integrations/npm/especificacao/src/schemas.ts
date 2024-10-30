@@ -6316,7 +6316,6 @@ export interface DisciplinaListOperationInput {
 
 export interface BraggadociousQueries {
   "filter.diarios.id"?: string[]
-  "filter.turma.id"?: string[]
   /**
    * Limite da quantidade de resultados por página.
    */

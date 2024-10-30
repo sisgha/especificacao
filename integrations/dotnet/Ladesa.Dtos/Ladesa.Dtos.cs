@@ -9483,10 +9483,6 @@ namespace Ladesa.Dtos
         [JsonPropertyName("filter.diarios.id")]
         public string[] FilterDiariosId { get; set; }
 
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("filter.turma.id")]
-        public string[] FilterTurmaId { get; set; }
-
         /// <summary>
         /// Limite da quantidade de resultados por página.
         /// </summary>

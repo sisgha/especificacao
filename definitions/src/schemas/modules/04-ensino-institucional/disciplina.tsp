@@ -107,10 +107,6 @@ model DisciplinaListOperation
     {
       @extension("x-unispec-gql-key", "filterTurmaId")
       @extension("x-unispec-http-key", "filter.turma.id")
-      `filter.turma.id`?: Pagination.GenericFilter.eq[];
-
-      @extension("x-unispec-gql-key", "filterTurmaId")
-      @extension("x-unispec-http-key", "filter.turma.id")
       `filter.diarios.id`?: (Pagination.GenericFilter.eq | Pagination.GenericFilter.null | Pagination.GenericFilter.not)[];
     }
   >;

@@ -41,6 +41,9 @@ model PaginationFilterView {
 }
 
 model GenericFilter<Http = never, Gql = never> {
+  @pattern("^(true|false)$")
+  bool: string;
+
   @pattern("^$null:.+$")
   null: string;
 

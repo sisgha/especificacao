@@ -17297,14 +17297,6 @@ export const Nodes: readonly any[] = [
                 },
                 description: "Ordenação.",
               },
-              "filter.turma.id": {
-                type: "array",
-                items: {
-                  type: "string",
-                },
-                "x-unispec-http-key": "filter.turma.id",
-                "x-unispec-gql-key": "filterTurmaId",
-              },
               "filter.diarios.id": {
                 type: "array",
                 items: {
