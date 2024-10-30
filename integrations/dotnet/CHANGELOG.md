@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-dotnet
 
+## 3.2.5
+
+### Patch Changes
+
+- 8228400: fix(definitions): typo on nivelFormacao of OfertaFormacaoNivelFormacaoView
+
 ## 3.2.4
 
 ### Patch Changes
