@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.7
+
+### Patch Changes
+
+- cb80287: feat(defintions): filter cargo and ativo in professor list; filter for diarios.id in disciplina list
+
 ## 3.3.6
 
 ### Patch Changes
