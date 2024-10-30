@@ -25,6 +25,9 @@ model Disciplina {
   /** Imagem de capa da disciplina. */
   imagemCapa: Imagem | null;
 
+  /** Diários que vinculam esta disciplina. */
+  diarios: Diario[];
+
   ...DatedObject;
 }
 
@@ -97,7 +100,20 @@ model DisciplinaUpdateByIdOperation
     DisciplinaFindOneResultView
   >;
 
-model DisciplinaListOperation is GenericOperationList<Tokens.Disciplina_Operations_List, DisciplinaListResultView, {}>;
+model DisciplinaListOperation
+  is GenericOperationList<
+    Tokens.Disciplina_Operations_List,
+    DisciplinaListResultView,
+    {
+      @extension("x-unispec-gql-key", "filterTurmaId")
+      @extension("x-unispec-http-key", "filter.turma.id")
+      `filter.turma.id`?: Pagination.GenericFilter.eq[];
+
+      @extension("x-unispec-gql-key", "filterTurmaId")
+      @extension("x-unispec-http-key", "filter.turma.id")
+      `filter.diarios.id`?: (Pagination.GenericFilter.eq | Pagination.GenericFilter.null | Pagination.GenericFilter.not)[];
+    }
+  >;
 
 // =====================================
 // Operações de Imagem de Capa

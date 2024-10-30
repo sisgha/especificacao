@@ -1519,7 +1519,7 @@ export interface AulaListResultViewSuccess {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Identificador do registro (uuid).
    */
@@ -1534,7 +1534,7 @@ export interface AulaListResultViewSuccess {
 /**
  * Visão FindOne de um diário.
  */
-export interface DiarioElement {
+export interface SuccessElement {
   ambientePadrao: AmbienteElement | null
   /**
    * Situação do diário.
@@ -1860,7 +1860,7 @@ export interface AulaFindOneResultView {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Identificador do registro (uuid).
    */
@@ -1934,6 +1934,50 @@ export interface Aula {
    * Modalidade da aula.
    */
   modalidade: null | string
+}
+
+/**
+ * Disciplina vinculada ao diário.
+ *
+ * Disciplina.
+ */
+export interface DiarioDisciplina {
+  /**
+   * Carga horária da disciplina.
+   */
+  cargaHoraria: number
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Diários que vinculam esta disciplina.
+   */
+  diarios: AulaDiario[]
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa da disciplina.
+   */
+  imagemCapa: ImagemPerfilClass | null
+  /**
+   * Nome da disciplina.
+   */
+  nome: string
+  /**
+   * Nome abreviado da disciplina.
+   */
+  nomeAbreviado: string
 }
 
 /**
@@ -2100,46 +2144,6 @@ export interface OfertaFormacaoModalidade {
    * Apelido da modalidade.
    */
   slug: string
-}
-
-/**
- * Disciplina vinculada ao diário.
- *
- * Disciplina.
- */
-export interface DiarioDisciplina {
-  /**
-   * Carga horária da disciplina.
-   */
-  cargaHoraria: number
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa da disciplina.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Nome da disciplina.
-   */
-  nome: string
-  /**
-   * Nome abreviado da disciplina.
-   */
-  nomeAbreviado: string
 }
 
 /**
@@ -2389,7 +2393,7 @@ export interface AulaView {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Identificador do registro (uuid).
    */
@@ -4860,7 +4864,7 @@ export interface BodyTurma {
 }
 
 export interface DiarioCreateOperationOutput {
-  success: DiarioElement
+  success: SuccessElement
   [property: string]: any
 }
 
@@ -4906,7 +4910,7 @@ export interface Params17 {
 }
 
 export interface DiarioFindOneByIdOperationOutput {
-  success: DiarioElement
+  success: SuccessElement
   [property: string]: any
 }
 
@@ -5094,7 +5098,7 @@ export interface FriskySuccess {
   /**
    * Resultados da busca atual.
    */
-  data: DiarioElement[]
+  data: SuccessElement[]
   /**
    * Links da busca.
    */
@@ -5112,7 +5116,7 @@ export interface DiarioListResultView {
   /**
    * Resultados da busca atual.
    */
-  data: DiarioElement[]
+  data: SuccessElement[]
   /**
    * Links da busca.
    */
@@ -5190,7 +5194,7 @@ export interface DiarioPreferenciaAgrupamentoListResultViewSuccess {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Dia da semana.
    */
@@ -5286,7 +5290,7 @@ export interface DiarioPreferenciaAgrupamentoFindOneResultView {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Dia da semana.
    */
@@ -5540,7 +5544,7 @@ export interface DiarioPreferenciaAgrupamentoView {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Dia da semana.
    */
@@ -5602,7 +5606,7 @@ export interface DiarioProfessorElement {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Identificador do registro (uuid).
    */
@@ -5686,7 +5690,7 @@ export interface DiarioProfessorFindOneResultView {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Identificador do registro (uuid).
    */
@@ -5964,7 +5968,7 @@ export interface DiarioProfessorView {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
-  diario: DiarioElement
+  diario: SuccessElement
   /**
    * Identificador do registro (uuid).
    */
@@ -6037,7 +6041,7 @@ export interface Params26 {
 }
 
 export interface DiarioUpdateByIdOperationOutput {
-  success: DiarioElement
+  success: SuccessElement
   [property: string]: any
 }
 
@@ -6279,6 +6283,10 @@ export interface Disciplina {
    */
   dateUpdated: Date
   /**
+   * Diários que vinculam esta disciplina.
+   */
+  diarios: AulaDiario[]
+  /**
    * Identificador do registro (uuid).
    */
   id: string
@@ -6307,6 +6315,8 @@ export interface DisciplinaListOperationInput {
 }
 
 export interface BraggadociousQueries {
+  "filter.diarios.id"?: string[]
+  "filter.turma.id"?: string[]
   /**
    * Limite da quantidade de resultados por página.
    */
@@ -6459,6 +6469,10 @@ export interface DisciplinaView {
    * Data e hora da alteração do registro.
    */
   dateUpdated: Date
+  /**
+   * Diários que vinculam esta disciplina.
+   */
+  diarios: AulaDiario[]
   /**
    * Identificador do registro (uuid).
    */
@@ -11667,9 +11681,10 @@ export interface PerfilListOperationInput {
 }
 
 export interface Queries14 {
+  "filter.ativo"?: string[]
   "filter.campus.id"?: string[]
+  "filter.cargo"?: string[]
   "filter.usuario.id"?: string[]
-  filterAtivo?: string[]
   /**
    * Limite da quantidade de resultados por página.
    */

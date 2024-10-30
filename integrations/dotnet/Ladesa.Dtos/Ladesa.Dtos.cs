@@ -2461,6 +2461,70 @@ namespace Ladesa.Dtos
     }
 
     /// <summary>
+    /// Disciplina vinculada ao diário.
+    ///
+    /// Disciplina.
+    /// </summary>
+    public partial class DiarioDisciplina
+    {
+        /// <summary>
+        /// Carga horária da disciplina.
+        /// </summary>
+        [JsonPropertyName("cargaHoraria")]
+        public long CargaHoraria { get; set; }
+
+        /// <summary>
+        /// Data e hora da criação do registro.
+        /// </summary>
+        [JsonPropertyName("dateCreated")]
+        public DateTimeOffset DateCreated { get; set; }
+
+        /// <summary>
+        /// Data e hora da exclusão do registro.
+        /// </summary>
+        [JsonPropertyName("dateDeleted")]
+        public DateTimeOffset? DateDeleted { get; set; }
+
+        /// <summary>
+        /// Data e hora da alteração do registro.
+        /// </summary>
+        [JsonPropertyName("dateUpdated")]
+        public DateTimeOffset DateUpdated { get; set; }
+
+        /// <summary>
+        /// Diários que vinculam esta disciplina.
+        /// </summary>
+        [JsonPropertyName("diarios")]
+        public AulaDiario[] Diarios { get; set; }
+
+        /// <summary>
+        /// Identificador do registro (uuid).
+        /// </summary>
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Imagem de capa da disciplina.
+        /// </summary>
+        [JsonPropertyName("imagemCapa")]
+        public ImagemCapaClass ImagemCapa { get; set; }
+
+        /// <summary>
+        /// Nome da disciplina.
+        /// </summary>
+        [JsonPropertyName("nome")]
+        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
+        public string Nome { get; set; }
+
+        /// <summary>
+        /// Nome abreviado da disciplina.
+        /// </summary>
+        [JsonPropertyName("nomeAbreviado")]
+        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
+        public string NomeAbreviado { get; set; }
+    }
+
+    /// <summary>
     /// Diário associado à aula.
     ///
     /// Diario.
@@ -2690,64 +2754,6 @@ namespace Ladesa.Dtos
         [JsonPropertyName("slug")]
         [JsonConverter(typeof(MinMaxLengthCheckConverter))]
         public string Slug { get; set; }
-    }
-
-    /// <summary>
-    /// Disciplina vinculada ao diário.
-    ///
-    /// Disciplina.
-    /// </summary>
-    public partial class DiarioDisciplina
-    {
-        /// <summary>
-        /// Carga horária da disciplina.
-        /// </summary>
-        [JsonPropertyName("cargaHoraria")]
-        public long CargaHoraria { get; set; }
-
-        /// <summary>
-        /// Data e hora da criação do registro.
-        /// </summary>
-        [JsonPropertyName("dateCreated")]
-        public DateTimeOffset DateCreated { get; set; }
-
-        /// <summary>
-        /// Data e hora da exclusão do registro.
-        /// </summary>
-        [JsonPropertyName("dateDeleted")]
-        public DateTimeOffset? DateDeleted { get; set; }
-
-        /// <summary>
-        /// Data e hora da alteração do registro.
-        /// </summary>
-        [JsonPropertyName("dateUpdated")]
-        public DateTimeOffset DateUpdated { get; set; }
-
-        /// <summary>
-        /// Identificador do registro (uuid).
-        /// </summary>
-        [JsonPropertyName("id")]
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// Imagem de capa da disciplina.
-        /// </summary>
-        [JsonPropertyName("imagemCapa")]
-        public ImagemCapaClass ImagemCapa { get; set; }
-
-        /// <summary>
-        /// Nome da disciplina.
-        /// </summary>
-        [JsonPropertyName("nome")]
-        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
-        public string Nome { get; set; }
-
-        /// <summary>
-        /// Nome abreviado da disciplina.
-        /// </summary>
-        [JsonPropertyName("nomeAbreviado")]
-        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
-        public string NomeAbreviado { get; set; }
     }
 
     /// <summary>
@@ -3034,7 +3040,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -3055,7 +3061,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Visão FindOne de um diário.
     /// </summary>
-    public partial class DiarioElement
+    public partial class SuccessElement
     {
         [JsonPropertyName("ambientePadrao")]
         public AmbientePadraoElement AmbientePadrao { get; set; }
@@ -3539,7 +3545,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -3797,7 +3803,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -7428,7 +7434,7 @@ namespace Ladesa.Dtos
     public partial class DiarioCreateOperationOutput
     {
         [JsonPropertyName("success")]
-        public DiarioElement Success { get; set; }
+        public SuccessElement Success { get; set; }
     }
 
     public partial class DiarioDeleteByIdOperation
@@ -7488,7 +7494,7 @@ namespace Ladesa.Dtos
     public partial class DiarioFindOneByIdOperationOutput
     {
         [JsonPropertyName("success")]
-        public DiarioElement Success { get; set; }
+        public SuccessElement Success { get; set; }
     }
 
     /// <summary>
@@ -7710,7 +7716,7 @@ namespace Ladesa.Dtos
         /// Resultados da busca atual.
         /// </summary>
         [JsonPropertyName("data")]
-        public DiarioElement[] Data { get; set; }
+        public SuccessElement[] Data { get; set; }
 
         /// <summary>
         /// Links da busca.
@@ -7734,7 +7740,7 @@ namespace Ladesa.Dtos
         /// Resultados da busca atual.
         /// </summary>
         [JsonPropertyName("data")]
-        public DiarioElement[] Data { get; set; }
+        public SuccessElement[] Data { get; set; }
 
         /// <summary>
         /// Links da busca.
@@ -7914,7 +7920,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Dia da semana.
@@ -8046,7 +8052,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Dia da semana.
@@ -8357,7 +8363,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Dia da semana.
@@ -8623,7 +8629,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -8737,7 +8743,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -8968,7 +8974,7 @@ namespace Ladesa.Dtos
         public DateTimeOffset DateUpdated { get; set; }
 
         [JsonPropertyName("diario")]
-        public DiarioElement Diario { get; set; }
+        public SuccessElement Diario { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -9080,7 +9086,7 @@ namespace Ladesa.Dtos
     public partial class DiarioUpdateByIdOperationOutput
     {
         [JsonPropertyName("success")]
-        public DiarioElement Success { get; set; }
+        public SuccessElement Success { get; set; }
     }
 
     /// <summary>
@@ -9162,6 +9168,12 @@ namespace Ladesa.Dtos
         /// </summary>
         [JsonPropertyName("dateUpdated")]
         public DateTimeOffset DateUpdated { get; set; }
+
+        /// <summary>
+        /// Diários que vinculam esta disciplina.
+        /// </summary>
+        [JsonPropertyName("diarios")]
+        public AulaDiario[] Diarios { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -9467,6 +9479,14 @@ namespace Ladesa.Dtos
 
     public partial class BraggadociousQueries
     {
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("filter.diarios.id")]
+        public string[] FilterDiariosId { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("filter.turma.id")]
+        public string[] FilterTurmaId { get; set; }
+
         /// <summary>
         /// Limite da quantidade de resultados por página.
         /// </summary>
@@ -9676,6 +9696,12 @@ namespace Ladesa.Dtos
         /// </summary>
         [JsonPropertyName("dateUpdated")]
         public DateTimeOffset DateUpdated { get; set; }
+
+        /// <summary>
+        /// Diários que vinculam esta disciplina.
+        /// </summary>
+        [JsonPropertyName("diarios")]
+        public AulaDiario[] Diarios { get; set; }
 
         /// <summary>
         /// Identificador do registro (uuid).
@@ -17051,16 +17077,20 @@ namespace Ladesa.Dtos
     public partial class Queries14
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonPropertyName("filter.ativo")]
+        public string[] FilterAtivo { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("filter.campus.id")]
         public string[] FilterCampusId { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("filter.usuario.id")]
-        public string[] FilterUsuarioId { get; set; }
+        [JsonPropertyName("filter.cargo")]
+        public string[] FilterCargo { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonPropertyName("filterAtivo")]
-        public string[] FilterAtivo { get; set; }
+        [JsonPropertyName("filter.usuario.id")]
+        public string[] FilterUsuarioId { get; set; }
 
         /// <summary>
         /// Limite da quantidade de resultados por página.

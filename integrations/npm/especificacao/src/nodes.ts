@@ -7541,11 +7541,21 @@ export const Nodes: readonly any[] = [
                 },
                 description: "Ordenação.",
               },
-              filterAtivo: {
+              "filter.cargo": {
                 type: "array",
                 items: {
                   type: "string",
                 },
+                "x-unispec-http-key": "filter.cargo",
+                "x-unispec-gql-key": "filterCargo",
+              },
+              "filter.ativo": {
+                type: "array",
+                items: {
+                  type: "string",
+                },
+                "x-unispec-http-key": "filter.ativo",
+                "x-unispec-gql-key": "filterAtivo",
               },
               "filter.campus.id": {
                 type: "array",
@@ -8442,6 +8452,13 @@ export const Nodes: readonly any[] = [
         maximum: 65535,
         description: "Carga horária da disciplina.",
       },
+      diarios: {
+        type: "array",
+        items: {
+          $ref: "ladesa://schemas/v3/generics/Diario.json",
+        },
+        description: "Diários que vinculam esta disciplina.",
+      },
       dateCreated: {
         $ref: "ladesa://schemas/v3/generics/date_time.json",
         description: "Data e hora da criação do registro.",
@@ -8472,7 +8489,7 @@ export const Nodes: readonly any[] = [
         ],
       },
     },
-    required: ["id", "nome", "nomeAbreviado", "cargaHoraria", "dateCreated", "dateUpdated", "dateDeleted", "imagemCapa"],
+    required: ["id", "nome", "nomeAbreviado", "cargaHoraria", "diarios", "dateCreated", "dateUpdated", "dateDeleted", "imagemCapa"],
     description: "Visão completa de uma Disciplina.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "DisciplinaView",
@@ -11973,8 +11990,8 @@ export const Nodes: readonly any[] = [
         description: "Turma vinculada ao diário.",
       },
       disciplina: {
-        $ref: "ladesa://schemas/v3/generics/Disciplina.json",
         description: "Disciplina vinculada ao diário.",
+        $ref: "ladesa://schemas/v3/generics/Disciplina.json",
       },
       ambientePadrao: {
         anyOf: [
@@ -12376,6 +12393,13 @@ export const Nodes: readonly any[] = [
         ],
         description: "Imagem de capa da disciplina.",
       },
+      diarios: {
+        type: "array",
+        items: {
+          $ref: "ladesa://schemas/v3/generics/Diario.json",
+        },
+        description: "Diários que vinculam esta disciplina.",
+      },
       dateCreated: {
         $ref: "ladesa://schemas/v3/generics/date_time.json",
         description: "Data e hora da criação do registro.",
@@ -12396,7 +12420,7 @@ export const Nodes: readonly any[] = [
         description: "Data e hora da exclusão do registro.",
       },
     },
-    required: ["id", "nome", "nomeAbreviado", "cargaHoraria", "imagemCapa", "dateCreated", "dateUpdated", "dateDeleted"],
+    required: ["id", "nome", "nomeAbreviado", "cargaHoraria", "imagemCapa", "diarios", "dateCreated", "dateUpdated", "dateDeleted"],
     description: "Disciplina.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "Disciplina",
@@ -17272,6 +17296,32 @@ export const Nodes: readonly any[] = [
                   type: "string",
                 },
                 description: "Ordenação.",
+              },
+              "filter.turma.id": {
+                type: "array",
+                items: {
+                  type: "string",
+                },
+                "x-unispec-http-key": "filter.turma.id",
+                "x-unispec-gql-key": "filterTurmaId",
+              },
+              "filter.diarios.id": {
+                type: "array",
+                items: {
+                  anyOf: [
+                    {
+                      type: "string",
+                    },
+                    {
+                      type: "string",
+                    },
+                    {
+                      type: "string",
+                    },
+                  ],
+                },
+                "x-unispec-http-key": "filter.turma.id",
+                "x-unispec-gql-key": "filterTurmaId",
               },
             },
           },

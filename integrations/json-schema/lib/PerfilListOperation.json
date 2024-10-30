@@ -51,11 +51,21 @@
               },
               "description": "Ordenação."
             },
-            "filterAtivo": {
+            "filter.cargo": {
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "x-unispec-http-key": "filter.cargo",
+              "x-unispec-gql-key": "filterCargo"
+            },
+            "filter.ativo": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "x-unispec-http-key": "filter.ativo",
+              "x-unispec-gql-key": "filterAtivo"
             },
             "filter.campus.id": {
               "type": "array",

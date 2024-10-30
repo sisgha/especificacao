@@ -100,7 +100,6 @@ model DiarioListOperation
     Tokens.Diario_Operations_List,
     DiarioListResultView,
     {
-      // filtros
       @extension("x-unispec-gql-key", "filterTurmaId")
       @extension("x-unispec-http-key", "filter.turma.id")
       `filter.turma.id`?: Pagination.GenericFilter.eq[];

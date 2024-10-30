@@ -86,15 +86,18 @@ model PerfilListOperation
     Tokens.Perfil_Operations_List,
     PerfilListResultView,
     {
-      // filtros
-      filterAtivo?: Pagination.GenericFilter.eq[];
+      @extension("x-unispec-gql-key", "filterCargo")
+      @extension("x-unispec-http-key", "filter.cargo")
+      `filter.cargo`?: Pagination.GenericFilter.eq[];
 
-      // filtros
+      @extension("x-unispec-gql-key", "filterAtivo")
+      @extension("x-unispec-http-key", "filter.ativo")
+      `filter.ativo`?: Pagination.GenericFilter.eq[];
+
       @extension("x-unispec-gql-key", "filterCampusId")
       @extension("x-unispec-http-key", "filter.campus.id")
       `filter.campus.id`?: Pagination.GenericFilter.eq[];
 
-      // filtros
       @extension("x-unispec-gql-key", "filterUsuarioId")
       @extension("x-unispec-http-key", "filter.usuario.id")
       `filter.usuario.id`?: Pagination.GenericFilter.eq[];

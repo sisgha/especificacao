@@ -20,8 +20,8 @@
       "description": "Turma vinculada ao diário."
     },
     "disciplina": {
-      "$ref": "ladesa://schemas/v3/generics/Disciplina.json",
-      "description": "Disciplina vinculada ao diário."
+      "description": "Disciplina vinculada ao diário.",
+      "$ref": "ladesa://schemas/v3/generics/Disciplina.json"
     },
     "ambientePadrao": {
       "anyOf": [

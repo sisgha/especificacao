@@ -23,6 +23,13 @@
       "maximum": 65535,
       "description": "Carga horária da disciplina."
     },
+    "diarios": {
+      "type": "array",
+      "items": {
+        "$ref": "ladesa://schemas/v3/generics/Diario.json"
+      },
+      "description": "Diários que vinculam esta disciplina."
+    },
     "dateCreated": {
       "$ref": "ladesa://schemas/v3/generics/date_time.json",
       "description": "Data e hora da criação do registro."
@@ -53,7 +60,7 @@
       ]
     }
   },
-  "required": ["id", "nome", "nomeAbreviado", "cargaHoraria", "dateCreated", "dateUpdated", "dateDeleted", "imagemCapa"],
+  "required": ["id", "nome", "nomeAbreviado", "cargaHoraria", "diarios", "dateCreated", "dateUpdated", "dateDeleted", "imagemCapa"],
   "description": "Visão completa de uma Disciplina.",
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "DisciplinaView",
