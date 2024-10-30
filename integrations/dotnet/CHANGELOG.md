@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-dotnet
 
+## 3.2.6
+
+### Patch Changes
+
+- cb80287: feat(defintions): filter cargo and ativo in professor list; filter for diarios.id in disciplina list
+
 ## 3.2.5
 
 ### Patch Changes
