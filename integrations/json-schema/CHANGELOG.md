@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-json-schema
 
+## 3.2.8
+
+### Patch Changes
+
+- 4ceba75: fix(definitions/disciplina/list/filters): remove unrelated filter for turma
+
 ## 3.2.7
 
 ### Patch Changes
