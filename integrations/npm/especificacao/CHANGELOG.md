@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.8
+
+### Patch Changes
+
+- 4ceba75: fix(definitions/disciplina/list/filters): remove unrelated filter for turma
+
 ## 3.3.7
 
 ### Patch Changes
