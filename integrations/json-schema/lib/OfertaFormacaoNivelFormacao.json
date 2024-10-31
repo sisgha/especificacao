@@ -8,8 +8,8 @@
       "description": "Identificador do registro (uuid)."
     },
     "ofertaFormacao": {
-      "$ref": "ladesa://schemas/v3/generics/OfertaFormacao.json",
-      "description": "Oferta de formação."
+      "description": "Oferta de formação.",
+      "$ref": "ladesa://schemas/v3/generics/OfertaFormacao.json"
     },
     "nivelFormacao": {
       "$ref": "ladesa://schemas/v3/generics/NivelFormacao.json",

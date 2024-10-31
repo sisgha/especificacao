@@ -39,9 +39,33 @@
     "modalidade": {
       "$ref": "ladesa://schemas/v3/generics/ModalidadeFindOneResultView.json",
       "description": "Modalidade da oferta de formação."
+    },
+    "ofertaFormacaoNiveisFormacoes": {
+      "type": "array",
+      "items": {
+        "$ref": "ladesa://schemas/v3/generics/OfertaFormacaoNivelFormacao.json"
+      },
+      "description": "Array de relações entre a oferta e níveis de formações."
+    },
+    "niveisFormacoes": {
+      "type": "array",
+      "items": {
+        "$ref": "ladesa://schemas/v3/generics/NivelFormacao.json"
+      },
+      "description": "Níveis de formações vinculados"
     }
   },
-  "required": ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted", "modalidade"],
+  "required": [
+    "id",
+    "nome",
+    "slug",
+    "dateCreated",
+    "dateUpdated",
+    "dateDeleted",
+    "modalidade",
+    "ofertaFormacaoNiveisFormacoes",
+    "niveisFormacoes"
+  ],
   "description": "Visão completa de uma oferta de formação.",
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "OfertaFormacaoView",

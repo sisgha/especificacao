@@ -21,6 +21,13 @@
       "$ref": "ladesa://schemas/v3/generics/Modalidade.json",
       "description": "Modalidade da oferta de formação."
     },
+    "ofertaFormacaoNiveisFormacoes": {
+      "type": "array",
+      "items": {
+        "$ref": "ladesa://schemas/v3/generics/OfertaFormacaoNivelFormacao.json"
+      },
+      "description": "Array de relações entre a oferta e níveis de formações."
+    },
     "dateCreated": {
       "$ref": "ladesa://schemas/v3/generics/date_time.json",
       "description": "Data e hora da criação do registro."
@@ -41,7 +48,7 @@
       "description": "Data e hora da exclusão do registro."
     }
   },
-  "required": ["id", "nome", "slug", "modalidade", "dateCreated", "dateUpdated", "dateDeleted"],
+  "required": ["id", "nome", "slug", "modalidade", "ofertaFormacaoNiveisFormacoes", "dateCreated", "dateUpdated", "dateDeleted"],
   "description": "OfertaFormacao.",
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "OfertaFormacao",

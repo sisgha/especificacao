@@ -63,7 +63,7 @@ model TurmaFindOneResultView {
 model TurmaInputCreateView {
   ...PickProperties<TurmaView, "periodo">;
   curso: CursoFindOneInputView;
-  ambientePadraoAula: AmbienteFindOneInputView;
+  ambientePadraoAula: AmbienteFindOneInputView | null;
 }
 
 /** Dados de entrada para a atualização de uma Turma. */

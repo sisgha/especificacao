@@ -21,16 +21,25 @@ model OfertaFormacao {
   /** Modalidade da oferta de formação. */
   modalidade: Modalidade;
 
+  /** Array de relações entre a oferta e níveis de formações. */
+  ofertaFormacaoNiveisFormacoes: OfertaFormacaoNivelFormacao[];
+
   ...DatedObject;
 }
 
 /** Visão completa de uma oferta de formação. */
 @entity(Tokens.OfertaFormacao_View)
 model OfertaFormacaoView {
-  ...OmitProperties<OfertaFormacao, "modalidade">;
+  ...OmitProperties<OfertaFormacao, "modalidade" | "ofertaFormacaoNiveisFormacoes">;
 
   /** Modalidade da oferta de formação. */
   modalidade: ModalidadeFindOneResultView;
+
+  /** Array de relações entre a oferta e níveis de formações. */
+  ofertaFormacaoNiveisFormacoes: OfertaFormacaoNivelFormacao[];
+
+  /** Níveis de formações vinculados */
+  niveisFormacoes: NivelFormacao[];
 }
 
 /** Dados de entrada para encontrar uma oferta de formação por ID. */

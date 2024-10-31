@@ -1256,6 +1256,13 @@ export const Nodes: readonly any[] = [
         $ref: "ladesa://schemas/v3/generics/Modalidade.json",
         description: "Modalidade da oferta de formação.",
       },
+      ofertaFormacaoNiveisFormacoes: {
+        type: "array",
+        items: {
+          $ref: "ladesa://schemas/v3/generics/OfertaFormacaoNivelFormacao.json",
+        },
+        description: "Array de relações entre a oferta e níveis de formações.",
+      },
       dateCreated: {
         $ref: "ladesa://schemas/v3/generics/date_time.json",
         description: "Data e hora da criação do registro.",
@@ -1276,7 +1283,7 @@ export const Nodes: readonly any[] = [
         description: "Data e hora da exclusão do registro.",
       },
     },
-    required: ["id", "nome", "slug", "modalidade", "dateCreated", "dateUpdated", "dateDeleted"],
+    required: ["id", "nome", "slug", "modalidade", "ofertaFormacaoNiveisFormacoes", "dateCreated", "dateUpdated", "dateDeleted"],
     description: "OfertaFormacao.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacao",
@@ -7665,7 +7672,14 @@ export const Nodes: readonly any[] = [
         $ref: "ladesa://schemas/v3/generics/CursoFindOneInputView.json",
       },
       ambientePadraoAula: {
-        $ref: "ladesa://schemas/v3/generics/AmbienteFindOneInputView.json",
+        anyOf: [
+          {
+            $ref: "ladesa://schemas/v3/generics/AmbienteFindOneInputView.json",
+          },
+          {
+            type: "null",
+          },
+        ],
       },
     },
     description: "Dados de entrada para a atualização de uma Turma.",
@@ -12475,7 +12489,14 @@ export const Nodes: readonly any[] = [
         $ref: "ladesa://schemas/v3/generics/CursoFindOneInputView.json",
       },
       ambientePadraoAula: {
-        $ref: "ladesa://schemas/v3/generics/AmbienteFindOneInputView.json",
+        anyOf: [
+          {
+            $ref: "ladesa://schemas/v3/generics/AmbienteFindOneInputView.json",
+          },
+          {
+            type: "null",
+          },
+        ],
       },
     },
     required: ["periodo", "curso", "ambientePadraoAula"],
@@ -15487,8 +15508,32 @@ export const Nodes: readonly any[] = [
         $ref: "ladesa://schemas/v3/generics/ModalidadeFindOneResultView.json",
         description: "Modalidade da oferta de formação.",
       },
+      ofertaFormacaoNiveisFormacoes: {
+        type: "array",
+        items: {
+          $ref: "ladesa://schemas/v3/generics/OfertaFormacaoNivelFormacao.json",
+        },
+        description: "Array de relações entre a oferta e níveis de formações.",
+      },
+      niveisFormacoes: {
+        type: "array",
+        items: {
+          $ref: "ladesa://schemas/v3/generics/NivelFormacao.json",
+        },
+        description: "Níveis de formações vinculados",
+      },
     },
-    required: ["id", "nome", "slug", "dateCreated", "dateUpdated", "dateDeleted", "modalidade"],
+    required: [
+      "id",
+      "nome",
+      "slug",
+      "dateCreated",
+      "dateUpdated",
+      "dateDeleted",
+      "modalidade",
+      "ofertaFormacaoNiveisFormacoes",
+      "niveisFormacoes",
+    ],
     description: "Visão completa de uma oferta de formação.",
     "x-unispec-kind": "entity",
     "x-unispec-entity-id": "OfertaFormacaoView",
@@ -16421,8 +16466,8 @@ export const Nodes: readonly any[] = [
         description: "Identificador do registro (uuid).",
       },
       ofertaFormacao: {
-        $ref: "ladesa://schemas/v3/generics/OfertaFormacao.json",
         description: "Oferta de formação.",
+        $ref: "ladesa://schemas/v3/generics/OfertaFormacao.json",
       },
       nivelFormacao: {
         $ref: "ladesa://schemas/v3/generics/NivelFormacao.json",

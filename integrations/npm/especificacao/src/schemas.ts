@@ -5,9 +5,9 @@
  *
  * Data e hora da alteração do registro.
  *
- * Date ISO 8601.
- *
  * Data da aula.
+ *
+ * Date ISO 8601.
  *
  * Data.
  *
@@ -28,9 +28,9 @@ export type PurpleDate = Date
  *
  * Data e hora da alteração do registro.
  *
- * Date ISO 8601.
- *
  * Data da aula.
+ *
+ * Date ISO 8601.
  *
  * Data.
  *
@@ -79,537 +79,6 @@ export type Time = string
  */
 export type Uuid = string
 
-export interface AmbienteCreateOperation {
-  input: AmbienteCreateOperationInput
-  output: AmbienteCreateOperationOutput
-}
-
-export interface AmbienteCreateOperationInput {
-  body: PurpleBody
-  [property: string]: any
-}
-
-/**
- * Dados de entrada para a criação de um ambiente.
- */
-export interface PurpleBody {
-  bloco: BodyBloco
-  /**
-   * Capacidade do ambiente/sala.
-   */
-  capacidade: number | null
-  /**
-   * Código do ambiente/sala.
-   */
-  codigo: string
-  /**
-   * Descrição do ambiente/sala.
-   */
-  descricao: null | string
-  /**
-   * Nome do ambiente/sala.
-   */
-  nome: string
-  /**
-   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
-   */
-  tipo: null | string
-}
-
-/**
- * Dados de entrada para encontrar um bloco por id.
- */
-export interface BodyBloco {
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-}
-
-export interface AmbienteCreateOperationOutput {
-  success: AmbienteElement
-  [property: string]: any
-}
-
-/**
- * Visão FindOne de um ambiente.
- */
-export interface AmbienteElement {
-  bloco: BlocoElement
-  /**
-   * Capacidade do ambiente/sala.
-   */
-  capacidade: number | null
-  /**
-   * Código do ambiente/sala.
-   */
-  codigo: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Descrição do ambiente/sala.
-   */
-  descricao: null | string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  imagemCapa: ImagemCapaClass | null
-  /**
-   * Nome do ambiente/sala.
-   */
-  nome: string
-  /**
-   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
-   */
-  tipo: null | string
-}
-
-/**
- * Visão FindOne de um bloco.
- */
-export interface BlocoElement {
-  campus: CampusElement
-  /**
-   * Código do Bloco.
-   */
-  codigo: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  imagemCapa: ImagemCapaClass | null
-  /**
-   * Nome do Bloco.
-   */
-  nome: string
-}
-
-/**
- * Visão FindOne de um campus.
- */
-export interface CampusElement {
-  /**
-   * Apelido do campus.
-   */
-  apelido: string
-  /**
-   * CNPJ do campus.
-   */
-  cnpj: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  endereco: SuccessEndereco
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nome fantasia do campus.
-   */
-  nomeFantasia: string
-  /**
-   * Razão social do campus.
-   */
-  razaoSocial: string
-}
-
-/**
- * Visão FindOne de um endereço.
- */
-export interface SuccessEndereco {
-  /**
-   * Bairro.
-   */
-  bairro: string
-  /**
-   * Código postal (CEP).
-   */
-  cep: string
-  cidade: CidadeElement
-  /**
-   * Complemento.
-   */
-  complemento: null | string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Logradouro.
-   */
-  logradouro: string
-  /**
-   * Número.
-   */
-  numero: number
-  /**
-   * Ponto de referência.
-   */
-  pontoReferencia: null | string
-}
-
-/**
- * Visão FindOne de uma cidade.
- */
-export interface CidadeElement {
-  estado: EstadoElement
-  /**
-   * Identificador do registro (numérico).
-   */
-  id: number
-  /**
-   * Nome oficial da cidade.
-   */
-  nome: string
-}
-
-/**
- * Visão FindOne de um estado.
- */
-export interface EstadoElement {
-  /**
-   * Identificador do registro (numérico).
-   */
-  id: number
-  /**
-   * Nome oficial do estado.
-   */
-  nome: string
-  /**
-   * Sigla do estado.
-   */
-  sigla: string
-}
-
-/**
- * Visão FindOne de uma imagem.
- */
-export interface ImagemCapaClass {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Descrição da imagem.
-   */
-  descricao: null | string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  versoes: VersoeElement[]
-}
-
-/**
- * Visão FindOneFromImagem de uma versão de imagem.
- */
-export interface VersoeElement {
-  /**
-   * Altura da imagem.
-   */
-  altura: number
-  arquivo: ImagemArquivoFindOneFromImagemResultViewArquivo
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Formato da imagem.
-   */
-  formato: string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Largura da imagem.
-   */
-  largura: number
-  /**
-   * Mime-type da imagem.
-   */
-  mimeType: string
-}
-
-/**
- * Dados de saída para encontrar um arquivo por id.
- */
-export interface ImagemArquivoFindOneFromImagemResultViewArquivo {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Formato do arquivo.
-   */
-  mimeType: null | string
-  /**
-   * Nome do arquivo.
-   */
-  name: null | string
-  /**
-   * Tamanho do arquivo (em bytes).
-   */
-  sizeBytes: number | null
-  /**
-   * Estratégia de armazenamento do conteúdo.
-   */
-  storageType: string
-}
-
-export interface AmbienteDeleteByIdOperation {
-  input: AmbienteDeleteByIdOperationInput
-  output: AmbienteDeleteByIdOperationOutput
-}
-
-export interface AmbienteDeleteByIdOperationInput {
-  params: PurpleParams
-  [property: string]: any
-}
-
-export interface PurpleParams {
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  [property: string]: any
-}
-
-export interface AmbienteDeleteByIdOperationOutput {
-  success: boolean
-  [property: string]: any
-}
-
-export interface AmbienteFindOneByIdOperation {
-  input: AmbienteFindOneByIdOperationInput
-  output: AmbienteFindOneByIdOperationOutput
-}
-
-export interface AmbienteFindOneByIdOperationInput {
-  params: FluffyParams
-  [property: string]: any
-}
-
-export interface FluffyParams {
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  [property: string]: any
-}
-
-export interface AmbienteFindOneByIdOperationOutput {
-  success: AmbienteElement
-  [property: string]: any
-}
-
-/**
- * Dados de entrada para encontrar um ambiente por id.
- */
-export interface AmbienteFindOneInputView {
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-}
-
-/**
- * Visão FindOne de um ambiente.
- */
-export interface AmbienteFindOneResultView {
-  bloco: BlocoElement
-  /**
-   * Capacidade do ambiente/sala.
-   */
-  capacidade: number | null
-  /**
-   * Código do ambiente/sala.
-   */
-  codigo: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Descrição do ambiente/sala.
-   */
-  descricao: null | string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  imagemCapa: ImagemCapaClass | null
-  /**
-   * Nome do ambiente/sala.
-   */
-  nome: string
-  /**
-   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
-   */
-  tipo: null | string
-}
-
-export interface AmbienteGetCoverImage {
-  input: AmbienteGetCoverImageInput
-  output: AmbienteGetCoverImageOutput
-}
-
-export interface AmbienteGetCoverImageInput {
-  params: TentacledParams
-  [property: string]: any
-}
-
-export interface TentacledParams {
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  [property: string]: any
-}
-
-export interface AmbienteGetCoverImageOutput {
-  /**
-   * Binário.
-   */
-  success: string
-  [property: string]: any
-}
-
-/**
- * Dados de entrada para a criação de um ambiente.
- */
-export interface AmbienteInputCreateView {
-  bloco: BodyBloco
-  /**
-   * Capacidade do ambiente/sala.
-   */
-  capacidade: number | null
-  /**
-   * Código do ambiente/sala.
-   */
-  codigo: string
-  /**
-   * Descrição do ambiente/sala.
-   */
-  descricao: null | string
-  /**
-   * Nome do ambiente/sala.
-   */
-  nome: string
-  /**
-   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
-   */
-  tipo: null | string
-}
-
-/**
- * Dados de entrada para a atualização de um ambiente.
- */
-export interface AmbienteInputUpdateView {
-  bloco?: BodyBloco
-  /**
-   * Capacidade do ambiente/sala.
-   */
-  capacidade?: number | null
-  /**
-   * Código do ambiente/sala.
-   */
-  codigo?: string
-  /**
-   * Descrição do ambiente/sala.
-   */
-  descricao?: null | string
-  /**
-   * Nome do ambiente/sala.
-   */
-  nome?: string
-  /**
-   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
-   */
-  tipo?: null | string
-}
-
 /**
  * Ambiente.
  */
@@ -649,7 +118,7 @@ export interface Ambiente {
   /**
    * Imagem de capa.
    */
-  imagemCapa: ImagemPerfilClass | null
+  imagemCapa: ImagemCapaClass | null
   /**
    * Nome do ambiente/sala.
    */
@@ -665,7 +134,7 @@ export interface Ambiente {
  *
  * Ambiente reservado.
  */
-export interface AmbientePadraoElement {
+export interface AmbienteElement {
   /**
    * Bloco que o ambiente/sala pertence.
    */
@@ -701,7 +170,7 @@ export interface AmbientePadraoElement {
   /**
    * Imagem de capa.
    */
-  imagemCapa: ImagemPerfilClass | null
+  imagemCapa: ImagemCapaClass | null
   /**
    * Nome do ambiente/sala.
    */
@@ -721,7 +190,7 @@ export interface AmbienteBloco {
   /**
    * Ambientes.
    */
-  ambientes: AmbientePadraoElement[]
+  ambientes: AmbienteElement[]
   /**
    * Campus.
    */
@@ -749,7 +218,7 @@ export interface AmbienteBloco {
   /**
    * Imagem de capa.
    */
-  imagemCapa: ImagemPerfilClass | null
+  imagemCapa: ImagemCapaClass | null
   /**
    * Nome do Bloco.
    */
@@ -759,7 +228,7 @@ export interface AmbienteBloco {
 /**
  * ImagemArquivo.
  */
-export interface VersoeClass {
+export interface VersoeElement {
   /**
    * Altura da imagem.
    */
@@ -791,7 +260,7 @@ export interface VersoeClass {
   /**
    * Imagem.
    */
-  imagem: ImagemPerfilClass
+  imagem: ImagemCapaClass
   /**
    * Largura da imagem.
    */
@@ -805,7 +274,7 @@ export interface VersoeClass {
 /**
  * Imagem.
  */
-export interface ImagemPerfilClass {
+export interface ImagemCapaClass {
   /**
    * Data e hora da criação do registro.
    */
@@ -829,7 +298,7 @@ export interface ImagemPerfilClass {
   /**
    * Versões da imagem.
    */
-  versoes: VersoeClass[]
+  versoes: VersoeElement[]
 }
 
 /**
@@ -1008,6 +477,537 @@ export interface CidadeEstado {
   sigla: string
 }
 
+export interface AmbienteCreateOperation {
+  input: AmbienteCreateOperationInput
+  output: AmbienteCreateOperationOutput
+}
+
+export interface AmbienteCreateOperationInput {
+  body: PurpleBody
+  [property: string]: any
+}
+
+/**
+ * Dados de entrada para a criação de um ambiente.
+ */
+export interface PurpleBody {
+  bloco: BodyBloco
+  /**
+   * Capacidade do ambiente/sala.
+   */
+  capacidade: number | null
+  /**
+   * Código do ambiente/sala.
+   */
+  codigo: string
+  /**
+   * Descrição do ambiente/sala.
+   */
+  descricao: null | string
+  /**
+   * Nome do ambiente/sala.
+   */
+  nome: string
+  /**
+   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
+   */
+  tipo: null | string
+}
+
+/**
+ * Dados de entrada para encontrar um bloco por id.
+ */
+export interface BodyBloco {
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+}
+
+export interface AmbienteCreateOperationOutput {
+  success: AmbientePadraoElement
+  [property: string]: any
+}
+
+/**
+ * Visão FindOne de um ambiente.
+ */
+export interface AmbientePadraoElement {
+  bloco: BlocoElement
+  /**
+   * Capacidade do ambiente/sala.
+   */
+  capacidade: number | null
+  /**
+   * Código do ambiente/sala.
+   */
+  codigo: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Descrição do ambiente/sala.
+   */
+  descricao: null | string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  imagemCapa: ImagemPerfilClass | null
+  /**
+   * Nome do ambiente/sala.
+   */
+  nome: string
+  /**
+   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
+   */
+  tipo: null | string
+}
+
+/**
+ * Visão FindOne de um bloco.
+ */
+export interface BlocoElement {
+  campus: CampusElement
+  /**
+   * Código do Bloco.
+   */
+  codigo: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  imagemCapa: ImagemPerfilClass | null
+  /**
+   * Nome do Bloco.
+   */
+  nome: string
+}
+
+/**
+ * Visão FindOne de um campus.
+ */
+export interface CampusElement {
+  /**
+   * Apelido do campus.
+   */
+  apelido: string
+  /**
+   * CNPJ do campus.
+   */
+  cnpj: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  endereco: SuccessEndereco
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome fantasia do campus.
+   */
+  nomeFantasia: string
+  /**
+   * Razão social do campus.
+   */
+  razaoSocial: string
+}
+
+/**
+ * Visão FindOne de um endereço.
+ */
+export interface SuccessEndereco {
+  /**
+   * Bairro.
+   */
+  bairro: string
+  /**
+   * Código postal (CEP).
+   */
+  cep: string
+  cidade: CidadeElement
+  /**
+   * Complemento.
+   */
+  complemento: null | string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Logradouro.
+   */
+  logradouro: string
+  /**
+   * Número.
+   */
+  numero: number
+  /**
+   * Ponto de referência.
+   */
+  pontoReferencia: null | string
+}
+
+/**
+ * Visão FindOne de uma cidade.
+ */
+export interface CidadeElement {
+  estado: EstadoElement
+  /**
+   * Identificador do registro (numérico).
+   */
+  id: number
+  /**
+   * Nome oficial da cidade.
+   */
+  nome: string
+}
+
+/**
+ * Visão FindOne de um estado.
+ */
+export interface EstadoElement {
+  /**
+   * Identificador do registro (numérico).
+   */
+  id: number
+  /**
+   * Nome oficial do estado.
+   */
+  nome: string
+  /**
+   * Sigla do estado.
+   */
+  sigla: string
+}
+
+/**
+ * Visão FindOne de uma imagem.
+ */
+export interface ImagemPerfilClass {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Descrição da imagem.
+   */
+  descricao: null | string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  versoes: VersoeClass[]
+}
+
+/**
+ * Visão FindOneFromImagem de uma versão de imagem.
+ */
+export interface VersoeClass {
+  /**
+   * Altura da imagem.
+   */
+  altura: number
+  arquivo: ImagemArquivoFindOneFromImagemResultViewArquivo
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Formato da imagem.
+   */
+  formato: string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Largura da imagem.
+   */
+  largura: number
+  /**
+   * Mime-type da imagem.
+   */
+  mimeType: string
+}
+
+/**
+ * Dados de saída para encontrar um arquivo por id.
+ */
+export interface ImagemArquivoFindOneFromImagemResultViewArquivo {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Formato do arquivo.
+   */
+  mimeType: null | string
+  /**
+   * Nome do arquivo.
+   */
+  name: null | string
+  /**
+   * Tamanho do arquivo (em bytes).
+   */
+  sizeBytes: number | null
+  /**
+   * Estratégia de armazenamento do conteúdo.
+   */
+  storageType: string
+}
+
+export interface AmbienteDeleteByIdOperation {
+  input: AmbienteDeleteByIdOperationInput
+  output: AmbienteDeleteByIdOperationOutput
+}
+
+export interface AmbienteDeleteByIdOperationInput {
+  params: PurpleParams
+  [property: string]: any
+}
+
+export interface PurpleParams {
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  [property: string]: any
+}
+
+export interface AmbienteDeleteByIdOperationOutput {
+  success: boolean
+  [property: string]: any
+}
+
+export interface AmbienteFindOneByIdOperation {
+  input: AmbienteFindOneByIdOperationInput
+  output: AmbienteFindOneByIdOperationOutput
+}
+
+export interface AmbienteFindOneByIdOperationInput {
+  params: FluffyParams
+  [property: string]: any
+}
+
+export interface FluffyParams {
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  [property: string]: any
+}
+
+export interface AmbienteFindOneByIdOperationOutput {
+  success: AmbientePadraoElement
+  [property: string]: any
+}
+
+/**
+ * Dados de entrada para encontrar um ambiente por id.
+ */
+export interface AmbienteFindOneInputView {
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+}
+
+/**
+ * Visão FindOne de um ambiente.
+ */
+export interface AmbienteFindOneResultView {
+  bloco: BlocoElement
+  /**
+   * Capacidade do ambiente/sala.
+   */
+  capacidade: number | null
+  /**
+   * Código do ambiente/sala.
+   */
+  codigo: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Descrição do ambiente/sala.
+   */
+  descricao: null | string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  imagemCapa: ImagemPerfilClass | null
+  /**
+   * Nome do ambiente/sala.
+   */
+  nome: string
+  /**
+   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
+   */
+  tipo: null | string
+}
+
+export interface AmbienteGetCoverImage {
+  input: AmbienteGetCoverImageInput
+  output: AmbienteGetCoverImageOutput
+}
+
+export interface AmbienteGetCoverImageInput {
+  params: TentacledParams
+  [property: string]: any
+}
+
+export interface TentacledParams {
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  [property: string]: any
+}
+
+export interface AmbienteGetCoverImageOutput {
+  /**
+   * Binário.
+   */
+  success: string
+  [property: string]: any
+}
+
+/**
+ * Dados de entrada para a criação de um ambiente.
+ */
+export interface AmbienteInputCreateView {
+  bloco: BodyBloco
+  /**
+   * Capacidade do ambiente/sala.
+   */
+  capacidade: number | null
+  /**
+   * Código do ambiente/sala.
+   */
+  codigo: string
+  /**
+   * Descrição do ambiente/sala.
+   */
+  descricao: null | string
+  /**
+   * Nome do ambiente/sala.
+   */
+  nome: string
+  /**
+   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
+   */
+  tipo: null | string
+}
+
+/**
+ * Dados de entrada para a atualização de um ambiente.
+ */
+export interface AmbienteInputUpdateView {
+  bloco?: BodyBloco
+  /**
+   * Capacidade do ambiente/sala.
+   */
+  capacidade?: number | null
+  /**
+   * Código do ambiente/sala.
+   */
+  codigo?: string
+  /**
+   * Descrição do ambiente/sala.
+   */
+  descricao?: null | string
+  /**
+   * Nome do ambiente/sala.
+   */
+  nome?: string
+  /**
+   * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
+   */
+  tipo?: null | string
+}
+
 export interface AmbienteListOperation {
   input: AmbienteListOperationInput
   output: AmbienteListOperationOutput
@@ -1052,7 +1052,7 @@ export interface PurpleSuccess {
   /**
    * Resultados da busca atual.
    */
-  data: AmbienteElement[]
+  data: AmbientePadraoElement[]
   /**
    * Links da busca.
    */
@@ -1145,7 +1145,7 @@ export interface AmbienteListResultView {
   /**
    * Resultados da busca atual.
    */
-  data: AmbienteElement[]
+  data: AmbientePadraoElement[]
   /**
    * Links da busca.
    */
@@ -1233,7 +1233,7 @@ export interface IndigoParams {
 }
 
 export interface AmbienteUpdateByIdOperationOutput {
-  success: AmbienteElement
+  success: AmbientePadraoElement
   [property: string]: any
 }
 
@@ -1270,7 +1270,7 @@ export interface AmbienteView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome do ambiente/sala.
    */
@@ -1279,6 +1279,44 @@ export interface AmbienteView {
    * Tipo do ambiente/sala. Ex.: sala aula, auditório, laboratório de química.
    */
   tipo: null | string
+}
+
+/**
+ * Arquivo.
+ */
+export interface Arquivo {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Formato do arquivo.
+   */
+  mimeType: null | string
+  /**
+   * Nome do arquivo.
+   */
+  name: null | string
+  /**
+   * Tamanho do arquivo (em bytes).
+   */
+  sizeBytes: number | null
+  /**
+   * Estratégia de armazenamento do conteúdo.
+   */
+  storageType: string
 }
 
 /**
@@ -1363,44 +1401,6 @@ export interface ArquivoGetFileOperationOutput {
 }
 
 /**
- * Arquivo.
- */
-export interface Arquivo {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Formato do arquivo.
-   */
-  mimeType: null | string
-  /**
-   * Nome do arquivo.
-   */
-  name: null | string
-  /**
-   * Tamanho do arquivo (em bytes).
-   */
-  sizeBytes: number | null
-  /**
-   * Estratégia de armazenamento do conteúdo.
-   */
-  storageType: string
-}
-
-/**
  * Visão completa de um arquivo.
  */
 export interface ArquivoView {
@@ -1436,6 +1436,438 @@ export interface ArquivoView {
    * Estratégia de armazenamento do conteúdo.
    */
   storageType: string
+}
+
+/**
+ * Aula.
+ */
+export interface Aula {
+  /**
+   * Ambiente associado à aula.
+   */
+  ambiente: AmbienteElement | null
+  /**
+   * Data da aula.
+   */
+  data: Date
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Diário associado à aula.
+   */
+  diario: AulaDiario
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Intervalo de Tempo associado à aula.
+   */
+  intervaloDeTempo: AulaIntervaloDeTempo
+  /**
+   * Modalidade da aula.
+   */
+  modalidade: null | string
+}
+
+/**
+ * Disciplina vinculada ao diário.
+ *
+ * Disciplina.
+ */
+export interface DiarioDisciplina {
+  /**
+   * Carga horária da disciplina.
+   */
+  cargaHoraria: number
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Diários que vinculam esta disciplina.
+   */
+  diarios: AulaDiario[]
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa da disciplina.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Nome da disciplina.
+   */
+  nome: string
+  /**
+   * Nome abreviado da disciplina.
+   */
+  nomeAbreviado: string
+}
+
+/**
+ * Diário associado à aula.
+ *
+ * Diario.
+ *
+ * Diário vinculado.
+ */
+export interface AulaDiario {
+  /**
+   * Ambiente padrão.
+   */
+  ambientePadrao: AmbienteElement | null
+  /**
+   * Situação do diário.
+   */
+  ativo: boolean
+  /**
+   * Calendário Letivo vinculado ao diário.
+   */
+  calendarioLetivo: DiarioCalendario
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Disciplina vinculada ao diário.
+   */
+  disciplina: DiarioDisciplina
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa do diário.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Turma vinculada ao diário.
+   */
+  turma: DiarioTurma
+}
+
+/**
+ * Calendário Letivo vinculado ao diário.
+ *
+ * CalendarioLetivo.
+ *
+ * Calendario.
+ *
+ * calendário.
+ */
+export interface DiarioCalendario {
+  /**
+   * Ano do calendário letivo.
+   */
+  ano: number
+  /**
+   * Campus ao qual o calendário letivo pertence.
+   */
+  campus: BlocoCampus
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome do calendário letivo.
+   */
+  nome: string
+  /**
+   * Oferta de formação do calendário letivo.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
+}
+
+/**
+ * OfertaFormacaoNivelFormacao.
+ */
+export interface OfertaFormacaoNiveisFormacoeElement {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nível de formação.
+   */
+  nivelFormacao: NiveisFormacoeElement
+  /**
+   * Oferta de formação.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
+}
+
+/**
+ * Oferta de formação do calendário letivo.
+ *
+ * OfertaFormacao.
+ *
+ * Oferta de formação.
+ *
+ * Oferta de formação do curso.
+ */
+export interface OfertaFormacaoNiveisFormacoeOfertaFormacao {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: OfertaFormacaoModalidade
+  /**
+   * Nome da oferta de formação.
+   */
+  nome: string
+  /**
+   * Array de relações entre a oferta e níveis de formações.
+   */
+  ofertaFormacaoNiveisFormacoes: OfertaFormacaoNiveisFormacoeElement[]
+  /**
+   * Apelido da oferta de formação.
+   */
+  slug: string
+}
+
+/**
+ * Nível de formação.
+ *
+ * NivelFormacao.
+ */
+export interface NiveisFormacoeElement {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Apelido do nível de formação.
+   */
+  slug: string
+}
+
+/**
+ * Modalidade da oferta de formação.
+ *
+ * Modalidade.
+ */
+export interface OfertaFormacaoModalidade {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome da modalidade.
+   */
+  nome: string
+  /**
+   * Apelido da modalidade.
+   */
+  slug: string
+}
+
+/**
+ * Turma vinculada ao diário.
+ *
+ * Turma.
+ */
+export interface DiarioTurma {
+  /**
+   * Ambiente padrão da sala de aula.
+   */
+  ambientePadraoAula: AmbienteElement | null
+  /**
+   * Curso da Turma.
+   */
+  curso: TurmaCurso
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa da Turma.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Período da Turma.
+   */
+  periodo: string
+}
+
+/**
+ * Curso da Turma.
+ *
+ * Curso.
+ */
+export interface TurmaCurso {
+  /**
+   * Campus que o curso pertence.
+   */
+  campus: BlocoCampus
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa do curso.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Nome do curso.
+   */
+  nome: string
+  /**
+   * Nome abreviado do curso.
+   */
+  nomeAbreviado: string
+  /**
+   * Oferta de formação do curso.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
+}
+
+/**
+ * Intervalo de Tempo associado à aula.
+ *
+ * Intervalo de Tempo.
+ *
+ * Intervalo de tempo.
+ */
+export interface AulaIntervaloDeTempo {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Horário que o intervalo de tempo termina.
+   */
+  periodoFim: string
+  /**
+   * Horário que o intervalo de tempo inicia.
+   */
+  periodoInicio: string
 }
 
 export interface AulaCreateOperation {
@@ -1502,7 +1934,7 @@ export interface AulaCreateOperationOutput {
  * Visão FindOne de uma Aula.
  */
 export interface AulaListResultViewSuccess {
-  ambiente: AmbienteElement | null
+  ambiente: AmbientePadraoElement | null
   /**
    * Data da aula.
    */
@@ -1535,7 +1967,7 @@ export interface AulaListResultViewSuccess {
  * Visão FindOne de um diário.
  */
 export interface SuccessElement {
-  ambientePadrao: AmbienteElement | null
+  ambientePadrao: AmbientePadraoElement | null
   /**
    * Situação do diário.
    */
@@ -1558,7 +1990,7 @@ export interface SuccessElement {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   turma: TurmaElement
 }
 
@@ -1680,7 +2112,7 @@ export interface DisciplinaElement {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome da disciplina.
    */
@@ -1695,7 +2127,7 @@ export interface DisciplinaElement {
  * Visão FindOne de uma Turma.
  */
 export interface TurmaElement {
-  ambientePadraoAula: AmbienteElement | null
+  ambientePadraoAula: AmbientePadraoElement | null
   curso: CursoElement
   /**
    * Data e hora da criação do registro.
@@ -1713,7 +2145,7 @@ export interface TurmaElement {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Período da Turma.
    */
@@ -1741,7 +2173,7 @@ export interface CursoElement {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome do curso.
    */
@@ -1843,7 +2275,7 @@ export interface AulaFindOneInputView {
  * Visão FindOne de uma Aula.
  */
 export interface AulaFindOneResultView {
-  ambiente: AmbienteElement | null
+  ambiente: AmbientePadraoElement | null
   /**
    * Data da aula.
    */
@@ -1892,376 +2324,6 @@ export interface AulaInputUpdateView {
   diario?: BodyDiario
   intervaloDeTempo?: BodyIntervaloDeTempo
   modalidade?: null | string
-}
-
-/**
- * Aula.
- */
-export interface Aula {
-  /**
-   * Ambiente associado à aula.
-   */
-  ambiente: AmbientePadraoElement | null
-  /**
-   * Data da aula.
-   */
-  data: Date
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Diário associado à aula.
-   */
-  diario: AulaDiario
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Intervalo de Tempo associado à aula.
-   */
-  intervaloDeTempo: AulaIntervaloDeTempo
-  /**
-   * Modalidade da aula.
-   */
-  modalidade: null | string
-}
-
-/**
- * Disciplina vinculada ao diário.
- *
- * Disciplina.
- */
-export interface DiarioDisciplina {
-  /**
-   * Carga horária da disciplina.
-   */
-  cargaHoraria: number
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Diários que vinculam esta disciplina.
-   */
-  diarios: AulaDiario[]
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa da disciplina.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Nome da disciplina.
-   */
-  nome: string
-  /**
-   * Nome abreviado da disciplina.
-   */
-  nomeAbreviado: string
-}
-
-/**
- * Diário associado à aula.
- *
- * Diario.
- *
- * Diário vinculado.
- */
-export interface AulaDiario {
-  /**
-   * Ambiente padrão.
-   */
-  ambientePadrao: AmbientePadraoElement | null
-  /**
-   * Situação do diário.
-   */
-  ativo: boolean
-  /**
-   * Calendário Letivo vinculado ao diário.
-   */
-  calendarioLetivo: DiarioCalendario
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Disciplina vinculada ao diário.
-   */
-  disciplina: DiarioDisciplina
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa do diário.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Turma vinculada ao diário.
-   */
-  turma: DiarioTurma
-}
-
-/**
- * Calendário Letivo vinculado ao diário.
- *
- * CalendarioLetivo.
- *
- * Calendario.
- *
- * calendário.
- */
-export interface DiarioCalendario {
-  /**
-   * Ano do calendário letivo.
-   */
-  ano: number
-  /**
-   * Campus ao qual o calendário letivo pertence.
-   */
-  campus: BlocoCampus
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nome do calendário letivo.
-   */
-  nome: string
-  /**
-   * Oferta de formação do calendário letivo.
-   */
-  ofertaFormacao: CalendarioLetivoOfertaFormacao
-}
-
-/**
- * Oferta de formação do calendário letivo.
- *
- * OfertaFormacao.
- *
- * Oferta de formação do curso.
- *
- * Oferta de formação.
- */
-export interface CalendarioLetivoOfertaFormacao {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Modalidade da oferta de formação.
-   */
-  modalidade: OfertaFormacaoModalidade
-  /**
-   * Nome da oferta de formação.
-   */
-  nome: string
-  /**
-   * Apelido da oferta de formação.
-   */
-  slug: string
-}
-
-/**
- * Modalidade da oferta de formação.
- *
- * Modalidade.
- */
-export interface OfertaFormacaoModalidade {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nome da modalidade.
-   */
-  nome: string
-  /**
-   * Apelido da modalidade.
-   */
-  slug: string
-}
-
-/**
- * Turma vinculada ao diário.
- *
- * Turma.
- */
-export interface DiarioTurma {
-  /**
-   * Ambiente padrão da sala de aula.
-   */
-  ambientePadraoAula: AmbientePadraoElement | null
-  /**
-   * Curso da Turma.
-   */
-  curso: TurmaCurso
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa da Turma.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Período da Turma.
-   */
-  periodo: string
-}
-
-/**
- * Curso da Turma.
- *
- * Curso.
- */
-export interface TurmaCurso {
-  /**
-   * Campus que o curso pertence.
-   */
-  campus: BlocoCampus
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa do curso.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Nome do curso.
-   */
-  nome: string
-  /**
-   * Nome abreviado do curso.
-   */
-  nomeAbreviado: string
-  /**
-   * Oferta de formação do curso.
-   */
-  ofertaFormacao: CalendarioLetivoOfertaFormacao
-}
-
-/**
- * Intervalo de Tempo associado à aula.
- *
- * Intervalo de Tempo.
- *
- * Intervalo de tempo.
- */
-export interface AulaIntervaloDeTempo {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Horário que o intervalo de tempo termina.
-   */
-  periodoFim: string
-  /**
-   * Horário que o intervalo de tempo inicia.
-   */
-  periodoInicio: string
 }
 
 export interface AulaListOperation {
@@ -2376,7 +2438,7 @@ export interface AulaUpdateByIdOperationOutput {
  * Visão completa de uma Aula.
  */
 export interface AulaView {
-  ambiente: AmbienteElement | null
+  ambiente: AmbientePadraoElement | null
   /**
    * Data da aula.
    */
@@ -2693,8 +2755,8 @@ export interface UsuarioElement {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
-  imagemPerfil: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
+  imagemPerfil: ImagemPerfilClass | null
   /**
    * Diz que o usuário tem poderes de administrador.
    */
@@ -2721,6 +2783,48 @@ export interface AuthWhoAmIResultView {
    * Usuário autenticado.
    */
   usuario: UsuarioElement | null
+}
+
+/**
+ * Bloco.
+ */
+export interface Bloco {
+  /**
+   * Ambientes.
+   */
+  ambientes: AmbienteElement[]
+  /**
+   * Campus.
+   */
+  campus: BlocoCampus
+  /**
+   * Código do Bloco.
+   */
+  codigo: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Nome do Bloco.
+   */
+  nome: string
 }
 
 export interface BlocoCreateOperation {
@@ -2844,7 +2948,7 @@ export interface BlocoFindOneResultView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome do Bloco.
    */
@@ -2905,48 +3009,6 @@ export interface BlocoInputUpdateView {
    * Nome do Bloco.
    */
   nome?: string
-}
-
-/**
- * Bloco.
- */
-export interface Bloco {
-  /**
-   * Ambientes.
-   */
-  ambientes: AmbientePadraoElement[]
-  /**
-   * Campus.
-   */
-  campus: BlocoCampus
-  /**
-   * Código do Bloco.
-   */
-  codigo: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Nome do Bloco.
-   */
-  nome: string
 }
 
 export interface BlocoListOperation {
@@ -3094,7 +3156,7 @@ export interface BlocoUpdateByIdOperationOutput {
  * Visão completa de um bloco.
  */
 export interface BlocoView {
-  ambientes: AmbienteElement[]
+  ambientes: AmbientePadraoElement[]
   campus: CampusElement
   /**
    * Código do Bloco.
@@ -3116,11 +3178,49 @@ export interface BlocoView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome do Bloco.
    */
   nome: string
+}
+
+/**
+ * CalendarioLetivo.
+ */
+export interface CalendarioLetivo {
+  /**
+   * Ano do calendário letivo.
+   */
+  ano: number
+  /**
+   * Campus ao qual o calendário letivo pertence.
+   */
+  campus: BlocoCampus
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome do calendário letivo.
+   */
+  nome: string
+  /**
+   * Oferta de formação do calendário letivo.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
 }
 
 export interface CalendarioLetivoCreateOperation {
@@ -3284,44 +3384,6 @@ export interface CalendarioLetivoInputUpdateView {
   ofertaFormacao?: BodyOfertaFormacao
 }
 
-/**
- * CalendarioLetivo.
- */
-export interface CalendarioLetivo {
-  /**
-   * Ano do calendário letivo.
-   */
-  ano: number
-  /**
-   * Campus ao qual o calendário letivo pertence.
-   */
-  campus: BlocoCampus
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nome do calendário letivo.
-   */
-  nome: string
-  /**
-   * Oferta de formação do calendário letivo.
-   */
-  ofertaFormacao: CalendarioLetivoOfertaFormacao
-}
-
 export interface CalendarioLetivoListOperation {
   input: CalendarioLetivoListOperationInput
   output: CalendarioLetivoListOperationOutput
@@ -3465,6 +3527,48 @@ export interface CalendarioLetivoView {
    */
   nome: string
   ofertaFormacao: OfertaFormacaoElement
+}
+
+/**
+ * Campus.
+ */
+export interface Campus {
+  /**
+   * Apelido do campus.
+   */
+  apelido: string
+  /**
+   * CNPJ do campus.
+   */
+  cnpj: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Endereço do campus
+   */
+  endereco: CampusEndereco
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome fantasia do campus.
+   */
+  nomeFantasia: string
+  /**
+   * Razão social do campus.
+   */
+  razaoSocial: string
 }
 
 /**
@@ -3690,48 +3794,6 @@ export interface CampusInputUpdateView {
   razaoSocial?: string
 }
 
-/**
- * Campus.
- */
-export interface Campus {
-  /**
-   * Apelido do campus.
-   */
-  apelido: string
-  /**
-   * CNPJ do campus.
-   */
-  cnpj: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Endereço do campus
-   */
-  endereco: CampusEndereco
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nome fantasia do campus.
-   */
-  nomeFantasia: string
-  /**
-   * Razão social do campus.
-   */
-  razaoSocial: string
-}
-
 export interface CampusListOperation {
   input: CampusListOperationInput
   output: CampusListOperationOutput
@@ -3894,6 +3956,24 @@ export interface CampusView {
   razaoSocial: string
 }
 
+/**
+ * Cidade.
+ */
+export interface Cidade {
+  /**
+   * Estado da cidade
+   */
+  estado: CidadeEstado
+  /**
+   * Identificador do registro (numérico).
+   */
+  id: number
+  /**
+   * Nome oficial da cidade.
+   */
+  nome: string
+}
+
 export interface CidadeFindOneByIdOperation {
   input: CidadeFindOneByIdOperationInput
   output: CidadeFindOneByIdOperationOutput
@@ -3932,24 +4012,6 @@ export interface CidadeFindOneInputView {
  */
 export interface CidadeFindOneResultView {
   estado: EstadoElement
-  /**
-   * Identificador do registro (numérico).
-   */
-  id: number
-  /**
-   * Nome oficial da cidade.
-   */
-  nome: string
-}
-
-/**
- * Cidade.
- */
-export interface Cidade {
-  /**
-   * Estado da cidade
-   */
-  estado: CidadeEstado
   /**
    * Identificador do registro (numérico).
    */
@@ -4045,6 +4107,48 @@ export interface CidadeView {
    * Nome oficial da cidade.
    */
   nome: string
+}
+
+/**
+ * Curso.
+ */
+export interface Curso {
+  /**
+   * Campus que o curso pertence.
+   */
+  campus: BlocoCampus
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa do curso.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Nome do curso.
+   */
+  nome: string
+  /**
+   * Nome abreviado do curso.
+   */
+  nomeAbreviado: string
+  /**
+   * Oferta de formação do curso.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
 }
 
 export interface CursoCreateOperation {
@@ -4155,7 +4259,7 @@ export interface CursoFindOneResultView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome do curso.
    */
@@ -4223,48 +4327,6 @@ export interface CursoInputUpdateView {
    */
   nomeAbreviado?: string
   ofertaFormacao?: BodyOfertaFormacao
-}
-
-/**
- * Curso.
- */
-export interface Curso {
-  /**
-   * Campus que o curso pertence.
-   */
-  campus: BlocoCampus
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa do curso.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Nome do curso.
-   */
-  nome: string
-  /**
-   * Nome abreviado do curso.
-   */
-  nomeAbreviado: string
-  /**
-   * Oferta de formação do curso.
-   */
-  ofertaFormacao: CalendarioLetivoOfertaFormacao
 }
 
 export interface CursoListOperation {
@@ -4431,7 +4493,7 @@ export interface CursoView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome do curso.
    */
@@ -4460,6 +4522,44 @@ export interface DatedObject {
    */
   dateUpdated: Date
   [property: string]: any
+}
+
+/**
+ * DiaCalendario.
+ */
+export interface DiaCalendario {
+  /**
+   * Calendario.
+   */
+  calendario: DiarioCalendario
+  /**
+   * Data.
+   */
+  data: Date
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Define que o dia é letivo.
+   */
+  diaLetivo: boolean
+  /**
+   * Define que o dia é feriado.
+   */
+  feriado: boolean
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
 }
 
 export interface DiaCalendarioCreateOperation {
@@ -4643,44 +4743,6 @@ export interface DiaCalendarioInputUpdateView {
   feriado?: boolean
 }
 
-/**
- * DiaCalendario.
- */
-export interface DiaCalendario {
-  /**
-   * Calendario.
-   */
-  calendario: DiarioCalendario
-  /**
-   * Data.
-   */
-  data: Date
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Define que o dia é letivo.
-   */
-  diaLetivo: boolean
-  /**
-   * Define que o dia é feriado.
-   */
-  feriado: boolean
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-}
-
 export interface DiaCalendarioListOperation {
   input: DiaCalendarioListOperationInput
   output: DiaCalendarioListOperationOutput
@@ -4822,6 +4884,52 @@ export interface DiaCalendarioView {
   id: string
 }
 
+/**
+ * Diario.
+ */
+export interface Diario {
+  /**
+   * Ambiente padrão.
+   */
+  ambientePadrao: AmbienteElement | null
+  /**
+   * Situação do diário.
+   */
+  ativo: boolean
+  /**
+   * Calendário Letivo vinculado ao diário.
+   */
+  calendarioLetivo: DiarioCalendario
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Disciplina vinculada ao diário.
+   */
+  disciplina: DiarioDisciplina
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa do diário.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Turma vinculada ao diário.
+   */
+  turma: DiarioTurma
+}
+
 export interface DiarioCreateOperation {
   input: DiarioCreateOperationInput
   output: DiarioCreateOperationOutput
@@ -4928,7 +5036,7 @@ export interface DiarioFindOneInputView {
  * Visão FindOne de um diário.
  */
 export interface DiarioFindOneResultView {
-  ambientePadrao: AmbienteElement | null
+  ambientePadrao: AmbientePadraoElement | null
   /**
    * Situação do diário.
    */
@@ -4951,7 +5059,7 @@ export interface DiarioFindOneResultView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   turma: TurmaElement
 }
 
@@ -5004,52 +5112,6 @@ export interface DiarioInputUpdateView {
   calendarioLetivo?: BodyCalendarioLetivo
   disciplina?: BodyDisciplina
   turma?: BodyTurma
-}
-
-/**
- * Diario.
- */
-export interface Diario {
-  /**
-   * Ambiente padrão.
-   */
-  ambientePadrao: AmbientePadraoElement | null
-  /**
-   * Situação do diário.
-   */
-  ativo: boolean
-  /**
-   * Calendário Letivo vinculado ao diário.
-   */
-  calendarioLetivo: DiarioCalendario
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Disciplina vinculada ao diário.
-   */
-  disciplina: DiarioDisciplina
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa do diário.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Turma vinculada ao diário.
-   */
-  turma: DiarioTurma
 }
 
 export interface DiarioListOperation {
@@ -5125,6 +5187,52 @@ export interface DiarioListResultView {
    * Metadados da busca.
    */
   meta: Meta
+}
+
+/**
+ * DiarioPreferenciaAgrupamento.
+ */
+export interface DiarioPreferenciaAgrupamento {
+  /**
+   * Quantidade de aulas seguidas.
+   */
+  aulasSeguidas: number
+  /**
+   * Fim da vigência da preferência de agrupamento.
+   */
+  dataFim: Date | null
+  /**
+   * Início da vigência da preferência de agrupamento.
+   */
+  dataInicio: Date
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Diário vinculado.
+   */
+  diario: AulaDiario
+  /**
+   * Dia da semana.
+   */
+  diaSemanaIso: number
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Intervalo de tempo.
+   */
+  intervaloDeTempo: AulaIntervaloDeTempo
 }
 
 export interface DiarioPreferenciaAgrupamentoCreateOperation {
@@ -5350,52 +5458,6 @@ export interface DiarioPreferenciaAgrupamentoInputUpdateView {
   intervaloDeTempo?: BodyIntervaloDeTempo
 }
 
-/**
- * DiarioPreferenciaAgrupamento.
- */
-export interface DiarioPreferenciaAgrupamento {
-  /**
-   * Quantidade de aulas seguidas.
-   */
-  aulasSeguidas: number
-  /**
-   * Fim da vigência da preferência de agrupamento.
-   */
-  dataFim: Date | null
-  /**
-   * Início da vigência da preferência de agrupamento.
-   */
-  dataInicio: Date
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Diário vinculado.
-   */
-  diario: AulaDiario
-  /**
-   * Dia da semana.
-   */
-  diaSemanaIso: number
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Intervalo de tempo.
-   */
-  intervaloDeTempo: AulaIntervaloDeTempo
-}
-
 export interface DiarioPreferenciaAgrupamentoListOperation {
   input: DiarioPreferenciaAgrupamentoListOperationInput
   output: DiarioPreferenciaAgrupamentoListOperationOutput
@@ -5554,6 +5616,132 @@ export interface DiarioPreferenciaAgrupamentoView {
    */
   id: string
   intervaloDeTempo: SuccessIntervaloDeTempo
+}
+
+/**
+ * DiarioProfessor.
+ */
+export interface DiarioProfessor {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Diário vinculado.
+   */
+  diario: AulaDiario
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Perfil do usuário ao campus.
+   */
+  perfil: DiarioProfessorPerfil
+  /**
+   * Situação do vínculo.
+   */
+  situacao: boolean
+}
+
+/**
+ * Perfil do usuário ao campus.
+ *
+ * Vínculo.
+ *
+ * Professor.
+ */
+export interface DiarioProfessorPerfil {
+  /**
+   * Indica se o vínculo está ativo.
+   */
+  ativo: boolean
+  /**
+   * Campus associado ao vínculo.
+   */
+  campus: BlocoCampus
+  /**
+   * Cargo do usuário no vínculo.
+   */
+  cargo: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Usuário associado ao vínculo.
+   */
+  usuario: PerfilUsuario
+}
+
+/**
+ * Usuário associado ao vínculo.
+ *
+ * Usuário.
+ *
+ * Usuário que fez a reserva.
+ */
+export interface PerfilUsuario {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * E-mail do usuário.
+   */
+  email: null | string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa do usuário.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Imagem de perfil do usuário.
+   */
+  imagemPerfil: ImagemCapaClass | null
+  /**
+   * Diz que o usuário tem poderes de administrador.
+   */
+  isSuperUser: boolean
+  /**
+   * Matrícula SIAPE do usuário.
+   */
+  matriculaSiape: null | string
+  /**
+   * Nome do usuário.
+   */
+  nome: null | string
 }
 
 export interface DiarioProfessorCreateOperation {
@@ -5718,132 +5906,6 @@ export interface DiarioProfessorInputUpdateView {
   diario?: BodyDiario
   perfil?: BodyPerfil
   situacao?: boolean
-}
-
-/**
- * DiarioProfessor.
- */
-export interface DiarioProfessor {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Diário vinculado.
-   */
-  diario: AulaDiario
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Perfil do usuário ao campus.
-   */
-  perfil: DiarioProfessorPerfil
-  /**
-   * Situação do vínculo.
-   */
-  situacao: boolean
-}
-
-/**
- * Perfil do usuário ao campus.
- *
- * Vínculo.
- *
- * Professor.
- */
-export interface DiarioProfessorPerfil {
-  /**
-   * Indica se o vínculo está ativo.
-   */
-  ativo: boolean
-  /**
-   * Campus associado ao vínculo.
-   */
-  campus: BlocoCampus
-  /**
-   * Cargo do usuário no vínculo.
-   */
-  cargo: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Usuário associado ao vínculo.
-   */
-  usuario: PerfilUsuario
-}
-
-/**
- * Usuário associado ao vínculo.
- *
- * Usuário.
- *
- * Usuário que fez a reserva.
- */
-export interface PerfilUsuario {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * E-mail do usuário.
-   */
-  email: null | string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa do usuário.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Imagem de perfil do usuário.
-   */
-  imagemPerfil: ImagemPerfilClass | null
-  /**
-   * Diz que o usuário tem poderes de administrador.
-   */
-  isSuperUser: boolean
-  /**
-   * Matrícula SIAPE do usuário.
-   */
-  matriculaSiape: null | string
-  /**
-   * Nome do usuário.
-   */
-  nome: null | string
 }
 
 export interface DiarioProfessorListOperation {
@@ -6049,7 +6111,7 @@ export interface DiarioUpdateByIdOperationOutput {
  * Visão completa de um diário.
  */
 export interface DiarioView {
-  ambientePadrao: AmbienteElement | null
+  ambientePadrao: AmbientePadraoElement | null
   /**
    * Situação do diário.
    */
@@ -6072,8 +6134,50 @@ export interface DiarioView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   turma: TurmaElement
+}
+
+/**
+ * Disciplina.
+ */
+export interface Disciplina {
+  /**
+   * Carga horária da disciplina.
+   */
+  cargaHoraria: number
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Diários que vinculam esta disciplina.
+   */
+  diarios: AulaDiario[]
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa da disciplina.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Nome da disciplina.
+   */
+  nome: string
+  /**
+   * Nome abreviado da disciplina.
+   */
+  nomeAbreviado: string
 }
 
 export interface DisciplinaCreateOperation {
@@ -6189,7 +6293,7 @@ export interface DisciplinaFindOneResultView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome da disciplina.
    */
@@ -6260,48 +6364,6 @@ export interface DisciplinaInputUpdateView {
    * Nome abreviado da disciplina.
    */
   nomeAbreviado?: string
-}
-
-/**
- * Disciplina.
- */
-export interface Disciplina {
-  /**
-   * Carga horária da disciplina.
-   */
-  cargaHoraria: number
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Diários que vinculam esta disciplina.
-   */
-  diarios: AulaDiario[]
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa da disciplina.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Nome da disciplina.
-   */
-  nome: string
-  /**
-   * Nome abreviado da disciplina.
-   */
-  nomeAbreviado: string
 }
 
 export interface DisciplinaListOperation {
@@ -6476,7 +6538,7 @@ export interface DisciplinaView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Nome da disciplina.
    */
@@ -6485,6 +6547,36 @@ export interface DisciplinaView {
    * Nome abreviado da disciplina.
    */
   nomeAbreviado: string
+}
+
+/**
+ * Disponibilidade.
+ */
+export interface Disponibilidade {
+  /**
+   * Data de término.
+   */
+  dataFim: Date | null
+  /**
+   * Data de início.
+   */
+  dataInicio: Date
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
 }
 
 export interface DisponibilidadeCreateOperation {
@@ -6561,6 +6653,70 @@ export interface Params32 {
 export interface DisponibilidadeDeleteByIdOperationOutput {
   success: boolean
   [property: string]: any
+}
+
+/**
+ * DisponibilidadeDia.
+ */
+export interface DisponibilidadeDia {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Disponibilidade.
+   */
+  disponibilidade: DisponibilidadeDiaDisponibilidade
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Intervalo de tempo.
+   */
+  intervaloDeTempo: AulaIntervaloDeTempo
+  /**
+   * Regra RRule para a recorrência do evento. Segue a RFC 5545 do iCalendar.
+   */
+  rrule: string
+}
+
+/**
+ * Disponibilidade.
+ */
+export interface DisponibilidadeDiaDisponibilidade {
+  /**
+   * Data de término.
+   */
+  dataFim: Date | null
+  /**
+   * Data de início.
+   */
+  dataInicio: Date
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
 }
 
 export interface DisponibilidadeDiaCreateOperation {
@@ -6734,70 +6890,6 @@ export interface DisponibilidadeDiaInputUpdateView {
    * Regra RRule para a recorrência do evento. Segue a RFC 5545 do iCalendar.
    */
   rrule?: string
-}
-
-/**
- * DisponibilidadeDia.
- */
-export interface DisponibilidadeDia {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Disponibilidade.
-   */
-  disponibilidade: DisponibilidadeDiaDisponibilidade
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Intervalo de tempo.
-   */
-  intervaloDeTempo: AulaIntervaloDeTempo
-  /**
-   * Regra RRule para a recorrência do evento. Segue a RFC 5545 do iCalendar.
-   */
-  rrule: string
-}
-
-/**
- * Disponibilidade.
- */
-export interface DisponibilidadeDiaDisponibilidade {
-  /**
-   * Data de término.
-   */
-  dataFim: Date | null
-  /**
-   * Data de início.
-   */
-  dataInicio: Date
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
 }
 
 export interface DisponibilidadeDiaListOperation {
@@ -7015,36 +7107,6 @@ export interface DisponibilidadeInputUpdateView {
   dataInicio?: Date
 }
 
-/**
- * Disponibilidade.
- */
-export interface Disponibilidade {
-  /**
-   * Data de término.
-   */
-  dataFim: Date | null
-  /**
-   * Data de início.
-   */
-  dataInicio: Date
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-}
-
 export interface DisponibilidadeListOperation {
   input: DisponibilidadeListOperationInput
   output: DisponibilidadeListOperationOutput
@@ -7179,6 +7241,56 @@ export interface DisponibilidadeView {
 }
 
 /**
+ * Endereço.
+ */
+export interface Endereco {
+  /**
+   * Bairro.
+   */
+  bairro: string
+  /**
+   * Código postal (CEP).
+   */
+  cep: string
+  /**
+   * Cidade.
+   */
+  cidade: EnderecoCidade
+  /**
+   * Complemento.
+   */
+  complemento: null | string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Logradouro.
+   */
+  logradouro: string
+  /**
+   * Número.
+   */
+  numero: number
+  /**
+   * Ponto de referência.
+   */
+  pontoReferencia: null | string
+}
+
+/**
  * Dados de entrada para encontrar um endereço por id.
  */
 export interface EnderecoFindOneInputView {
@@ -7267,56 +7379,6 @@ export interface EnderecoInput {
 }
 
 /**
- * Endereço.
- */
-export interface Endereco {
-  /**
-   * Bairro.
-   */
-  bairro: string
-  /**
-   * Código postal (CEP).
-   */
-  cep: string
-  /**
-   * Cidade.
-   */
-  cidade: EnderecoCidade
-  /**
-   * Complemento.
-   */
-  complemento: null | string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Logradouro.
-   */
-  logradouro: string
-  /**
-   * Número.
-   */
-  numero: number
-  /**
-   * Ponto de referência.
-   */
-  pontoReferencia: null | string
-}
-
-/**
  * Visão completa de um endereco.
  */
 export interface EnderecoView {
@@ -7363,6 +7425,24 @@ export interface EnderecoView {
   pontoReferencia: null | string
 }
 
+/**
+ * Estado.
+ */
+export interface Estado {
+  /**
+   * Identificador do registro (numérico).
+   */
+  id: number
+  /**
+   * Nome oficial do estado.
+   */
+  nome: string
+  /**
+   * Sigla do estado.
+   */
+  sigla: string
+}
+
 export interface EstadoFindOneByIdOperation {
   input: EstadoFindOneByIdOperationInput
   output: EstadoFindOneByIdOperationOutput
@@ -7400,24 +7480,6 @@ export interface EstadoFindOneInputView {
  * Visão FindOne de um estado.
  */
 export interface EstadoFindOneResultView {
-  /**
-   * Identificador do registro (numérico).
-   */
-  id: number
-  /**
-   * Nome oficial do estado.
-   */
-  nome: string
-  /**
-   * Sigla do estado.
-   */
-  sigla: string
-}
-
-/**
- * Estado.
- */
-export interface Estado {
   /**
    * Identificador do registro (numérico).
    */
@@ -7519,6 +7581,48 @@ export interface EstadoView {
    * Sigla do estado.
    */
   sigla: string
+}
+
+/**
+ * Etapa.
+ */
+export interface Etapa {
+  /**
+   * Calendario.
+   */
+  calendario: DiarioCalendario
+  /**
+   * Cor da etapa.
+   */
+  cor: null | string
+  /**
+   * Data de início.
+   */
+  dataInicio: Date
+  /**
+   * Data de término.
+   */
+  dataTermino: Date
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Número da etapa.
+   */
+  numero: number | null
 }
 
 export interface EtapaCreateOperation {
@@ -7703,48 +7807,6 @@ export interface EtapaInputUpdateView {
   numero?: number | null
 }
 
-/**
- * Etapa.
- */
-export interface Etapa {
-  /**
-   * Calendario.
-   */
-  calendario: DiarioCalendario
-  /**
-   * Cor da etapa.
-   */
-  cor: null | string
-  /**
-   * Data de início.
-   */
-  dataInicio: Date
-  /**
-   * Data de término.
-   */
-  dataTermino: Date
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Número da etapa.
-   */
-  numero: number | null
-}
-
 export interface EtapaListOperation {
   input: EtapaListOperationInput
   output: EtapaListOperationOutput
@@ -7889,6 +7951,44 @@ export interface EtapaView {
    * Número da etapa.
    */
   numero: number | null
+}
+
+/**
+ * Evento.
+ */
+export interface Evento {
+  /**
+   * Calendario.
+   */
+  calendario: DiarioCalendario
+  /**
+   * Cor da Evento.
+   */
+  cor: null | string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome do evento.
+   */
+  nome: null | string
+  /**
+   * Regra RRule para a recorrência do evento. Segue a RFC 5545 do iCalendar.
+   */
+  rrule: string
 }
 
 export interface EventoCreateOperation {
@@ -8062,44 +8162,6 @@ export interface EventoInputUpdateView {
   rrule?: string
 }
 
-/**
- * Evento.
- */
-export interface Evento {
-  /**
-   * Calendario.
-   */
-  calendario: DiarioCalendario
-  /**
-   * Cor da Evento.
-   */
-  cor: null | string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nome do evento.
-   */
-  nome: null | string
-  /**
-   * Regra RRule para a recorrência do evento. Segue a RFC 5545 do iCalendar.
-   */
-  rrule: string
-}
-
 export interface EventoListOperation {
   input: EventoListOperationInput
   output: EventoListOperationOutput
@@ -8260,6 +8322,36 @@ export interface GenericSearchInputView {
   sortBy: string[]
 }
 
+/**
+ * GradeHorarioOfertaFormacao.
+ */
+export interface GradeHorarioOfertaFormacao {
+  /**
+   * Campus.
+   */
+  campus: BlocoCampus
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Oferta de formação.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
+}
+
 export interface GradeHorarioOfertaFormacaoCreateOperation {
   input: GradeHorarioOfertaFormacaoCreateOperationInput
   output: GradeHorarioOfertaFormacaoCreateOperationOutput
@@ -8401,6 +8493,68 @@ export interface GradeHorarioOfertaFormacaoInputCreateView {
 export interface GradeHorarioOfertaFormacaoInputUpdateView {
   campus?: BodyCampus
   ofertaFormacao?: BodyOfertaFormacao
+}
+
+/**
+ * GradeHorarioOfertaFormacaoIntervaloDeTempo.
+ */
+export interface GradeHorarioOfertaFormacaoIntervaloDeTempo {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Grade de horário da oferta de formação.
+   */
+  gradeHorarioOfertaFormacao: GradeHorarioOfertaFormacaoIntervaloDeTempoGradeHorarioOfertaFormacao
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Intervalo de tempo.
+   */
+  intervaloDeTempo: AulaIntervaloDeTempo
+}
+
+/**
+ * Grade de horário da oferta de formação.
+ *
+ * GradeHorarioOfertaFormacao.
+ */
+export interface GradeHorarioOfertaFormacaoIntervaloDeTempoGradeHorarioOfertaFormacao {
+  /**
+   * Campus.
+   */
+  campus: BlocoCampus
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Oferta de formação.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
 }
 
 export interface GradeHorarioOfertaFormacaoIntervaloDeTempoCreateOperation {
@@ -8556,68 +8710,6 @@ export interface GradeHorarioOfertaFormacaoIntervaloDeTempoInputUpdateView {
   intervaloDeTempo?: BodyIntervaloDeTempo
 }
 
-/**
- * GradeHorarioOfertaFormacaoIntervaloDeTempo.
- */
-export interface GradeHorarioOfertaFormacaoIntervaloDeTempo {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Grade de horário da oferta de formação.
-   */
-  gradeHorarioOfertaFormacao: GradeHorarioOfertaFormacaoIntervaloDeTempoGradeHorarioOfertaFormacao
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Intervalo de tempo.
-   */
-  intervaloDeTempo: AulaIntervaloDeTempo
-}
-
-/**
- * Grade de horário da oferta de formação.
- *
- * GradeHorarioOfertaFormacao.
- */
-export interface GradeHorarioOfertaFormacaoIntervaloDeTempoGradeHorarioOfertaFormacao {
-  /**
-   * Campus.
-   */
-  campus: BlocoCampus
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Oferta de formação.
-   */
-  ofertaFormacao: CalendarioLetivoOfertaFormacao
-}
-
 export interface GradeHorarioOfertaFormacaoIntervaloDeTempoListOperation {
   input: GradeHorarioOfertaFormacaoIntervaloDeTempoListOperationInput
   output: GradeHorarioOfertaFormacaoIntervaloDeTempoListOperationOutput
@@ -8745,36 +8837,6 @@ export interface GradeHorarioOfertaFormacaoIntervaloDeTempoView {
   intervaloDeTempo: SuccessIntervaloDeTempo
 }
 
-/**
- * GradeHorarioOfertaFormacao.
- */
-export interface GradeHorarioOfertaFormacao {
-  /**
-   * Campus.
-   */
-  campus: BlocoCampus
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Oferta de formação.
-   */
-  ofertaFormacao: CalendarioLetivoOfertaFormacao
-}
-
 export interface GradeHorarioOfertaFormacaoListOperation {
   input: GradeHorarioOfertaFormacaoListOperationInput
   output: GradeHorarioOfertaFormacaoListOperationOutput
@@ -8900,6 +8962,162 @@ export interface GradeHorarioOfertaFormacaoView {
    */
   id: string
   ofertaFormacao: OfertaFormacaoElement
+}
+
+/**
+ * HorarioGerado.
+ */
+export interface HorarioGerado {
+  /**
+   * calendário.
+   */
+  calendario: DiarioCalendario
+  /**
+   * Data em que o horário foi gerado.
+   */
+  dataGeracao: Date | null
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Status do horário gerado.
+   */
+  status: null | string
+  /**
+   * Tipo do horário gerado.
+   */
+  tipo: null | string
+  /**
+   * Fim da vigência do horário gerado.
+   */
+  vigenciaFim: Date | null
+  /**
+   * Início da vigência do horário gerado.
+   */
+  vigenciaInicio: Date | null
+}
+
+/**
+ * HorarioGeradoAula.
+ */
+export interface HorarioGeradoAula {
+  /**
+   * Data da aula gerada.
+   */
+  data: Date
+  /**
+   * Vínculo de diário e professor.
+   */
+  diarioProfessor: HorarioGeradoAulaDiarioProfessor
+  /**
+   * Horário ao qual a aula pertence.
+   */
+  horarioGerado: HorarioGeradoAulaHorarioGerado
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Intervalo de tempo.
+   */
+  intervaloDeTempo: AulaIntervaloDeTempo
+}
+
+/**
+ * Vínculo de diário e professor.
+ *
+ * DiarioProfessor.
+ */
+export interface HorarioGeradoAulaDiarioProfessor {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Diário vinculado.
+   */
+  diario: AulaDiario
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Perfil do usuário ao campus.
+   */
+  perfil: DiarioProfessorPerfil
+  /**
+   * Situação do vínculo.
+   */
+  situacao: boolean
+}
+
+/**
+ * Horário ao qual a aula pertence.
+ *
+ * HorarioGerado.
+ */
+export interface HorarioGeradoAulaHorarioGerado {
+  /**
+   * calendário.
+   */
+  calendario: DiarioCalendario
+  /**
+   * Data em que o horário foi gerado.
+   */
+  dataGeracao: Date | null
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Status do horário gerado.
+   */
+  status: null | string
+  /**
+   * Tipo do horário gerado.
+   */
+  tipo: null | string
+  /**
+   * Fim da vigência do horário gerado.
+   */
+  vigenciaFim: Date | null
+  /**
+   * Início da vigência do horário gerado.
+   */
+  vigenciaInicio: Date | null
 }
 
 export interface HorarioGeradoAulaCreateOperation {
@@ -9107,116 +9325,6 @@ export interface HorarioGeradoAulaInputUpdateView {
   diarioProfessor?: BodyDiarioProfessor
   horarioGerado?: BodyHorarioGerado
   intervaloDeTempo?: BodyIntervaloDeTempo
-}
-
-/**
- * HorarioGeradoAula.
- */
-export interface HorarioGeradoAula {
-  /**
-   * Data da aula gerada.
-   */
-  data: Date
-  /**
-   * Vínculo de diário e professor.
-   */
-  diarioProfessor: HorarioGeradoAulaDiarioProfessor
-  /**
-   * Horário ao qual a aula pertence.
-   */
-  horarioGerado: HorarioGeradoAulaHorarioGerado
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Intervalo de tempo.
-   */
-  intervaloDeTempo: AulaIntervaloDeTempo
-}
-
-/**
- * Vínculo de diário e professor.
- *
- * DiarioProfessor.
- */
-export interface HorarioGeradoAulaDiarioProfessor {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Diário vinculado.
-   */
-  diario: AulaDiario
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Perfil do usuário ao campus.
-   */
-  perfil: DiarioProfessorPerfil
-  /**
-   * Situação do vínculo.
-   */
-  situacao: boolean
-}
-
-/**
- * Horário ao qual a aula pertence.
- *
- * HorarioGerado.
- */
-export interface HorarioGeradoAulaHorarioGerado {
-  /**
-   * calendário.
-   */
-  calendario: DiarioCalendario
-  /**
-   * Data em que o horário foi gerado.
-   */
-  dataGeracao: Date | null
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Status do horário gerado.
-   */
-  status: null | string
-  /**
-   * Tipo do horário gerado.
-   */
-  tipo: null | string
-  /**
-   * Fim da vigência do horário gerado.
-   */
-  vigenciaFim: Date | null
-  /**
-   * Início da vigência do horário gerado.
-   */
-  vigenciaInicio: Date | null
 }
 
 export interface HorarioGeradoAulaListOperation {
@@ -9539,52 +9647,6 @@ export interface HorarioGeradoInputUpdateView {
   vigenciaInicio?: Date | null
 }
 
-/**
- * HorarioGerado.
- */
-export interface HorarioGerado {
-  /**
-   * calendário.
-   */
-  calendario: DiarioCalendario
-  /**
-   * Data em que o horário foi gerado.
-   */
-  dataGeracao: Date | null
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Status do horário gerado.
-   */
-  status: null | string
-  /**
-   * Tipo do horário gerado.
-   */
-  tipo: null | string
-  /**
-   * Fim da vigência do horário gerado.
-   */
-  vigenciaFim: Date | null
-  /**
-   * Início da vigência do horário gerado.
-   */
-  vigenciaInicio: Date | null
-}
-
 export interface HorarioGeradoListOperation {
   input: HorarioGeradoListOperationInput
   output: HorarioGeradoListOperationOutput
@@ -9751,6 +9813,82 @@ export interface HorarioGeradoView {
 }
 
 /**
+ * Imagem.
+ */
+export interface Imagem {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Descrição da imagem.
+   */
+  descricao: null | string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Versões da imagem.
+   */
+  versoes: VersoeElement[]
+}
+
+/**
+ * ImagemArquivo.
+ */
+export interface ImagemArquivo {
+  /**
+   * Altura da imagem.
+   */
+  altura: number
+  /**
+   * Arquivo.
+   */
+  arquivo: ImagemArquivoArquivo
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Formato da imagem.
+   */
+  formato: string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem.
+   */
+  imagem: ImagemCapaClass
+  /**
+   * Largura da imagem.
+   */
+  largura: number
+  /**
+   * Mime-type da imagem.
+   */
+  mimeType: string
+}
+
+/**
  * Visão FindOneFromImagem de uma versão de imagem.
  */
 export interface ImagemArquivoFindOneFromImagemResultView {
@@ -9850,52 +9988,6 @@ export interface ImagemArquivoFindOneResultViewImagem {
 }
 
 /**
- * ImagemArquivo.
- */
-export interface ImagemArquivo {
-  /**
-   * Altura da imagem.
-   */
-  altura: number
-  /**
-   * Arquivo.
-   */
-  arquivo: ImagemArquivoArquivo
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Formato da imagem.
-   */
-  formato: string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem.
-   */
-  imagem: ImagemPerfilClass
-  /**
-   * Largura da imagem.
-   */
-  largura: number
-  /**
-   * Mime-type da imagem.
-   */
-  mimeType: string
-}
-
-/**
  * Visão completa de uma versão de uma imagem.
  */
 export interface ImagemArquivoView {
@@ -9980,36 +10072,6 @@ export interface ImagemFindOneResultView {
    * Identificador do registro (uuid).
    */
   id: string
-  versoes: VersoeElement[]
-}
-
-/**
- * Imagem.
- */
-export interface Imagem {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Descrição da imagem.
-   */
-  descricao: null | string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Versões da imagem.
-   */
   versoes: VersoeClass[]
 }
 
@@ -10037,7 +10099,37 @@ export interface ImagemView {
    * Identificador do registro (uuid).
    */
   id: string
-  versoes: VersoeElement[]
+  versoes: VersoeClass[]
+}
+
+/**
+ * Intervalo de Tempo.
+ */
+export interface IntervaloDeTempo {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Horário que o intervalo de tempo termina.
+   */
+  periodoFim: string
+  /**
+   * Horário que o intervalo de tempo inicia.
+   */
+  periodoInicio: string
 }
 
 /**
@@ -10085,36 +10177,6 @@ export interface IntervaloDeTempoInputView {
 }
 
 /**
- * Intervalo de Tempo.
- */
-export interface IntervaloDeTempo {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Horário que o intervalo de tempo termina.
-   */
-  periodoFim: string
-  /**
-   * Horário que o intervalo de tempo inicia.
-   */
-  periodoInicio: string
-}
-
-/**
  * Visão completa de um Intervalo de Tempo.
  */
 export interface IntervaloDeTempoView {
@@ -10142,6 +10204,36 @@ export interface IntervaloDeTempoView {
    * Horário que o intervalo de tempo inicia.
    */
   periodoInicio: string
+}
+
+/**
+ * Modalidade.
+ */
+export interface Modalidade {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nome da modalidade.
+   */
+  nome: string
+  /**
+   * Apelido da modalidade.
+   */
+  slug: string
 }
 
 export interface ModalidadeCreateOperation {
@@ -10269,36 +10361,6 @@ export interface ModalidadeInputUpdateView {
    * Apelido da modalidade.
    */
   slug?: string
-}
-
-/**
- * Modalidade.
- */
-export interface Modalidade {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nome da modalidade.
-   */
-  nome: string
-  /**
-   * Apelido da modalidade.
-   */
-  slug: string
 }
 
 export interface ModalidadeListOperation {
@@ -10432,6 +10494,32 @@ export interface ModalidadeView {
   nome: string
   /**
    * Apelido da modalidade.
+   */
+  slug: string
+}
+
+/**
+ * NivelFormacao.
+ */
+export interface NivelFormacao {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Apelido do nível de formação.
    */
   slug: string
 }
@@ -10589,32 +10677,6 @@ export interface NivelFormacaoInputUpdateView {
   slug?: string
 }
 
-/**
- * NivelFormacao.
- */
-export interface NivelFormacao {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Apelido do nível de formação.
-   */
-  slug: string
-}
-
 export interface NivelFormacaoListOperation {
   input: NivelFormacaoListOperationInput
   output: NivelFormacaoListOperationOutput
@@ -10766,6 +10828,44 @@ export interface ObjectUuid {
    */
   id: string
   [property: string]: any
+}
+
+/**
+ * OfertaFormacao.
+ */
+export interface OfertaFormacao {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Modalidade da oferta de formação.
+   */
+  modalidade: OfertaFormacaoModalidade
+  /**
+   * Nome da oferta de formação.
+   */
+  nome: string
+  /**
+   * Array de relações entre a oferta e níveis de formações.
+   */
+  ofertaFormacaoNiveisFormacoes: OfertaFormacaoNiveisFormacoeElement[]
+  /**
+   * Apelido da oferta de formação.
+   */
+  slug: string
 }
 
 export interface OfertaFormacaoCreateOperation {
@@ -10939,40 +11039,6 @@ export interface OfertaFormacaoInputUpdateView {
   slug?: string
 }
 
-/**
- * OfertaFormacao.
- */
-export interface OfertaFormacao {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Modalidade da oferta de formação.
-   */
-  modalidade: OfertaFormacaoModalidade
-  /**
-   * Nome da oferta de formação.
-   */
-  nome: string
-  /**
-   * Apelido da oferta de formação.
-   */
-  slug: string
-}
-
 export interface OfertaFormacaoListOperation {
   input: OfertaFormacaoListOperationInput
   output: OfertaFormacaoListOperationOutput
@@ -11042,6 +11108,36 @@ export interface OfertaFormacaoListResultView {
    * Metadados da busca.
    */
   meta: Meta
+}
+
+/**
+ * OfertaFormacaoNivelFormacao.
+ */
+export interface OfertaFormacaoNivelFormacao {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Nível de formação.
+   */
+  nivelFormacao: NiveisFormacoeElement
+  /**
+   * Oferta de formação.
+   */
+  ofertaFormacao: OfertaFormacaoNiveisFormacoeOfertaFormacao
 }
 
 export interface OfertaFormacaoNivelFormacaoCreateOperation {
@@ -11195,64 +11291,6 @@ export interface OfertaFormacaoNivelFormacaoInputCreateView {
 export interface OfertaFormacaoNivelFormacaoInputUpdateView {
   nivelFormacao?: BodyNivelFormacao
   ofertaFormacao?: BodyOfertaFormacao
-}
-
-/**
- * OfertaFormacaoNivelFormacao.
- */
-export interface OfertaFormacaoNivelFormacao {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Nível de formação.
-   */
-  nivelFormacao: OfertaFormacaoNivelFormacaoNivelFormacao
-  /**
-   * Oferta de formação.
-   */
-  ofertaFormacao: CalendarioLetivoOfertaFormacao
-}
-
-/**
- * Nível de formação.
- *
- * NivelFormacao.
- */
-export interface OfertaFormacaoNivelFormacaoNivelFormacao {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Apelido do nível de formação.
-   */
-  slug: string
 }
 
 export interface OfertaFormacaoNivelFormacaoListOperation {
@@ -11449,9 +11487,17 @@ export interface OfertaFormacaoView {
    */
   modalidade: ModalidadeElement
   /**
+   * Níveis de formações vinculados
+   */
+  niveisFormacoes: NiveisFormacoeElement[]
+  /**
    * Nome da oferta de formação.
    */
   nome: string
+  /**
+   * Array de relações entre a oferta e níveis de formações.
+   */
+  ofertaFormacaoNiveisFormacoes: OfertaFormacaoNiveisFormacoeElement[]
   /**
    * Apelido da oferta de formação.
    */
@@ -11566,6 +11612,44 @@ export interface PaginationSortByView {
   property: string
 }
 
+/**
+ * Vínculo.
+ */
+export interface Perfil {
+  /**
+   * Indica se o vínculo está ativo.
+   */
+  ativo: boolean
+  /**
+   * Campus associado ao vínculo.
+   */
+  campus: BlocoCampus
+  /**
+   * Cargo do usuário no vínculo.
+   */
+  cargo: string
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Usuário associado ao vínculo.
+   */
+  usuario: PerfilUsuario
+}
+
 export interface PerfilFindOneByIdOperation {
   input: PerfilFindOneByIdOperationInput
   output: PerfilFindOneByIdOperationOutput
@@ -11629,44 +11713,6 @@ export interface PerfilFindOneResultView {
    */
   id: string
   usuario: UsuarioElement
-}
-
-/**
- * Vínculo.
- */
-export interface Perfil {
-  /**
-   * Indica se o vínculo está ativo.
-   */
-  ativo: boolean
-  /**
-   * Campus associado ao vínculo.
-   */
-  campus: BlocoCampus
-  /**
-   * Cargo do usuário no vínculo.
-   */
-  cargo: string
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Usuário associado ao vínculo.
-   */
-  usuario: PerfilUsuario
 }
 
 export interface PerfilListOperation {
@@ -11825,6 +11871,36 @@ export interface PerfilView {
   usuario: UsuarioElement
 }
 
+/**
+ * ProfessorDisponibilidade.
+ */
+export interface ProfessorDisponibilidade {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Disponibilidade.
+   */
+  disponibilidade: DisponibilidadeDiaDisponibilidade
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Professor.
+   */
+  perfil: DiarioProfessorPerfil
+}
+
 export interface ProfessorDisponibilidadeCreateOperation {
   input: ProfessorDisponibilidadeCreateOperationInput
   output: ProfessorDisponibilidadeCreateOperationOutput
@@ -11968,36 +12044,6 @@ export interface ProfessorDisponibilidadeInputUpdateView {
   perfil?: BodyPerfil
 }
 
-/**
- * ProfessorDisponibilidade.
- */
-export interface ProfessorDisponibilidade {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Disponibilidade.
-   */
-  disponibilidade: DisponibilidadeDiaDisponibilidade
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Professor.
-   */
-  perfil: DiarioProfessorPerfil
-}
-
 export interface ProfessorDisponibilidadeListOperation {
   input: ProfessorDisponibilidadeListOperationInput
   output: ProfessorDisponibilidadeListOperationOutput
@@ -12126,6 +12172,52 @@ export interface ProfessorDisponibilidadeView {
   perfil: PerfilElement
 }
 
+/**
+ * Reserva.
+ */
+export interface Reserva {
+  /**
+   * Ambiente reservado.
+   */
+  ambiente: AmbienteElement
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Motivo da reserva.
+   */
+  motivo: null | string
+  /**
+   * Regra RRule para a recorrência da reserva. Segue a RFC 5545 do iCalendar.
+   */
+  rrule: string
+  /**
+   * Situação da reserva.
+   */
+  situacao: string
+  /**
+   * Tipo da reserva.
+   */
+  tipo: null | string
+  /**
+   * Usuário que fez a reserva.
+   */
+  usuario: PerfilUsuario
+}
+
 export interface ReservaCreateOperation {
   input: ReservaCreateOperationInput
   output: ReservaCreateOperationOutput
@@ -12169,7 +12261,7 @@ export interface ReservaCreateOperationOutput {
  * Visão FindOne de uma Reserva.
  */
 export interface ReservaListResultViewSuccess {
-  ambiente: AmbienteElement
+  ambiente: AmbientePadraoElement
   /**
    * Data e hora da criação do registro.
    */
@@ -12265,7 +12357,7 @@ export interface ReservaFindOneInputView {
  * Visão FindOne de uma Reserva.
  */
 export interface ReservaFindOneResultView {
-  ambiente: AmbienteElement
+  ambiente: AmbientePadraoElement
   /**
    * Data e hora da criação do registro.
    */
@@ -12347,52 +12439,6 @@ export interface ReservaInputUpdateView {
    */
   tipo?: null | string
   usuario?: BodyUsuario
-}
-
-/**
- * Reserva.
- */
-export interface Reserva {
-  /**
-   * Ambiente reservado.
-   */
-  ambiente: AmbientePadraoElement
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Motivo da reserva.
-   */
-  motivo: null | string
-  /**
-   * Regra RRule para a recorrência da reserva. Segue a RFC 5545 do iCalendar.
-   */
-  rrule: string
-  /**
-   * Situação da reserva.
-   */
-  situacao: string
-  /**
-   * Tipo da reserva.
-   */
-  tipo: null | string
-  /**
-   * Usuário que fez a reserva.
-   */
-  usuario: PerfilUsuario
 }
 
 export interface ReservaListOperation {
@@ -12522,7 +12568,7 @@ export interface ReservaUpdateByIdOperationOutput {
  * Visão completa de uma Reserva.
  */
 export interface ReservaView {
-  ambiente: AmbienteElement
+  ambiente: AmbientePadraoElement
   /**
    * Data e hora da criação do registro.
    */
@@ -12986,6 +13032,44 @@ export enum Tokens {
   UsuarioView = "UsuarioView",
 }
 
+/**
+ * Turma.
+ */
+export interface Turma {
+  /**
+   * Ambiente padrão da sala de aula.
+   */
+  ambientePadraoAula: AmbienteElement | null
+  /**
+   * Curso da Turma.
+   */
+  curso: TurmaCurso
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa da Turma.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Período da Turma.
+   */
+  periodo: string
+}
+
 export interface TurmaCreateOperation {
   input: TurmaCreateOperationInput
   output: TurmaCreateOperationOutput
@@ -13000,7 +13084,7 @@ export interface TurmaCreateOperationInput {
  * Dados de entrada para a criação de uma Turma.
  */
 export interface Body42 {
-  ambientePadraoAula: BodyAmbiente
+  ambientePadraoAula: BodyAmbiente | null
   curso: BodyCurso
   /**
    * Período da Turma.
@@ -13044,6 +13128,36 @@ export interface Params76 {
 export interface TurmaDeleteByIdOperationOutput {
   success: boolean
   [property: string]: any
+}
+
+/**
+ * TurmaDisponibilidade.
+ */
+export interface TurmaDisponibilidade {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * Disponibilidade.
+   */
+  disponibilidade: DisponibilidadeDiaDisponibilidade
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Turma.
+   */
+  turma: DiarioTurma
 }
 
 export interface TurmaDisponibilidadeCreateOperation {
@@ -13187,36 +13301,6 @@ export interface TurmaDisponibilidadeInputCreateView {
 export interface TurmaDisponibilidadeInputUpdateView {
   disponibilidade?: BodyDisponibilidade
   turma?: BodyTurma
-}
-
-/**
- * TurmaDisponibilidade.
- */
-export interface TurmaDisponibilidade {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Disponibilidade.
-   */
-  disponibilidade: DisponibilidadeDiaDisponibilidade
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Turma.
-   */
-  turma: DiarioTurma
 }
 
 export interface TurmaDisponibilidadeListOperation {
@@ -13384,7 +13468,7 @@ export interface TurmaFindOneInputView {
  * Visão FindOne de uma Turma.
  */
 export interface TurmaFindOneResultView {
-  ambientePadraoAula: AmbienteElement | null
+  ambientePadraoAula: AmbientePadraoElement | null
   curso: CursoElement
   /**
    * Data e hora da criação do registro.
@@ -13402,7 +13486,7 @@ export interface TurmaFindOneResultView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Período da Turma.
    */
@@ -13439,7 +13523,7 @@ export interface TurmaGetImagemCapaOutput {
  * Dados de entrada para a criação de uma Turma.
  */
 export interface TurmaInputCreateView {
-  ambientePadraoAula: BodyAmbiente
+  ambientePadraoAula: BodyAmbiente | null
   curso: BodyCurso
   /**
    * Período da Turma.
@@ -13451,50 +13535,12 @@ export interface TurmaInputCreateView {
  * Dados de entrada para a atualização de uma Turma.
  */
 export interface TurmaInputUpdateView {
-  ambientePadraoAula?: BodyAmbiente
+  ambientePadraoAula?: BodyAmbiente | null
   curso?: BodyCurso
   /**
    * Período da Turma.
    */
   periodo?: string
-}
-
-/**
- * Turma.
- */
-export interface Turma {
-  /**
-   * Ambiente padrão da sala de aula.
-   */
-  ambientePadraoAula: AmbientePadraoElement | null
-  /**
-   * Curso da Turma.
-   */
-  curso: TurmaCurso
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa da Turma.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Período da Turma.
-   */
-  periodo: string
 }
 
 export interface TurmaListOperation {
@@ -13621,7 +13667,7 @@ export interface TurmaUpdateByIdOperationInput {
  * Dados de entrada para a atualização de uma Turma.
  */
 export interface Body45 {
-  ambientePadraoAula?: BodyAmbiente
+  ambientePadraoAula?: BodyAmbiente | null
   curso?: BodyCurso
   /**
    * Período da Turma.
@@ -13646,7 +13692,7 @@ export interface TurmaUpdateByIdOperationOutput {
  * Visão completa de uma Turma.
  */
 export interface TurmaView {
-  ambientePadraoAula: AmbienteElement | null
+  ambientePadraoAula: AmbientePadraoElement | null
   curso: CursoElement
   /**
    * Data e hora da criação do registro.
@@ -13664,11 +13710,57 @@ export interface TurmaView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
   /**
    * Período da Turma.
    */
   periodo: string
+}
+
+/**
+ * Usuário.
+ */
+export interface Usuario {
+  /**
+   * Data e hora da criação do registro.
+   */
+  dateCreated: Date
+  /**
+   * Data e hora da exclusão do registro.
+   */
+  dateDeleted: Date | null
+  /**
+   * Data e hora da alteração do registro.
+   */
+  dateUpdated: Date
+  /**
+   * E-mail do usuário.
+   */
+  email: null | string
+  /**
+   * Identificador do registro (uuid).
+   */
+  id: string
+  /**
+   * Imagem de capa do usuário.
+   */
+  imagemCapa: ImagemCapaClass | null
+  /**
+   * Imagem de perfil do usuário.
+   */
+  imagemPerfil: ImagemCapaClass | null
+  /**
+   * Diz que o usuário tem poderes de administrador.
+   */
+  isSuperUser: boolean
+  /**
+   * Matrícula SIAPE do usuário.
+   */
+  matriculaSiape: null | string
+  /**
+   * Nome do usuário.
+   */
+  nome: null | string
 }
 
 export interface UsuarioCreateOperation {
@@ -13784,8 +13876,8 @@ export interface UsuarioFindOneResultView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
-  imagemPerfil: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
+  imagemPerfil: ImagemPerfilClass | null
   /**
    * Diz que o usuário tem poderes de administrador.
    */
@@ -13889,52 +13981,6 @@ export interface UsuarioInputUpdateView {
    * Nome do usuário.
    */
   nome?: null | string
-}
-
-/**
- * Usuário.
- */
-export interface Usuario {
-  /**
-   * Data e hora da criação do registro.
-   */
-  dateCreated: Date
-  /**
-   * Data e hora da exclusão do registro.
-   */
-  dateDeleted: Date | null
-  /**
-   * Data e hora da alteração do registro.
-   */
-  dateUpdated: Date
-  /**
-   * E-mail do usuário.
-   */
-  email: null | string
-  /**
-   * Identificador do registro (uuid).
-   */
-  id: string
-  /**
-   * Imagem de capa do usuário.
-   */
-  imagemCapa: ImagemPerfilClass | null
-  /**
-   * Imagem de perfil do usuário.
-   */
-  imagemPerfil: ImagemPerfilClass | null
-  /**
-   * Diz que o usuário tem poderes de administrador.
-   */
-  isSuperUser: boolean
-  /**
-   * Matrícula SIAPE do usuário.
-   */
-  matriculaSiape: null | string
-  /**
-   * Nome do usuário.
-   */
-  nome: null | string
 }
 
 export interface UsuarioListOperation {
@@ -14137,8 +14183,8 @@ export interface UsuarioView {
    * Identificador do registro (uuid).
    */
   id: string
-  imagemCapa: ImagemCapaClass | null
-  imagemPerfil: ImagemCapaClass | null
+  imagemCapa: ImagemPerfilClass | null
+  imagemPerfil: ImagemPerfilClass | null
   /**
    * Diz que o usuário tem poderes de administrador.
    */

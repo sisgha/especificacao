@@ -2651,7 +2651,49 @@ namespace Ladesa.Dtos
         /// Oferta de formação do calendário letivo.
         /// </summary>
         [JsonPropertyName("ofertaFormacao")]
-        public CalendarioLetivoOfertaFormacao OfertaFormacao { get; set; }
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
+    }
+
+    /// <summary>
+    /// OfertaFormacaoNivelFormacao.
+    /// </summary>
+    public partial class OfertaFormacaoNiveisFormacoeElement
+    {
+        /// <summary>
+        /// Data e hora da criação do registro.
+        /// </summary>
+        [JsonPropertyName("dateCreated")]
+        public DateTimeOffset DateCreated { get; set; }
+
+        /// <summary>
+        /// Data e hora da exclusão do registro.
+        /// </summary>
+        [JsonPropertyName("dateDeleted")]
+        public DateTimeOffset? DateDeleted { get; set; }
+
+        /// <summary>
+        /// Data e hora da alteração do registro.
+        /// </summary>
+        [JsonPropertyName("dateUpdated")]
+        public DateTimeOffset DateUpdated { get; set; }
+
+        /// <summary>
+        /// Identificador do registro (uuid).
+        /// </summary>
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Nível de formação.
+        /// </summary>
+        [JsonPropertyName("nivelFormacao")]
+        public NiveisFormacoeElement NivelFormacao { get; set; }
+
+        /// <summary>
+        /// Oferta de formação.
+        /// </summary>
+        [JsonPropertyName("ofertaFormacao")]
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
     }
 
     /// <summary>
@@ -2659,11 +2701,11 @@ namespace Ladesa.Dtos
     ///
     /// OfertaFormacao.
     ///
-    /// Oferta de formação do curso.
-    ///
     /// Oferta de formação.
+    ///
+    /// Oferta de formação do curso.
     /// </summary>
-    public partial class CalendarioLetivoOfertaFormacao
+    public partial class OfertaFormacaoNiveisFormacoeOfertaFormacao
     {
         /// <summary>
         /// Data e hora da criação do registro.
@@ -2703,7 +2745,52 @@ namespace Ladesa.Dtos
         public string Nome { get; set; }
 
         /// <summary>
+        /// Array de relações entre a oferta e níveis de formações.
+        /// </summary>
+        [JsonPropertyName("ofertaFormacaoNiveisFormacoes")]
+        public OfertaFormacaoNiveisFormacoeElement[] OfertaFormacaoNiveisFormacoes { get; set; }
+
+        /// <summary>
         /// Apelido da oferta de formação.
+        /// </summary>
+        [JsonPropertyName("slug")]
+        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
+        public string Slug { get; set; }
+    }
+
+    /// <summary>
+    /// Nível de formação.
+    ///
+    /// NivelFormacao.
+    /// </summary>
+    public partial class NiveisFormacoeElement
+    {
+        /// <summary>
+        /// Data e hora da criação do registro.
+        /// </summary>
+        [JsonPropertyName("dateCreated")]
+        public DateTimeOffset DateCreated { get; set; }
+
+        /// <summary>
+        /// Data e hora da exclusão do registro.
+        /// </summary>
+        [JsonPropertyName("dateDeleted")]
+        public DateTimeOffset? DateDeleted { get; set; }
+
+        /// <summary>
+        /// Data e hora da alteração do registro.
+        /// </summary>
+        [JsonPropertyName("dateUpdated")]
+        public DateTimeOffset DateUpdated { get; set; }
+
+        /// <summary>
+        /// Identificador do registro (uuid).
+        /// </summary>
+        [JsonPropertyName("id")]
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Apelido do nível de formação.
         /// </summary>
         [JsonPropertyName("slug")]
         [JsonConverter(typeof(MinMaxLengthCheckConverter))]
@@ -2874,7 +2961,7 @@ namespace Ladesa.Dtos
         /// Oferta de formação do curso.
         /// </summary>
         [JsonPropertyName("ofertaFormacao")]
-        public CalendarioLetivoOfertaFormacao OfertaFormacao { get; set; }
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
     }
 
     /// <summary>
@@ -4881,7 +4968,7 @@ namespace Ladesa.Dtos
         /// Oferta de formação do calendário letivo.
         /// </summary>
         [JsonPropertyName("ofertaFormacao")]
-        public CalendarioLetivoOfertaFormacao OfertaFormacao { get; set; }
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
     }
 
     public partial class CalendarioLetivoCreateOperation
@@ -6233,7 +6320,7 @@ namespace Ladesa.Dtos
         /// Oferta de formação do curso.
         /// </summary>
         [JsonPropertyName("ofertaFormacao")]
-        public CalendarioLetivoOfertaFormacao OfertaFormacao { get; set; }
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
     }
 
     public partial class CursoCreateOperation
@@ -12299,7 +12386,7 @@ namespace Ladesa.Dtos
         /// Oferta de formação.
         /// </summary>
         [JsonPropertyName("ofertaFormacao")]
-        public CalendarioLetivoOfertaFormacao OfertaFormacao { get; set; }
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
     }
 
     public partial class GradeHorarioOfertaFormacaoCreateOperation
@@ -12588,7 +12675,7 @@ namespace Ladesa.Dtos
         /// Oferta de formação.
         /// </summary>
         [JsonPropertyName("ofertaFormacao")]
-        public CalendarioLetivoOfertaFormacao OfertaFormacao { get; set; }
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
     }
 
     public partial class GradeHorarioOfertaFormacaoIntervaloDeTempoCreateOperation
@@ -15825,6 +15912,12 @@ namespace Ladesa.Dtos
         public string Nome { get; set; }
 
         /// <summary>
+        /// Array de relações entre a oferta e níveis de formações.
+        /// </summary>
+        [JsonPropertyName("ofertaFormacaoNiveisFormacoes")]
+        public OfertaFormacaoNiveisFormacoeElement[] OfertaFormacaoNiveisFormacoes { get; set; }
+
+        /// <summary>
         /// Apelido da oferta de formação.
         /// </summary>
         [JsonPropertyName("slug")]
@@ -16200,52 +16293,13 @@ namespace Ladesa.Dtos
         /// Nível de formação.
         /// </summary>
         [JsonPropertyName("nivelFormacao")]
-        public OfertaFormacaoNivelFormacaoNivelFormacao NivelFormacao { get; set; }
+        public NiveisFormacoeElement NivelFormacao { get; set; }
 
         /// <summary>
         /// Oferta de formação.
         /// </summary>
         [JsonPropertyName("ofertaFormacao")]
-        public CalendarioLetivoOfertaFormacao OfertaFormacao { get; set; }
-    }
-
-    /// <summary>
-    /// Nível de formação.
-    ///
-    /// NivelFormacao.
-    /// </summary>
-    public partial class OfertaFormacaoNivelFormacaoNivelFormacao
-    {
-        /// <summary>
-        /// Data e hora da criação do registro.
-        /// </summary>
-        [JsonPropertyName("dateCreated")]
-        public DateTimeOffset DateCreated { get; set; }
-
-        /// <summary>
-        /// Data e hora da exclusão do registro.
-        /// </summary>
-        [JsonPropertyName("dateDeleted")]
-        public DateTimeOffset? DateDeleted { get; set; }
-
-        /// <summary>
-        /// Data e hora da alteração do registro.
-        /// </summary>
-        [JsonPropertyName("dateUpdated")]
-        public DateTimeOffset DateUpdated { get; set; }
-
-        /// <summary>
-        /// Identificador do registro (uuid).
-        /// </summary>
-        [JsonPropertyName("id")]
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// Apelido do nível de formação.
-        /// </summary>
-        [JsonPropertyName("slug")]
-        [JsonConverter(typeof(MinMaxLengthCheckConverter))]
-        public string Slug { get; set; }
+        public OfertaFormacaoNiveisFormacoeOfertaFormacao OfertaFormacao { get; set; }
     }
 
     public partial class OfertaFormacaoNivelFormacaoCreateOperation
@@ -16741,11 +16795,23 @@ namespace Ladesa.Dtos
         public ModalidadeElement Modalidade { get; set; }
 
         /// <summary>
+        /// Níveis de formações vinculados
+        /// </summary>
+        [JsonPropertyName("niveisFormacoes")]
+        public NiveisFormacoeElement[] NiveisFormacoes { get; set; }
+
+        /// <summary>
         /// Nome da oferta de formação.
         /// </summary>
         [JsonPropertyName("nome")]
         [JsonConverter(typeof(MinMaxLengthCheckConverter))]
         public string Nome { get; set; }
+
+        /// <summary>
+        /// Array de relações entre a oferta e níveis de formações.
+        /// </summary>
+        [JsonPropertyName("ofertaFormacaoNiveisFormacoes")]
+        public OfertaFormacaoNiveisFormacoeElement[] OfertaFormacaoNiveisFormacoes { get; set; }
 
         /// <summary>
         /// Apelido da oferta de formação.
@@ -19068,7 +19134,6 @@ namespace Ladesa.Dtos
     /// </summary>
     public partial class TurmaInputUpdateView
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("ambientePadraoAula")]
         public BodyAmbiente AmbientePadraoAula { get; set; }
 
@@ -19276,7 +19341,6 @@ namespace Ladesa.Dtos
     /// </summary>
     public partial class Body45
     {
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("ambientePadraoAula")]
         public BodyAmbiente AmbientePadraoAula { get; set; }
 
