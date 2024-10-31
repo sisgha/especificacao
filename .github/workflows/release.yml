@@ -121,3 +121,27 @@ jobs:
         uses: ./.github/actions/publish/npm
         with:
           npm-token: "${{ secrets.NPM_TOKEN }}"
+
+  edge-publish-npm:
+    runs-on: ubuntu-latest
+
+    needs: [release]
+    if: needs.release.outputs.published == 'false'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/actions/prepare/install
+        with:
+          install-node: "true"
+          install-dotnet: "true"
+
+      - name: Build
+        uses: ./.github/actions/prepare/build
+        with:
+          workspace-build: "true"
+
+      - name: "Continuos Release: publish to pkg.pr.new"
+        run: pnpx pkg-pr-new publish --comment=update './integrations/npm/especificacao'
