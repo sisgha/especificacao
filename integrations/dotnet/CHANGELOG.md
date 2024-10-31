@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-dotnet
 
+## 3.2.8
+
+### Patch Changes
+
+- 227aa69: feat(definitions/oferta-formacao): include niveisFormacoes; make ambientePadraoAula optional in turma create
+
 ## 3.2.7
 
 ### Patch Changes
