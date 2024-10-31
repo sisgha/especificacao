@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.9
+
+### Patch Changes
+
+- 227aa69: feat(definitions/oferta-formacao): include niveisFormacoes; make ambientePadraoAula optional in turma create
+
 ## 3.3.8
 
 ### Patch Changes
