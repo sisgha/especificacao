@@ -20,8 +20,8 @@ jobs:
     outputs:
       published: ${{ steps.changesets.outputs.published }}
       published-packages: ${{ steps.changesets.outputs.publishedPackages  }}
-      publish-npm: "true"
-      publish-dotnet: "true"
+      publish-npm: ${{ steps.changesets.outputs.published }}
+      publish-dotnet: ${{ steps.changesets.outputs.published }}
 
     permissions:
       pages: read
@@ -76,6 +76,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   outputs:
+    name: Show the release job outputs
     runs-on: ubuntu-latest
     needs: [release]
 
@@ -88,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
 
     needs: [release]
-    if: needs.release.outputs.published == 'true'
+    if: needs.release.outputs.published == 'true' && needs.release.outputs.publish-dotnet == 'true'
 
     steps:
       - name: Checkout code
@@ -106,7 +107,7 @@ jobs:
     runs-on: ubuntu-latest
 
     needs: [release]
-    if: needs.release.outputs.published == 'true'
+    if: needs.release.outputs.published == 'true' && needs.release.outputs.publish-npm == 'true'
 
     permissions:
       actions: read
@@ -123,6 +124,7 @@ jobs:
           npm-token: "${{ secrets.NPM_TOKEN }}"
 
   edge-publish-npm:
+    name: Edge NPM package publish
     runs-on: ubuntu-latest
 
     needs: [release]
