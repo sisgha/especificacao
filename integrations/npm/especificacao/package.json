@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "quicktype": "^23.0.170",
-    "unbuild": "3.0.0-rc.11"
+    "unbuild": "3.0.1"
   },
   "wireit": {
     "prepublishOnly": {
