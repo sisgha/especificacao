@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-dotnet
 
+## 3.2.9
+
+### Patch Changes
+
+- b035b2f: fix: filters for horarios
+
 ## 3.2.8
 
 ### Patch Changes
