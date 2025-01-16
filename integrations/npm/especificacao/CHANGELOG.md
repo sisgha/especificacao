@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.11
+
+### Patch Changes
+
+- f7d24c2: chore: update lockfile
+
 ## 3.3.10
 
 ### Patch Changes
