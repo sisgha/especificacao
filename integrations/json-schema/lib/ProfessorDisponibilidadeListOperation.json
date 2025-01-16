@@ -51,7 +51,7 @@
               },
               "description": "Ordenação."
             },
-            "filter_professor_id": {
+            "filter.professor.id": {
               "anyOf": [
                 {
                   "type": "array",
@@ -66,8 +66,7 @@
               "x-unispec-http-key": "filter.perfil.id",
               "x-unispec-gql-key": "filterPerfilId"
             }
-          },
-          "required": ["filter_professor_id"]
+          }
         }
       },
       "required": ["queries"]

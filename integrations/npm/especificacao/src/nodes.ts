@@ -3353,7 +3353,7 @@ export const Nodes: readonly any[] = [
                 },
                 description: "Ordenação.",
               },
-              filter_professor_id: {
+              "filter.professor.id": {
                 anyOf: [
                   {
                     type: "array",
@@ -3369,7 +3369,6 @@ export const Nodes: readonly any[] = [
                 "x-unispec-gql-key": "filterPerfilId",
               },
             },
-            required: ["filter_professor_id"],
           },
         },
         required: ["queries"],
@@ -12644,7 +12643,7 @@ export const Nodes: readonly any[] = [
                 },
                 description: "Ordenação.",
               },
-              filter_turma_id: {
+              "filter.turma.id": {
                 anyOf: [
                   {
                     type: "array",
@@ -12660,7 +12659,6 @@ export const Nodes: readonly any[] = [
                 "x-unispec-gql-key": "filterTurmaId",
               },
             },
-            required: ["filter_turma_id"],
           },
         },
         required: ["queries"],
@@ -18445,7 +18443,7 @@ export const Nodes: readonly any[] = [
                 },
                 description: "Ordenação.",
               },
-              filter_diario_id: {
+              "filter.diario.id": {
                 anyOf: [
                   {
                     type: "array",
@@ -18461,7 +18459,6 @@ export const Nodes: readonly any[] = [
                 "x-unispec-gql-key": "filterDiarioId",
               },
             },
-            required: ["filter_diario_id"],
           },
         },
         required: ["queries"],

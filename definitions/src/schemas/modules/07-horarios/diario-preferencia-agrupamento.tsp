@@ -119,6 +119,6 @@ model DiarioPreferenciaAgrupamentoListOperation
       // filtros
       @extension("x-unispec-gql-key", "filterDiarioId")
       @extension("x-unispec-http-key", "filter.diario.id")
-      filter_diario_id: Pagination.GenericFilter.eq[] | null;
+      `filter.diario.id`?: Pagination.GenericFilter.eq[] | null;
     }
   >;

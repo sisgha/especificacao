@@ -51,7 +51,7 @@
               },
               "description": "Ordenação."
             },
-            "filter_turma_id": {
+            "filter.turma.id": {
               "anyOf": [
                 {
                   "type": "array",
@@ -66,8 +66,7 @@
               "x-unispec-http-key": "filter.turma.id",
               "x-unispec-gql-key": "filterTurmaId"
             }
-          },
-          "required": ["filter_turma_id"]
+          }
         }
       },
       "required": ["queries"]
