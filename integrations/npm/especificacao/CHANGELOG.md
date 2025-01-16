@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.3.10
+
+### Patch Changes
+
+- b035b2f: fix: filters for horarios
+
 ## 3.3.9
 
 ### Patch Changes
