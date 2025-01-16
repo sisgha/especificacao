@@ -95,6 +95,6 @@ model ProfessorDisponibilidadeListOperation
       // filtros
       @extension("x-unispec-gql-key", "filterPerfilId")
       @extension("x-unispec-http-key", "filter.perfil.id")
-      filter_professor_id: Pagination.GenericFilter.eq[] | null;
+      `filter.professor.id`?: Pagination.GenericFilter.eq[] | null;
     }
   >;

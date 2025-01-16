@@ -51,7 +51,7 @@
               },
               "description": "Ordenação."
             },
-            "filter_diario_id": {
+            "filter.diario.id": {
               "anyOf": [
                 {
                   "type": "array",
@@ -66,8 +66,7 @@
               "x-unispec-http-key": "filter.diario.id",
               "x-unispec-gql-key": "filterDiarioId"
             }
-          },
-          "required": ["filter_diario_id"]
+          }
         }
       },
       "required": ["queries"]

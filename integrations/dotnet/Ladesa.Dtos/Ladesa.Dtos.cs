@@ -8251,7 +8251,7 @@ namespace Ladesa.Dtos
 
     public partial class FriskyQueries
     {
-        [JsonPropertyName("filter_diario_id")]
+        [JsonPropertyName("filter.diario.id")]
         public string[] FilterDiarioId { get; set; }
 
         /// <summary>
@@ -17613,7 +17613,7 @@ namespace Ladesa.Dtos
 
     public partial class Queries15
     {
-        [JsonPropertyName("filter_professor_id")]
+        [JsonPropertyName("filter.professor.id")]
         public string[] FilterProfessorId { get; set; }
 
         /// <summary>
@@ -18823,7 +18823,7 @@ namespace Ladesa.Dtos
 
     public partial class Queries17
     {
-        [JsonPropertyName("filter_turma_id")]
+        [JsonPropertyName("filter.turma.id")]
         public string[] FilterTurmaId { get; set; }
 
         /// <summary>

@@ -95,6 +95,6 @@ model TurmaDisponibilidadeListOperation
       // filtros
       @extension("x-unispec-gql-key", "filterTurmaId")
       @extension("x-unispec-http-key", "filter.turma.id")
-      filter_turma_id: Pagination.GenericFilter.eq[] | null;
+      `filter.turma.id`?: Pagination.GenericFilter.eq[] | null;
     }
   >;
