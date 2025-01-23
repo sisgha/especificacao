@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-dotnet
 
+## 3.2.10
+
+### Patch Changes
+
+- b5bbefc: fix(definitions/schemas/generics): optional sortBy and filter
+
 ## 3.2.9
 
 ### Patch Changes
