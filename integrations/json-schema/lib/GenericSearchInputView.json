@@ -47,7 +47,6 @@
       "description": "Ordenação."
     }
   },
-  "required": ["sortBy"],
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "SearchInputView",
   "additionalProperties": false

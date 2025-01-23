@@ -8319,7 +8319,7 @@ export interface GenericSearchInputView {
   /**
    * Ordenação.
    */
-  sortBy: string[]
+  sortBy?: string[]
 }
 
 export interface GradeHorarioOfertaFormacaoCreateOperation {
@@ -11537,7 +11537,7 @@ export interface PaginationInputView {
   /**
    * Filtros.
    */
-  filter: FilterElement[]
+  filter?: FilterElement[]
   /**
    * Limite da quantidade de resultados por página.
    */
@@ -11553,7 +11553,7 @@ export interface PaginationInputView {
   /**
    * Ordenação.
    */
-  sortBy: SortByElement[]
+  sortBy?: SortByElement[]
 }
 
 export interface PaginationResultLinks {

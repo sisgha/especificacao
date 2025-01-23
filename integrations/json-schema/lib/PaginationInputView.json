@@ -54,7 +54,6 @@
       "description": "Filtros."
     }
   },
-  "required": ["sortBy", "filter"],
   "deprecated": true,
   "x-unispec-kind": "entity",
   "x-unispec-entity-id": "PaginatedInputView",

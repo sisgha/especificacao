@@ -12343,6 +12343,7 @@ namespace Ladesa.Dtos
         /// <summary>
         /// Ordenação.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("sortBy")]
         public string[] SortBy { get; set; }
     }
@@ -16865,6 +16866,7 @@ namespace Ladesa.Dtos
         /// <summary>
         /// Filtros.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("filter")]
         public FilterElement[] Filter { get; set; }
 
@@ -16889,6 +16891,7 @@ namespace Ladesa.Dtos
         /// <summary>
         /// Ordenação.
         /// </summary>
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("sortBy")]
         public SortByElement[] SortBy { get; set; }
     }

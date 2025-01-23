@@ -98,12 +98,12 @@ namespace Input {
     /**
      * Ordenação.
      */
-    sortBy: PaginationSortByView[];
+    sortBy?: PaginationSortByView[];
 
     /**
      * Filtros.
      */
-    filter: PaginationFilterView[];
+    filter?: PaginationFilterView[];
   }
 
   @entity(Tokens.Shared_SearchInput_View)
@@ -113,7 +113,7 @@ namespace Input {
     /**
      * Ordenação.
      */
-    sortBy: string[];
+    sortBy?: string[];
 
     // /**
     //  * Filtros.
