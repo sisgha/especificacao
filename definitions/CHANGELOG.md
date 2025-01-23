@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-definitions
 
+## 3.2.11
+
+### Patch Changes
+
+- b5bbefc: fix(definitions/schemas/generics): optional sortBy and filter
+
 ## 3.2.10
 
 ### Patch Changes
