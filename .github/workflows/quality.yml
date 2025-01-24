@@ -26,13 +26,16 @@ jobs:
       - name: Require to pass static code check
         run: |
           git stash -u;
+
           pnpm run -w code-static:check;
-          git stash pop;
+
+          if [ `git stash list | wc -l` -gt 0 ]; then
+            git stash pop;
+          fi
 
       - name: Require updated integrations
         run: |
           if [ `git status --porcelain=1 | wc -l` -ne 0 ]; then
-            git diff;
             git status --porcelain=1;
             exit 1;
           fi
