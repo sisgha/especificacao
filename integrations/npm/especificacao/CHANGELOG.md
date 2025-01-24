@@ -1,5 +1,15 @@
 # @ladesa-ro/especificacao
 
+## 3.4.0
+
+### Minor Changes
+
+- 0d1914c: feat(definitions/autenticacao): recover password
+
+### Patch Changes
+
+- 116aaf5: chore: improve quality checks
+
 ## 3.3.12
 
 ### Patch Changes
