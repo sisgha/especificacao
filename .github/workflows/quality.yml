@@ -14,6 +14,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Aknowledge about origin/development
+        run: git fetch -p origin development
+
       - name: It must install the dependencies
         uses: ./.github/actions/prepare/install
         with:
@@ -41,4 +44,4 @@ jobs:
           fi
 
       - name: Require changesets
-        run: pnpm exec changeset status --since=development
+        run: pnpm exec changeset status --since=origin/development
