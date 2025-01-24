@@ -41,4 +41,4 @@ jobs:
           fi
 
       - name: Require changesets
-        run: changeset status --since=development
+        run: pnpm exec changeset status --since=development
