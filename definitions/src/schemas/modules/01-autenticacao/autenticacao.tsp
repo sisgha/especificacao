@@ -123,3 +123,25 @@ model AuthCredentialsSetInitialPasswordOperation
       };
     }
   >;
+
+/** Dados de entrada para autenticação. */
+@entity(Tokens.Auth_RecoverPasswordInput_View)
+model AuthRecoverPasswordInputView {
+  /** E-mail. */
+  email: string;
+}
+
+/** Operação de login. */
+model AuthRecoverPasswordOperation
+  is GenericOperation<
+    Tokens.Auth_Operations_RecoverPassword,
+    #{ meta: #{ gql: #{ kind: "mutation" } } },
+    {
+      input: {
+        body: AuthRecoverPasswordInputView;
+      };
+      output: {
+        success: boolean;
+      };
+    }
+  >;

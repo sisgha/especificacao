@@ -2749,6 +2749,41 @@ export const Nodes: readonly any[] = [
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/AuthRecoverPasswordOperation.json",
+    type: "object",
+    properties: {
+      input: {
+        type: "object",
+        properties: {
+          body: {
+            $ref: "ladesa://schemas/v3/generics/AuthRecoverPasswordInputView.json",
+          },
+        },
+        required: ["body"],
+      },
+      output: {
+        type: "object",
+        properties: {
+          success: {
+            type: "boolean",
+          },
+        },
+        required: ["success"],
+      },
+    },
+    required: ["input", "output"],
+    description: "Operação de login.",
+    "x-unispec-kind": "operation",
+    "x-unispec-operation-id": "AuthRecoverPassword",
+    additionalProperties: false,
+    "x-unispec-operation-meta": {
+      gql: {
+        kind: "mutation",
+      },
+    },
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
     $id: "ladesa://schemas/v3/generics/GradeHorarioOfertaFormacaoInputUpdateView.json",
     type: "object",
     properties: {
@@ -7975,6 +8010,7 @@ export const Nodes: readonly any[] = [
       "UsuarioGetImagemPerfil",
       "UsuarioSetImagemPerfil",
       "AuthLoginInputView",
+      "AuthRecoverPasswordInputView",
       "AuthWhoAmIInputView",
       "AuthRefreshInputView",
       "AuthSessionCredentialsView",
@@ -7983,6 +8019,7 @@ export const Nodes: readonly any[] = [
       "AuthRefresh",
       "AuthWhoAmI",
       "AuthSetInitialPassword",
+      "AuthRecoverPassword",
       "Imagem",
       "ImagemView",
       "ImagemFindOneInputView",
@@ -10772,6 +10809,22 @@ export const Nodes: readonly any[] = [
         kind: "mutation",
       },
     },
+  },
+  {
+    $schema: "https://json-schema.org/draft/2020-12/schema",
+    $id: "ladesa://schemas/v3/generics/AuthRecoverPasswordInputView.json",
+    type: "object",
+    properties: {
+      email: {
+        type: "string",
+        description: "E-mail.",
+      },
+    },
+    required: ["email"],
+    description: "Dados de entrada para autenticação.",
+    "x-unispec-kind": "entity",
+    "x-unispec-entity-id": "AuthRecoverPasswordInputView",
+    additionalProperties: false,
   },
   {
     $schema: "https://json-schema.org/draft/2020-12/schema",
