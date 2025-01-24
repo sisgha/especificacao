@@ -15,7 +15,7 @@
     "code-static:fix": "wireit"
   },
   "devDependencies": {
-    "quicktype": "^23.0.170",
+    "quicktype": "^23.0.171",
     "wireit": "^0.14.9"
   },
   "wireit": {

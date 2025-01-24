@@ -6,7 +6,7 @@ updates:
       - "/definitions"
       - "/integrations/npm/*"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     open-pull-requests-limit: 10
     groups:
       dev-dependencies:
@@ -22,5 +22,5 @@ updates:
       - "/.github/actions/*"
       - "/.github/workflows"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     open-pull-requests-limit: 10

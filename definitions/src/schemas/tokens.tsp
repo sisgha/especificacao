@@ -45,6 +45,7 @@ enum Tokens {
   //
   Auth_LoginInput_View: "AuthLoginInputView",
 
+  Auth_RecoverPasswordInput_View: "AuthRecoverPasswordInputView",
   Auth_WhoAmIResult_View: "AuthWhoAmIInputView",
   Auth_RefreshInput_View: "AuthRefreshInputView",
   Auth_SessionCredentials_View: "AuthSessionCredentialsView",
@@ -53,6 +54,7 @@ enum Tokens {
   Auth_Operations_Refresh: "AuthRefresh",
   Auth_Operations_WhoAmI: "AuthWhoAmI",
   Auth_Operations_SetInitialPassword: "AuthSetInitialPassword",
+  Auth_Operations_RecoverPassword: "AuthRecoverPassword",
 
   //
 

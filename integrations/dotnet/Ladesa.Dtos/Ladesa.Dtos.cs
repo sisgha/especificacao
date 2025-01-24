@@ -39,6 +39,8 @@
 //    var authCredentialsSetInitialPasswordOperation = AuthCredentialsSetInitialPasswordOperation.FromJson(jsonString);
 //    var authLoginInputView = AuthLoginInputView.FromJson(jsonString);
 //    var authLoginOperation = AuthLoginOperation.FromJson(jsonString);
+//    var authRecoverPasswordInputView = AuthRecoverPasswordInputView.FromJson(jsonString);
+//    var authRecoverPasswordOperation = AuthRecoverPasswordOperation.FromJson(jsonString);
 //    var authRefreshInputView = AuthRefreshInputView.FromJson(jsonString);
 //    var authRefreshOperation = AuthRefreshOperation.FromJson(jsonString);
 //    var authSessionCredentialsView = AuthSessionCredentialsView.FromJson(jsonString);
@@ -4083,6 +4085,54 @@ namespace Ladesa.Dtos
     }
 
     /// <summary>
+    /// Dados de entrada para autenticação.
+    /// </summary>
+    public partial class AuthRecoverPasswordInputView
+    {
+        /// <summary>
+        /// E-mail.
+        /// </summary>
+        [JsonPropertyName("email")]
+        public string Email { get; set; }
+    }
+
+    /// <summary>
+    /// Operação de login.
+    /// </summary>
+    public partial class AuthRecoverPasswordOperation
+    {
+        [JsonPropertyName("input")]
+        public AuthRecoverPasswordOperationInput Input { get; set; }
+
+        [JsonPropertyName("output")]
+        public AuthRecoverPasswordOperationOutput Output { get; set; }
+    }
+
+    public partial class AuthRecoverPasswordOperationInput
+    {
+        [JsonPropertyName("body")]
+        public HilariousBody Body { get; set; }
+    }
+
+    /// <summary>
+    /// Dados de entrada para autenticação.
+    /// </summary>
+    public partial class HilariousBody
+    {
+        /// <summary>
+        /// E-mail.
+        /// </summary>
+        [JsonPropertyName("email")]
+        public string Email { get; set; }
+    }
+
+    public partial class AuthRecoverPasswordOperationOutput
+    {
+        [JsonPropertyName("success")]
+        public bool Success { get; set; }
+    }
+
+    /// <summary>
     /// Dados de entrada para refresh de autenticação.
     /// </summary>
     public partial class AuthRefreshInputView
@@ -4109,13 +4159,13 @@ namespace Ladesa.Dtos
     public partial class AuthRefreshOperationInput
     {
         [JsonPropertyName("body")]
-        public HilariousBody Body { get; set; }
+        public AmbitiousBody Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para refresh de autenticação.
     /// </summary>
-    public partial class HilariousBody
+    public partial class AmbitiousBody
     {
         /// <summary>
         /// Token de refresh.
@@ -4417,13 +4467,13 @@ namespace Ladesa.Dtos
     public partial class BlocoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public AmbitiousBody Body { get; set; }
+        public CunningBody Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um bloco.
     /// </summary>
-    public partial class AmbitiousBody
+    public partial class CunningBody
     {
         [JsonPropertyName("campus")]
         public BodyCampus Campus { get; set; }
@@ -4817,7 +4867,7 @@ namespace Ladesa.Dtos
     public partial class BlocoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public CunningBody Body { get; set; }
+        public MagentaBody Body { get; set; }
 
         [JsonPropertyName("params")]
         public BraggadociousParams Params { get; set; }
@@ -4826,7 +4876,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um bloco.
     /// </summary>
-    public partial class CunningBody
+    public partial class MagentaBody
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("campus")]
@@ -4983,13 +5033,13 @@ namespace Ladesa.Dtos
     public partial class CalendarioLetivoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public MagentaBody Body { get; set; }
+        public FriskyBody Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um calendário letivo.
     /// </summary>
-    public partial class MagentaBody
+    public partial class FriskyBody
     {
         /// <summary>
         /// Ano do calendário letivo.
@@ -5317,7 +5367,7 @@ namespace Ladesa.Dtos
     public partial class CalendarioLetivoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public FriskyBody Body { get; set; }
+        public MischievousBody Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params3 Params { get; set; }
@@ -5326,7 +5376,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um calendário letivo.
     /// </summary>
-    public partial class FriskyBody
+    public partial class MischievousBody
     {
         /// <summary>
         /// Ano do calendário letivo.
@@ -5493,13 +5543,13 @@ namespace Ladesa.Dtos
     public partial class CampusCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public MischievousBody Body { get; set; }
+        public BraggadociousBody Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um campus.
     /// </summary>
-    public partial class MischievousBody
+    public partial class BraggadociousBody
     {
         /// <summary>
         /// Apelido do campus.
@@ -5928,7 +5978,7 @@ namespace Ladesa.Dtos
     public partial class CampusUpdateOperationInput
     {
         [JsonPropertyName("body")]
-        public BraggadociousBody Body { get; set; }
+        public Body1 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params6 Params { get; set; }
@@ -5937,7 +5987,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um campus.
     /// </summary>
-    public partial class BraggadociousBody
+    public partial class Body1
     {
         /// <summary>
         /// Apelido do campus.
@@ -6335,13 +6385,13 @@ namespace Ladesa.Dtos
     public partial class CursoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body1 Body { get; set; }
+        public Body2 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um Curso.
     /// </summary>
-    public partial class Body1
+    public partial class Body2
     {
         [JsonPropertyName("campus")]
         public BodyCampus Campus { get; set; }
@@ -6740,7 +6790,7 @@ namespace Ladesa.Dtos
     public partial class CursoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body2 Body { get; set; }
+        public Body3 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params12 Params { get; set; }
@@ -6749,7 +6799,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um Curso.
     /// </summary>
-    public partial class Body2
+    public partial class Body3
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("campus")]
@@ -6934,13 +6984,13 @@ namespace Ladesa.Dtos
     public partial class DiaCalendarioCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body3 Body { get; set; }
+        public Body4 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um DiaCalendario.
     /// </summary>
-    public partial class Body3
+    public partial class Body4
     {
         [JsonPropertyName("calendario")]
         public BodyCalendarioLetivo Calendario { get; set; }
@@ -7299,7 +7349,7 @@ namespace Ladesa.Dtos
     public partial class DiaCalendarioUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body4 Body { get; set; }
+        public Body5 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params15 Params { get; set; }
@@ -7308,7 +7358,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um DiaCalendario.
     /// </summary>
-    public partial class Body4
+    public partial class Body5
     {
         [JsonPropertyName("calendario")]
         public BodyCalendarioLetivo Calendario { get; set; }
@@ -7470,13 +7520,13 @@ namespace Ladesa.Dtos
     public partial class DiarioCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body5 Body { get; set; }
+        public Body6 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um diário.
     /// </summary>
-    public partial class Body5
+    public partial class Body6
     {
         [JsonPropertyName("ambientePadrao")]
         public BodyAmbiente AmbientePadrao { get; set; }
@@ -7920,13 +7970,13 @@ namespace Ladesa.Dtos
     public partial class DiarioPreferenciaAgrupamentoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body6 Body { get; set; }
+        public Body7 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um DiarioPreferenciaAgrupamento.
     /// </summary>
-    public partial class Body6
+    public partial class Body7
     {
         /// <summary>
         /// Quantidade de aulas seguidas.
@@ -8346,7 +8396,7 @@ namespace Ladesa.Dtos
     public partial class DiarioPreferenciaAgrupamentoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body7 Body { get; set; }
+        public Body8 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params21 Params { get; set; }
@@ -8355,7 +8405,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um DiarioPreferenciaAgrupamento.
     /// </summary>
-    public partial class Body7
+    public partial class Body8
     {
         /// <summary>
         /// Quantidade de aulas seguidas.
@@ -8656,13 +8706,13 @@ namespace Ladesa.Dtos
     public partial class DiarioProfessorCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body8 Body { get; set; }
+        public Body9 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um DiarioProfessor.
     /// </summary>
-    public partial class Body8
+    public partial class Body9
     {
         [JsonPropertyName("diario")]
         public BodyDiario Diario { get; set; }
@@ -8998,7 +9048,7 @@ namespace Ladesa.Dtos
     public partial class DiarioProfessorUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body9 Body { get; set; }
+        public Body10 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params24 Params { get; set; }
@@ -9007,7 +9057,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um DiarioProfessor.
     /// </summary>
-    public partial class Body9
+    public partial class Body10
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("diario")]
@@ -9130,7 +9180,7 @@ namespace Ladesa.Dtos
     public partial class DiarioUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body10 Body { get; set; }
+        public Body11 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params26 Params { get; set; }
@@ -9139,7 +9189,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um diário.
     /// </summary>
-    public partial class Body10
+    public partial class Body11
     {
         [JsonPropertyName("ambientePadrao")]
         public BodyAmbiente AmbientePadrao { get; set; }
@@ -9301,13 +9351,13 @@ namespace Ladesa.Dtos
     public partial class DisciplinaCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body11 Body { get; set; }
+        public Body12 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma Disciplina.
     /// </summary>
-    public partial class Body11
+    public partial class Body12
     {
         /// <summary>
         /// Carga horária da disciplina.
@@ -9701,7 +9751,7 @@ namespace Ladesa.Dtos
     public partial class DisciplinaUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body12 Body { get; set; }
+        public Body13 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params31 Params { get; set; }
@@ -9710,7 +9760,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma Disciplina.
     /// </summary>
-    public partial class Body12
+    public partial class Body13
     {
         /// <summary>
         /// Carga horária da disciplina.
@@ -9864,13 +9914,13 @@ namespace Ladesa.Dtos
     public partial class DisponibilidadeCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body13 Body { get; set; }
+        public Body14 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma Disponibilidade.
     /// </summary>
-    public partial class Body13
+    public partial class Body14
     {
         [JsonPropertyName("dataFim")]
         public DateTimeOffset? DataFim { get; set; }
@@ -10059,13 +10109,13 @@ namespace Ladesa.Dtos
     public partial class DisponibilidadeDiaCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body14 Body { get; set; }
+        public Body15 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um DisponibilidadeDia.
     /// </summary>
-    public partial class Body14
+    public partial class Body15
     {
         [JsonPropertyName("disponibilidade")]
         public BodyDisponibilidade Disponibilidade { get; set; }
@@ -10406,7 +10456,7 @@ namespace Ladesa.Dtos
     public partial class DisponibilidadeDiaUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body15 Body { get; set; }
+        public Body16 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params35 Params { get; set; }
@@ -10415,7 +10465,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um DisponibilidadeDia.
     /// </summary>
-    public partial class Body15
+    public partial class Body16
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("disponibilidade")]
@@ -10708,7 +10758,7 @@ namespace Ladesa.Dtos
     public partial class DisponibilidadeUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body16 Body { get; set; }
+        public Body17 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params37 Params { get; set; }
@@ -10717,7 +10767,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma Disponibilidade.
     /// </summary>
-    public partial class Body16
+    public partial class Body17
     {
         [JsonPropertyName("dataFim")]
         public DateTimeOffset? DataFim { get; set; }
@@ -11334,13 +11384,13 @@ namespace Ladesa.Dtos
     public partial class EtapaCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body17 Body { get; set; }
+        public Body18 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma Etapa.
     /// </summary>
-    public partial class Body17
+    public partial class Body18
     {
         [JsonPropertyName("calendario")]
         public BodyCalendarioLetivo Calendario { get; set; }
@@ -11708,7 +11758,7 @@ namespace Ladesa.Dtos
     public partial class EtapaUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body18 Body { get; set; }
+        public Body19 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params41 Params { get; set; }
@@ -11717,7 +11767,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma Etapa.
     /// </summary>
-    public partial class Body18
+    public partial class Body19
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("calendario")]
@@ -11876,13 +11926,13 @@ namespace Ladesa.Dtos
     public partial class EventoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body19 Body { get; set; }
+        public Body20 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um Evento.
     /// </summary>
-    public partial class Body19
+    public partial class Body20
     {
         [JsonPropertyName("calendario")]
         public BodyCalendarioLetivo Calendario { get; set; }
@@ -12228,7 +12278,7 @@ namespace Ladesa.Dtos
     public partial class EventoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body20 Body { get; set; }
+        public Body21 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params44 Params { get; set; }
@@ -12237,7 +12287,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um Evento.
     /// </summary>
-    public partial class Body20
+    public partial class Body21
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("calendario")]
@@ -12402,13 +12452,13 @@ namespace Ladesa.Dtos
     public partial class GradeHorarioOfertaFormacaoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body21 Body { get; set; }
+        public Body22 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma oferta de formação.
     /// </summary>
-    public partial class Body21
+    public partial class Body22
     {
         [JsonPropertyName("campus")]
         public BodyCampus Campus { get; set; }
@@ -12691,13 +12741,13 @@ namespace Ladesa.Dtos
     public partial class GradeHorarioOfertaFormacaoIntervaloDeTempoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body22 Body { get; set; }
+        public Body23 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma oferta de formação.
     /// </summary>
-    public partial class Body22
+    public partial class Body23
     {
         [JsonPropertyName("gradeHorarioOfertaFormacao")]
         public BodyGradeHorarioOfertaFormacao GradeHorarioOfertaFormacao { get; set; }
@@ -13003,7 +13053,7 @@ namespace Ladesa.Dtos
     public partial class GradeHorarioOfertaFormacaoIntervaloDeTempoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body23 Body { get; set; }
+        public Body24 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params49 Params { get; set; }
@@ -13012,7 +13062,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma oferta de formação.
     /// </summary>
-    public partial class Body23
+    public partial class Body24
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("gradeHorarioOfertaFormacao")]
@@ -13183,7 +13233,7 @@ namespace Ladesa.Dtos
     public partial class GradeHorarioOfertaFormacaoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body24 Body { get; set; }
+        public Body25 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params50 Params { get; set; }
@@ -13192,7 +13242,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma oferta de formação.
     /// </summary>
-    public partial class Body24
+    public partial class Body25
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("campus")]
@@ -13486,13 +13536,13 @@ namespace Ladesa.Dtos
     public partial class HorarioGeradoAulaCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body25 Body { get; set; }
+        public Body26 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um HorarioGeradoAula.
     /// </summary>
-    public partial class Body25
+    public partial class Body26
     {
         /// <summary>
         /// Data da aula gerada.
@@ -13884,7 +13934,7 @@ namespace Ladesa.Dtos
     public partial class HorarioGeradoAulaUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body26 Body { get; set; }
+        public Body27 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params53 Params { get; set; }
@@ -13893,7 +13943,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um HorarioGeradoAula.
     /// </summary>
-    public partial class Body26
+    public partial class Body27
     {
         /// <summary>
         /// Data da aula gerada.
@@ -13969,13 +14019,13 @@ namespace Ladesa.Dtos
     public partial class HorarioGeradoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body27 Body { get; set; }
+        public Body28 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um HorarioGerado.
     /// </summary>
-    public partial class Body27
+    public partial class Body28
     {
         [JsonPropertyName("calendario")]
         public BodyCalendarioLetivo Calendario { get; set; }
@@ -14340,7 +14390,7 @@ namespace Ladesa.Dtos
     public partial class HorarioGeradoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body28 Body { get; set; }
+        public Body29 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params56 Params { get; set; }
@@ -14349,7 +14399,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um HorarioGerado.
     /// </summary>
-    public partial class Body28
+    public partial class Body29
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("calendario")]
@@ -15075,13 +15125,13 @@ namespace Ladesa.Dtos
     public partial class ModalidadeCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body29 Body { get; set; }
+        public Body30 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma modalidade.
     /// </summary>
-    public partial class Body29
+    public partial class Body30
     {
         /// <summary>
         /// Apelido da modalidade.
@@ -15342,7 +15392,7 @@ namespace Ladesa.Dtos
     public partial class ModalidadeUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body30 Body { get; set; }
+        public Body31 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params59 Params { get; set; }
@@ -15351,7 +15401,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma modalidade.
     /// </summary>
-    public partial class Body30
+    public partial class Body31
     {
         /// <summary>
         /// Apelido da modalidade.
@@ -15470,13 +15520,13 @@ namespace Ladesa.Dtos
     public partial class NivelFormacaoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body31 Body { get; set; }
+        public Body32 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um nível de formação.
     /// </summary>
-    public partial class Body31
+    public partial class Body32
     {
         /// <summary>
         /// Apelido do nível de formação.
@@ -15774,7 +15824,7 @@ namespace Ladesa.Dtos
     public partial class NivelFormacaoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body32 Body { get; set; }
+        public Body33 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params62 Params { get; set; }
@@ -15783,7 +15833,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um nível de formação.
     /// </summary>
-    public partial class Body32
+    public partial class Body33
     {
         /// <summary>
         /// Apelido do nível de formação.
@@ -15938,13 +15988,13 @@ namespace Ladesa.Dtos
     public partial class OfertaFormacaoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body33 Body { get; set; }
+        public Body34 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma oferta de formação.
     /// </summary>
-    public partial class Body33
+    public partial class Body34
     {
         /// <summary>
         /// Modalidade da oferta de formação.
@@ -16315,13 +16365,13 @@ namespace Ladesa.Dtos
     public partial class OfertaFormacaoNivelFormacaoCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body34 Body { get; set; }
+        public Body35 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma oferta de formação.
     /// </summary>
-    public partial class Body34
+    public partial class Body35
     {
         [JsonPropertyName("nivelFormacao")]
         public BodyNivelFormacao NivelFormacao { get; set; }
@@ -16627,7 +16677,7 @@ namespace Ladesa.Dtos
     public partial class OfertaFormacaoNivelFormacaoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body35 Body { get; set; }
+        public Body36 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params67 Params { get; set; }
@@ -16636,7 +16686,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma oferta de formação.
     /// </summary>
-    public partial class Body35
+    public partial class Body36
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("nivelFormacao")]
@@ -16710,7 +16760,7 @@ namespace Ladesa.Dtos
     public partial class OfertaFormacaoUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body36 Body { get; set; }
+        public Body37 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params68 Params { get; set; }
@@ -16719,7 +16769,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma oferta de formação.
     /// </summary>
-    public partial class Body36
+    public partial class Body37
     {
         /// <summary>
         /// Modalidade da oferta de formação.
@@ -17249,13 +17299,13 @@ namespace Ladesa.Dtos
     public partial class PerfilUpdateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body37 Body { get; set; }
+        public Body38 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a alteração de vínculo de um Usuário a um Campus.
     /// </summary>
-    public partial class Body37
+    public partial class Body38
     {
         [JsonPropertyName("campus")]
         public BodyCampus Campus { get; set; }
@@ -17408,13 +17458,13 @@ namespace Ladesa.Dtos
     public partial class ProfessorDisponibilidadeCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body38 Body { get; set; }
+        public Body39 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma ProfessorDisponibilidade.
     /// </summary>
-    public partial class Body38
+    public partial class Body39
     {
         [JsonPropertyName("disponibilidade")]
         public BodyDisponibilidade Disponibilidade { get; set; }
@@ -17711,7 +17761,7 @@ namespace Ladesa.Dtos
     public partial class ProfessorDisponibilidadeUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body39 Body { get; set; }
+        public Body40 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params72 Params { get; set; }
@@ -17720,7 +17770,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma ProfessorDisponibilidade.
     /// </summary>
-    public partial class Body39
+    public partial class Body40
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("disponibilidade")]
@@ -17861,13 +17911,13 @@ namespace Ladesa.Dtos
     public partial class ReservaCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body40 Body { get; set; }
+        public Body41 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma Reserva.
     /// </summary>
-    public partial class Body40
+    public partial class Body41
     {
         [JsonPropertyName("ambiente")]
         public BodyAmbiente Ambiente { get; set; }
@@ -18304,7 +18354,7 @@ namespace Ladesa.Dtos
     public partial class ReservaUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body41 Body { get; set; }
+        public Body42 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params75 Params { get; set; }
@@ -18313,7 +18363,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma Reserva.
     /// </summary>
-    public partial class Body41
+    public partial class Body42
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("ambiente")]
@@ -18494,13 +18544,13 @@ namespace Ladesa.Dtos
     public partial class TurmaCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body42 Body { get; set; }
+        public Body43 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma Turma.
     /// </summary>
-    public partial class Body42
+    public partial class Body43
     {
         [JsonPropertyName("ambientePadraoAula")]
         public BodyAmbiente AmbientePadraoAula { get; set; }
@@ -18618,13 +18668,13 @@ namespace Ladesa.Dtos
     public partial class TurmaDisponibilidadeCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body43 Body { get; set; }
+        public Body44 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de uma TurmaDisponibilidade.
     /// </summary>
-    public partial class Body43
+    public partial class Body44
     {
         [JsonPropertyName("disponibilidade")]
         public BodyDisponibilidade Disponibilidade { get; set; }
@@ -18921,7 +18971,7 @@ namespace Ladesa.Dtos
     public partial class TurmaDisponibilidadeUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body44 Body { get; set; }
+        public Body45 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params79 Params { get; set; }
@@ -18930,7 +18980,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma TurmaDisponibilidade.
     /// </summary>
-    public partial class Body44
+    public partial class Body45
     {
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonPropertyName("disponibilidade")]
@@ -19333,7 +19383,7 @@ namespace Ladesa.Dtos
     public partial class TurmaUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body45 Body { get; set; }
+        public Body46 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params83 Params { get; set; }
@@ -19342,7 +19392,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de uma Turma.
     /// </summary>
-    public partial class Body45
+    public partial class Body46
     {
         [JsonPropertyName("ambientePadraoAula")]
         public BodyAmbiente AmbientePadraoAula { get; set; }
@@ -19499,13 +19549,13 @@ namespace Ladesa.Dtos
     public partial class UsuarioCreateOperationInput
     {
         [JsonPropertyName("body")]
-        public Body46 Body { get; set; }
+        public Body47 Body { get; set; }
     }
 
     /// <summary>
     /// Dados de entrada para a criação de um usuário.
     /// </summary>
-    public partial class Body46
+    public partial class Body47
     {
         /// <summary>
         /// E-mail do usuário.
@@ -19971,7 +20021,7 @@ namespace Ladesa.Dtos
     public partial class UsuarioUpdateByIdOperationInput
     {
         [JsonPropertyName("body")]
-        public Body47 Body { get; set; }
+        public Body48 Body { get; set; }
 
         [JsonPropertyName("params")]
         public Params90 Params { get; set; }
@@ -19980,7 +20030,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Dados de entrada para a atualização de um Usuário.
     /// </summary>
-    public partial class Body47
+    public partial class Body48
     {
         /// <summary>
         /// E-mail do usuário.
@@ -20079,7 +20129,7 @@ namespace Ladesa.Dtos
     /// <summary>
     /// Define os nomes de indentificação das entidades.
     /// </summary>
-    public enum TokensEnum { Ambiente, AmbienteCreate, AmbienteDeleteOneById, AmbienteFindOneById, AmbienteFindOneInputView, AmbienteFindOneResultView, AmbienteGetImagemCapa, AmbienteInputCreateView, AmbienteInputUpdateView, AmbienteList, AmbienteListResultView, AmbienteSetImagemCapa, AmbienteUpdateOneById, AmbienteView, Arquivo, ArquivoFindOneInputView, ArquivoFindOneResultView, ArquivoGetFile, ArquivoView, Aula, AulaCreate, AulaDeleteOneById, AulaFindOneById, AulaFindOneInputView, AulaFindOneResultView, AulaInputCreateView, AulaInputUpdateView, AulaList, AulaListResultView, AulaUpdateOneById, AulaView, AuthLogin, AuthLoginInputView, AuthRefresh, AuthRefreshInputView, AuthSessionCredentialsView, AuthSetInitialPassword, AuthSetInitialPasswordInputView, AuthWhoAmI, AuthWhoAmIInputView, Bloco, BlocoCreate, BlocoDeleteOneById, BlocoFindOneById, BlocoFindOneInputView, BlocoFindOneResultView, BlocoGetImagemCapa, BlocoInputCreateView, BlocoInputUpdateView, BlocoList, BlocoListResultView, BlocoSetImagemCapa, BlocoUpdateOneById, BlocoView, CalendarioLetivo, CalendarioLetivoCreate, CalendarioLetivoDeleteOneById, CalendarioLetivoFindOneById, CalendarioLetivoFindOneInputView, CalendarioLetivoFindOneResultView, CalendarioLetivoInputCreateView, CalendarioLetivoInputUpdateView, CalendarioLetivoList, CalendarioLetivoListResultView, CalendarioLetivoUpdateOneById, CalendarioLetivoView, Campus, CampusCreate, CampusDeleteOneById, CampusFindOneById, CampusFindOneInputView, CampusFindOneResultView, CampusInputCreateView, CampusInputUpdateView, CampusList, CampusListResultView, CampusUpdateOneById, CampusView, Cidade, CidadeFindOneById, CidadeFindOneInputView, CidadeFindOneResultView, CidadeList, CidadeListResultView, CidadeView, Curso, CursoCreate, CursoDeleteOneById, CursoFindOneById, CursoFindOneInputView, CursoFindOneResultView, CursoGetImagemCapa, CursoInputCreateView, CursoInputUpdateView, CursoList, CursoListResultView, CursoSetImagemCapa, CursoUpdateOneById, CursoView, DiaCalendario, DiaCalendarioCreate, DiaCalendarioDeleteOneById, DiaCalendarioFindOneById, DiaCalendarioFindOneInputView, DiaCalendarioFindOneResultView, DiaCalendarioInputCreateView, DiaCalendarioInputUpdateView, DiaCalendarioList, DiaCalendarioListResultView, DiaCalendarioUpdateOneById, DiaCalendarioView, Diario, DiarioCreate, DiarioDeleteOneById, DiarioFindOneById, DiarioFindOneInputView, DiarioFindOneResultView, DiarioGetImagemCapa, DiarioInputCreateView, DiarioInputUpdateView, DiarioList, DiarioListResultView, DiarioPreferenciaAgrupamento, DiarioPreferenciaAgrupamentoCreate, DiarioPreferenciaAgrupamentoDeleteOneById, DiarioPreferenciaAgrupamentoFindOneById, DiarioPreferenciaAgrupamentoFindOneInputView, DiarioPreferenciaAgrupamentoFindOneResultView, DiarioPreferenciaAgrupamentoInputCreateView, DiarioPreferenciaAgrupamentoInputUpdateView, DiarioPreferenciaAgrupamentoList, DiarioPreferenciaAgrupamentoListResultView, DiarioPreferenciaAgrupamentoUpdateOneById, DiarioPreferenciaAgrupamentoView, DiarioProfessor, DiarioProfessorCreate, DiarioProfessorDeleteOneById, DiarioProfessorFindOneById, DiarioProfessorFindOneInputView, DiarioProfessorFindOneResultView, DiarioProfessorInputCreateView, DiarioProfessorInputUpdateView, DiarioProfessorList, DiarioProfessorListResultView, DiarioProfessorUpdateOneById, DiarioProfessorView, DiarioSetImagemCapa, DiarioUpdateOneById, DiarioView, Disciplina, DisciplinaCreate, DisciplinaDeleteOneById, DisciplinaFindOneById, DisciplinaFindOneInputView, DisciplinaFindOneResultView, DisciplinaGetImagemCapa, DisciplinaInputCreateView, DisciplinaInputUpdateView, DisciplinaList, DisciplinaListResultView, DisciplinaSetImagemCapa, DisciplinaUpdateOneById, DisciplinaView, Disponibilidade, DisponibilidadeCreate, DisponibilidadeDeleteOneById, DisponibilidadeDia, DisponibilidadeDiaCreate, DisponibilidadeDiaDeleteOneById, DisponibilidadeDiaFindOneById, DisponibilidadeDiaFindOneInputView, DisponibilidadeDiaFindOneResultView, DisponibilidadeDiaInputCreateView, DisponibilidadeDiaInputUpdateView, DisponibilidadeDiaList, DisponibilidadeDiaListResultView, DisponibilidadeDiaUpdateOneById, DisponibilidadeDiaView, DisponibilidadeFindOneById, DisponibilidadeFindOneInputView, DisponibilidadeFindOneResultView, DisponibilidadeInputCreateView, DisponibilidadeInputUpdateView, DisponibilidadeList, DisponibilidadeListResultView, DisponibilidadeUpdateOneById, DisponibilidadeView, Endereco, EnderecoFindOneById, EnderecoFindOneInputView, EnderecoFindOneResultView, EnderecoInputView, EnderecoView, Estado, EstadoFindOneById, EstadoFindOneInputView, EstadoFindOneResultView, EstadoList, EstadoListResultView, EstadoView, Etapa, EtapaCreate, EtapaDeleteOneById, EtapaFindOneById, EtapaFindOneInputView, EtapaFindOneResultView, EtapaInputCreateView, EtapaInputUpdateView, EtapaList, EtapaListResultView, EtapaUpdateOneById, EtapaView, Evento, EventoCreate, EventoDeleteOneById, EventoFindOneById, EventoFindOneInputView, EventoFindOneResultView, EventoInputCreateView, EventoInputUpdateView, EventoList, EventoListResultView, EventoUpdateOneById, EventoView, GetImagem, GradeHorarioOfertaFormacao, GradeHorarioOfertaFormacaoCreate, GradeHorarioOfertaFormacaoDeleteOneById, GradeHorarioOfertaFormacaoFindOneById, GradeHorarioOfertaFormacaoFindOneInputView, GradeHorarioOfertaFormacaoFindOneResultView, GradeHorarioOfertaFormacaoInputCreateView, GradeHorarioOfertaFormacaoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempo, GradeHorarioOfertaFormacaoIntervaloDeTempoCreate, GradeHorarioOfertaFormacaoIntervaloDeTempoDeleteOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneInputView, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputCreateView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempoList, GradeHorarioOfertaFormacaoIntervaloDeTempoListResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoUpdateOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoView, GradeHorarioOfertaFormacaoList, GradeHorarioOfertaFormacaoListResultView, GradeHorarioOfertaFormacaoUpdateOneById, GradeHorarioOfertaFormacaoView, HorarioGerado, HorarioGeradoAula, HorarioGeradoAulaCreate, HorarioGeradoAulaDeleteOneById, HorarioGeradoAulaFindOneById, HorarioGeradoAulaFindOneInputView, HorarioGeradoAulaFindOneResultView, HorarioGeradoAulaInputCreateView, HorarioGeradoAulaInputUpdateView, HorarioGeradoAulaList, HorarioGeradoAulaListResultView, HorarioGeradoAulaUpdateOneById, HorarioGeradoAulaView, HorarioGeradoCreate, HorarioGeradoDeleteOneById, HorarioGeradoFindOneById, HorarioGeradoFindOneInputView, HorarioGeradoFindOneResultView, HorarioGeradoInputCreateView, HorarioGeradoInputUpdateView, HorarioGeradoList, HorarioGeradoListResultView, HorarioGeradoUpdateOneById, HorarioGeradoView, ImageFindOneFromImagemArquivoResultView, Imagem, ImagemArquivo, ImagemArquivoFindOneFromImagemResultView, ImagemArquivoFindOneInputView, ImagemArquivoFindOneResultView, ImagemArquivoView, ImagemFindOneInputView, ImagemFindOneResultView, ImagemView, IntervaloDeTempo, IntervaloDeTempoFindOneResultView, IntervaloDeTempoInputView, IntervaloDeTempoView, Modalidade, ModalidadeCreate, ModalidadeDeleteOneById, ModalidadeFindOneById, ModalidadeFindOneInputView, ModalidadeFindOneResultView, ModalidadeInputCreateView, ModalidadeInputUpdateView, ModalidadeList, ModalidadeListResultView, ModalidadeUpdateOneById, ModalidadeView, NivelFormacao, NivelFormacaoCreate, NivelFormacaoDeleteOneById, NivelFormacaoFindOneById, NivelFormacaoFindOneInputView, NivelFormacaoFindOneResultView, NivelFormacaoInputCreateView, NivelFormacaoInputUpdateView, NivelFormacaoList, NivelFormacaoListResultView, NivelFormacaoUpdateOneById, NivelFormacaoView, OfertaFormacao, OfertaFormacaoCreate, OfertaFormacaoDeleteOneById, OfertaFormacaoFindOneById, OfertaFormacaoFindOneInputView, OfertaFormacaoFindOneResultView, OfertaFormacaoInputCreateView, OfertaFormacaoInputUpdateView, OfertaFormacaoList, OfertaFormacaoListResultView, OfertaFormacaoNivelFormacao, OfertaFormacaoNivelFormacaoCreate, OfertaFormacaoNivelFormacaoDeleteOneById, OfertaFormacaoNivelFormacaoFindOneById, OfertaFormacaoNivelFormacaoFindOneInputView, OfertaFormacaoNivelFormacaoFindOneResultView, OfertaFormacaoNivelFormacaoInputCreateView, OfertaFormacaoNivelFormacaoInputUpdateView, OfertaFormacaoNivelFormacaoList, OfertaFormacaoNivelFormacaoListResultView, OfertaFormacaoNivelFormacaoUpdateOneById, OfertaFormacaoNivelFormacaoView, OfertaFormacaoUpdateOneById, OfertaFormacaoView, PaginatedFilterView, PaginatedInputBaseView, PaginatedInputView, PaginatedResultLinksView, PaginatedResultMetaView, PaginatedResultView, PaginatedSortByView, Perfil, PerfilCreate, PerfilDeleteOneById, PerfilFindOneById, PerfilFindOneInputView, PerfilFindOneResultView, PerfilInputCreateView, PerfilInputUpdateView, PerfilList, PerfilListResultView, PerfilUpdateOneById, PerfilView, ProfessorDisponibilidade, ProfessorDisponibilidadeCreate, ProfessorDisponibilidadeDeleteOneById, ProfessorDisponibilidadeFindOneById, ProfessorDisponibilidadeFindOneInputView, ProfessorDisponibilidadeFindOneResultView, ProfessorDisponibilidadeInputCreateView, ProfessorDisponibilidadeInputUpdateView, ProfessorDisponibilidadeList, ProfessorDisponibilidadeListResultView, ProfessorDisponibilidadeUpdateOneById, ProfessorDisponibilidadeView, Reserva, ReservaCreate, ReservaDeleteOneById, ReservaFindOneById, ReservaFindOneInputView, ReservaFindOneResultView, ReservaInputCreateView, ReservaInputUpdateView, ReservaList, ReservaListResultView, ReservaUpdateOneById, ReservaView, SearchInputView, SetImagem, Turma, TurmaCreate, TurmaDeleteOneById, TurmaDisponibilidade, TurmaDisponibilidadeCreate, TurmaDisponibilidadeDeleteOneById, TurmaDisponibilidadeFindOneById, TurmaDisponibilidadeFindOneInputView, TurmaDisponibilidadeFindOneResultView, TurmaDisponibilidadeInputCreateView, TurmaDisponibilidadeInputUpdateView, TurmaDisponibilidadeList, TurmaDisponibilidadeListResultView, TurmaDisponibilidadeUpdateOneById, TurmaDisponibilidadeView, TurmaFindOneById, TurmaFindOneInputView, TurmaFindOneResultView, TurmaGetImagemCapa, TurmaInputCreateView, TurmaInputUpdateView, TurmaList, TurmaListResultView, TurmaSetImagemCapa, TurmaUpdateOneById, TurmaView, Usuario, UsuarioCreate, UsuarioDeleteOneById, UsuarioFindOneById, UsuarioFindOneInputView, UsuarioFindOneResultView, UsuarioGetImagemCapa, UsuarioGetImagemPerfil, UsuarioInputCreateView, UsuarioInputUpdateView, UsuarioList, UsuarioListResultView, UsuarioSetImagemCapa, UsuarioSetImagemPerfil, UsuarioUpdateOneById, UsuarioView };
+    public enum TokensEnum { Ambiente, AmbienteCreate, AmbienteDeleteOneById, AmbienteFindOneById, AmbienteFindOneInputView, AmbienteFindOneResultView, AmbienteGetImagemCapa, AmbienteInputCreateView, AmbienteInputUpdateView, AmbienteList, AmbienteListResultView, AmbienteSetImagemCapa, AmbienteUpdateOneById, AmbienteView, Arquivo, ArquivoFindOneInputView, ArquivoFindOneResultView, ArquivoGetFile, ArquivoView, Aula, AulaCreate, AulaDeleteOneById, AulaFindOneById, AulaFindOneInputView, AulaFindOneResultView, AulaInputCreateView, AulaInputUpdateView, AulaList, AulaListResultView, AulaUpdateOneById, AulaView, AuthLogin, AuthLoginInputView, AuthRecoverPassword, AuthRecoverPasswordInputView, AuthRefresh, AuthRefreshInputView, AuthSessionCredentialsView, AuthSetInitialPassword, AuthSetInitialPasswordInputView, AuthWhoAmI, AuthWhoAmIInputView, Bloco, BlocoCreate, BlocoDeleteOneById, BlocoFindOneById, BlocoFindOneInputView, BlocoFindOneResultView, BlocoGetImagemCapa, BlocoInputCreateView, BlocoInputUpdateView, BlocoList, BlocoListResultView, BlocoSetImagemCapa, BlocoUpdateOneById, BlocoView, CalendarioLetivo, CalendarioLetivoCreate, CalendarioLetivoDeleteOneById, CalendarioLetivoFindOneById, CalendarioLetivoFindOneInputView, CalendarioLetivoFindOneResultView, CalendarioLetivoInputCreateView, CalendarioLetivoInputUpdateView, CalendarioLetivoList, CalendarioLetivoListResultView, CalendarioLetivoUpdateOneById, CalendarioLetivoView, Campus, CampusCreate, CampusDeleteOneById, CampusFindOneById, CampusFindOneInputView, CampusFindOneResultView, CampusInputCreateView, CampusInputUpdateView, CampusList, CampusListResultView, CampusUpdateOneById, CampusView, Cidade, CidadeFindOneById, CidadeFindOneInputView, CidadeFindOneResultView, CidadeList, CidadeListResultView, CidadeView, Curso, CursoCreate, CursoDeleteOneById, CursoFindOneById, CursoFindOneInputView, CursoFindOneResultView, CursoGetImagemCapa, CursoInputCreateView, CursoInputUpdateView, CursoList, CursoListResultView, CursoSetImagemCapa, CursoUpdateOneById, CursoView, DiaCalendario, DiaCalendarioCreate, DiaCalendarioDeleteOneById, DiaCalendarioFindOneById, DiaCalendarioFindOneInputView, DiaCalendarioFindOneResultView, DiaCalendarioInputCreateView, DiaCalendarioInputUpdateView, DiaCalendarioList, DiaCalendarioListResultView, DiaCalendarioUpdateOneById, DiaCalendarioView, Diario, DiarioCreate, DiarioDeleteOneById, DiarioFindOneById, DiarioFindOneInputView, DiarioFindOneResultView, DiarioGetImagemCapa, DiarioInputCreateView, DiarioInputUpdateView, DiarioList, DiarioListResultView, DiarioPreferenciaAgrupamento, DiarioPreferenciaAgrupamentoCreate, DiarioPreferenciaAgrupamentoDeleteOneById, DiarioPreferenciaAgrupamentoFindOneById, DiarioPreferenciaAgrupamentoFindOneInputView, DiarioPreferenciaAgrupamentoFindOneResultView, DiarioPreferenciaAgrupamentoInputCreateView, DiarioPreferenciaAgrupamentoInputUpdateView, DiarioPreferenciaAgrupamentoList, DiarioPreferenciaAgrupamentoListResultView, DiarioPreferenciaAgrupamentoUpdateOneById, DiarioPreferenciaAgrupamentoView, DiarioProfessor, DiarioProfessorCreate, DiarioProfessorDeleteOneById, DiarioProfessorFindOneById, DiarioProfessorFindOneInputView, DiarioProfessorFindOneResultView, DiarioProfessorInputCreateView, DiarioProfessorInputUpdateView, DiarioProfessorList, DiarioProfessorListResultView, DiarioProfessorUpdateOneById, DiarioProfessorView, DiarioSetImagemCapa, DiarioUpdateOneById, DiarioView, Disciplina, DisciplinaCreate, DisciplinaDeleteOneById, DisciplinaFindOneById, DisciplinaFindOneInputView, DisciplinaFindOneResultView, DisciplinaGetImagemCapa, DisciplinaInputCreateView, DisciplinaInputUpdateView, DisciplinaList, DisciplinaListResultView, DisciplinaSetImagemCapa, DisciplinaUpdateOneById, DisciplinaView, Disponibilidade, DisponibilidadeCreate, DisponibilidadeDeleteOneById, DisponibilidadeDia, DisponibilidadeDiaCreate, DisponibilidadeDiaDeleteOneById, DisponibilidadeDiaFindOneById, DisponibilidadeDiaFindOneInputView, DisponibilidadeDiaFindOneResultView, DisponibilidadeDiaInputCreateView, DisponibilidadeDiaInputUpdateView, DisponibilidadeDiaList, DisponibilidadeDiaListResultView, DisponibilidadeDiaUpdateOneById, DisponibilidadeDiaView, DisponibilidadeFindOneById, DisponibilidadeFindOneInputView, DisponibilidadeFindOneResultView, DisponibilidadeInputCreateView, DisponibilidadeInputUpdateView, DisponibilidadeList, DisponibilidadeListResultView, DisponibilidadeUpdateOneById, DisponibilidadeView, Endereco, EnderecoFindOneById, EnderecoFindOneInputView, EnderecoFindOneResultView, EnderecoInputView, EnderecoView, Estado, EstadoFindOneById, EstadoFindOneInputView, EstadoFindOneResultView, EstadoList, EstadoListResultView, EstadoView, Etapa, EtapaCreate, EtapaDeleteOneById, EtapaFindOneById, EtapaFindOneInputView, EtapaFindOneResultView, EtapaInputCreateView, EtapaInputUpdateView, EtapaList, EtapaListResultView, EtapaUpdateOneById, EtapaView, Evento, EventoCreate, EventoDeleteOneById, EventoFindOneById, EventoFindOneInputView, EventoFindOneResultView, EventoInputCreateView, EventoInputUpdateView, EventoList, EventoListResultView, EventoUpdateOneById, EventoView, GetImagem, GradeHorarioOfertaFormacao, GradeHorarioOfertaFormacaoCreate, GradeHorarioOfertaFormacaoDeleteOneById, GradeHorarioOfertaFormacaoFindOneById, GradeHorarioOfertaFormacaoFindOneInputView, GradeHorarioOfertaFormacaoFindOneResultView, GradeHorarioOfertaFormacaoInputCreateView, GradeHorarioOfertaFormacaoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempo, GradeHorarioOfertaFormacaoIntervaloDeTempoCreate, GradeHorarioOfertaFormacaoIntervaloDeTempoDeleteOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneInputView, GradeHorarioOfertaFormacaoIntervaloDeTempoFindOneResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputCreateView, GradeHorarioOfertaFormacaoIntervaloDeTempoInputUpdateView, GradeHorarioOfertaFormacaoIntervaloDeTempoList, GradeHorarioOfertaFormacaoIntervaloDeTempoListResultView, GradeHorarioOfertaFormacaoIntervaloDeTempoUpdateOneById, GradeHorarioOfertaFormacaoIntervaloDeTempoView, GradeHorarioOfertaFormacaoList, GradeHorarioOfertaFormacaoListResultView, GradeHorarioOfertaFormacaoUpdateOneById, GradeHorarioOfertaFormacaoView, HorarioGerado, HorarioGeradoAula, HorarioGeradoAulaCreate, HorarioGeradoAulaDeleteOneById, HorarioGeradoAulaFindOneById, HorarioGeradoAulaFindOneInputView, HorarioGeradoAulaFindOneResultView, HorarioGeradoAulaInputCreateView, HorarioGeradoAulaInputUpdateView, HorarioGeradoAulaList, HorarioGeradoAulaListResultView, HorarioGeradoAulaUpdateOneById, HorarioGeradoAulaView, HorarioGeradoCreate, HorarioGeradoDeleteOneById, HorarioGeradoFindOneById, HorarioGeradoFindOneInputView, HorarioGeradoFindOneResultView, HorarioGeradoInputCreateView, HorarioGeradoInputUpdateView, HorarioGeradoList, HorarioGeradoListResultView, HorarioGeradoUpdateOneById, HorarioGeradoView, ImageFindOneFromImagemArquivoResultView, Imagem, ImagemArquivo, ImagemArquivoFindOneFromImagemResultView, ImagemArquivoFindOneInputView, ImagemArquivoFindOneResultView, ImagemArquivoView, ImagemFindOneInputView, ImagemFindOneResultView, ImagemView, IntervaloDeTempo, IntervaloDeTempoFindOneResultView, IntervaloDeTempoInputView, IntervaloDeTempoView, Modalidade, ModalidadeCreate, ModalidadeDeleteOneById, ModalidadeFindOneById, ModalidadeFindOneInputView, ModalidadeFindOneResultView, ModalidadeInputCreateView, ModalidadeInputUpdateView, ModalidadeList, ModalidadeListResultView, ModalidadeUpdateOneById, ModalidadeView, NivelFormacao, NivelFormacaoCreate, NivelFormacaoDeleteOneById, NivelFormacaoFindOneById, NivelFormacaoFindOneInputView, NivelFormacaoFindOneResultView, NivelFormacaoInputCreateView, NivelFormacaoInputUpdateView, NivelFormacaoList, NivelFormacaoListResultView, NivelFormacaoUpdateOneById, NivelFormacaoView, OfertaFormacao, OfertaFormacaoCreate, OfertaFormacaoDeleteOneById, OfertaFormacaoFindOneById, OfertaFormacaoFindOneInputView, OfertaFormacaoFindOneResultView, OfertaFormacaoInputCreateView, OfertaFormacaoInputUpdateView, OfertaFormacaoList, OfertaFormacaoListResultView, OfertaFormacaoNivelFormacao, OfertaFormacaoNivelFormacaoCreate, OfertaFormacaoNivelFormacaoDeleteOneById, OfertaFormacaoNivelFormacaoFindOneById, OfertaFormacaoNivelFormacaoFindOneInputView, OfertaFormacaoNivelFormacaoFindOneResultView, OfertaFormacaoNivelFormacaoInputCreateView, OfertaFormacaoNivelFormacaoInputUpdateView, OfertaFormacaoNivelFormacaoList, OfertaFormacaoNivelFormacaoListResultView, OfertaFormacaoNivelFormacaoUpdateOneById, OfertaFormacaoNivelFormacaoView, OfertaFormacaoUpdateOneById, OfertaFormacaoView, PaginatedFilterView, PaginatedInputBaseView, PaginatedInputView, PaginatedResultLinksView, PaginatedResultMetaView, PaginatedResultView, PaginatedSortByView, Perfil, PerfilCreate, PerfilDeleteOneById, PerfilFindOneById, PerfilFindOneInputView, PerfilFindOneResultView, PerfilInputCreateView, PerfilInputUpdateView, PerfilList, PerfilListResultView, PerfilUpdateOneById, PerfilView, ProfessorDisponibilidade, ProfessorDisponibilidadeCreate, ProfessorDisponibilidadeDeleteOneById, ProfessorDisponibilidadeFindOneById, ProfessorDisponibilidadeFindOneInputView, ProfessorDisponibilidadeFindOneResultView, ProfessorDisponibilidadeInputCreateView, ProfessorDisponibilidadeInputUpdateView, ProfessorDisponibilidadeList, ProfessorDisponibilidadeListResultView, ProfessorDisponibilidadeUpdateOneById, ProfessorDisponibilidadeView, Reserva, ReservaCreate, ReservaDeleteOneById, ReservaFindOneById, ReservaFindOneInputView, ReservaFindOneResultView, ReservaInputCreateView, ReservaInputUpdateView, ReservaList, ReservaListResultView, ReservaUpdateOneById, ReservaView, SearchInputView, SetImagem, Turma, TurmaCreate, TurmaDeleteOneById, TurmaDisponibilidade, TurmaDisponibilidadeCreate, TurmaDisponibilidadeDeleteOneById, TurmaDisponibilidadeFindOneById, TurmaDisponibilidadeFindOneInputView, TurmaDisponibilidadeFindOneResultView, TurmaDisponibilidadeInputCreateView, TurmaDisponibilidadeInputUpdateView, TurmaDisponibilidadeList, TurmaDisponibilidadeListResultView, TurmaDisponibilidadeUpdateOneById, TurmaDisponibilidadeView, TurmaFindOneById, TurmaFindOneInputView, TurmaFindOneResultView, TurmaGetImagemCapa, TurmaInputCreateView, TurmaInputUpdateView, TurmaList, TurmaListResultView, TurmaSetImagemCapa, TurmaUpdateOneById, TurmaView, Usuario, UsuarioCreate, UsuarioDeleteOneById, UsuarioFindOneById, UsuarioFindOneInputView, UsuarioFindOneResultView, UsuarioGetImagemCapa, UsuarioGetImagemPerfil, UsuarioInputCreateView, UsuarioInputUpdateView, UsuarioList, UsuarioListResultView, UsuarioSetImagemCapa, UsuarioSetImagemPerfil, UsuarioUpdateOneById, UsuarioView };
 
     public partial class Ambiente
     {
@@ -20254,6 +20304,16 @@ namespace Ladesa.Dtos
     public partial class AuthLoginOperation
     {
         public static AuthLoginOperation FromJson(string json) => JsonSerializer.Deserialize<AuthLoginOperation>(json, Ladesa.Dtos.Converter.Settings);
+    }
+
+    public partial class AuthRecoverPasswordInputView
+    {
+        public static AuthRecoverPasswordInputView FromJson(string json) => JsonSerializer.Deserialize<AuthRecoverPasswordInputView>(json, Ladesa.Dtos.Converter.Settings);
+    }
+
+    public partial class AuthRecoverPasswordOperation
+    {
+        public static AuthRecoverPasswordOperation FromJson(string json) => JsonSerializer.Deserialize<AuthRecoverPasswordOperation>(json, Ladesa.Dtos.Converter.Settings);
     }
 
     public partial class AuthRefreshInputView
@@ -22243,6 +22303,8 @@ namespace Ladesa.Dtos
         public static string ToJson(this AuthCredentialsSetInitialPasswordOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this AuthLoginInputView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this AuthLoginOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this AuthRecoverPasswordInputView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
+        public static string ToJson(this AuthRecoverPasswordOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this AuthRefreshInputView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this AuthRefreshOperation self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
         public static string ToJson(this AuthSessionCredentialsView self) => JsonSerializer.Serialize(self, Ladesa.Dtos.Converter.Settings);
@@ -22749,6 +22811,10 @@ namespace Ladesa.Dtos
                     return TokensEnum.AuthLogin;
                 case "AuthLoginInputView":
                     return TokensEnum.AuthLoginInputView;
+                case "AuthRecoverPassword":
+                    return TokensEnum.AuthRecoverPassword;
+                case "AuthRecoverPasswordInputView":
+                    return TokensEnum.AuthRecoverPasswordInputView;
                 case "AuthRefresh":
                     return TokensEnum.AuthRefresh;
                 case "AuthRefreshInputView":
@@ -23633,6 +23699,12 @@ namespace Ladesa.Dtos
                     return;
                 case TokensEnum.AuthLoginInputView:
                     JsonSerializer.Serialize(writer, "AuthLoginInputView", options);
+                    return;
+                case TokensEnum.AuthRecoverPassword:
+                    JsonSerializer.Serialize(writer, "AuthRecoverPassword", options);
+                    return;
+                case TokensEnum.AuthRecoverPasswordInputView:
+                    JsonSerializer.Serialize(writer, "AuthRecoverPasswordInputView", options);
                     return;
                 case TokensEnum.AuthRefresh:
                     JsonSerializer.Serialize(writer, "AuthRefresh", options);

@@ -28,8 +28,8 @@ function generate_schemas {
   sed -i --expression=':a;N;$!ba;s|\ntype|\nexport type|g' ${INTEGRATIONS_NPM_PKG_SRC_SCHEMAS};
 }
 
-function generate_tokens {
-  json_schema_files="$(find ${INTEGRATIONS_JSON_SCHEMA_LIB_DIR} -type f -name '*.json')"
+function generate_nodes {
+  json_schema_files="$(find ${INTEGRATIONS_JSON_SCHEMA_LIB_DIR} -type f -name '*.json' | sort -n)"
 
   echo "export const Nodes: readonly any[] = [" > ${INTEGRATIONS_NPM_PKG_SRC_DIR}/nodes.ts
 
@@ -46,6 +46,6 @@ function generate_tokens {
 
 generate_schemas;
 
-generate_tokens;
+generate_nodes;
 
 pnpm run code-static:fix;

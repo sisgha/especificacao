@@ -1,5 +1,0 @@
-#/usr/bin/env bash
-
-pnpm install --frozen-lockfile
-
-pnpm exec lint-staged
