@@ -22,3 +22,6 @@ jobs:
 
       - name: Check static code quality
         run: pnpm run -w code-static:check
+
+      - name: Require changeset
+        run: changeset status --since=development
