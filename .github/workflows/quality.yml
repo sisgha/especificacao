@@ -14,14 +14,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install
+      - name: It must install the dependencies
         uses: ./.github/actions/prepare/install
         with:
           install-node: "true"
           install-dotnet: "true"
 
-      - name: Check static code quality
-        run: pnpm run -w code-static:check
+      - name: The build should work
+        run: pnpm run -w build;
 
-      - name: Require changeset
+      - name: Require to pass static code check
+        run: |
+          git stash -u;
+          pnpm run -w code-static:check;
+          git stash pop;
+
+      - name: Require updated integrations
+        run: |
+          if [ `git status --porcelain=1 | wc -l` -ne 0 ]; then
+            exit 1;
+          fi
+
+      - name: Require changesets
         run: changeset status --since=development
