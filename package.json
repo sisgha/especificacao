@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "@biomejs/biome": "1.9.4",
-    "@changesets/cli": "^2.27.11",
-    "@typespec/compiler": "^0.63.0",
+    "@changesets/cli": "^2.27.12",
+    "@typespec/compiler": "^0.64.0",
     "rimraf": "^6.0.1",
     "wireit": "^0.14.9"
   },
