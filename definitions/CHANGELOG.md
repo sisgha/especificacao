@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao-definitions
 
+## 3.3.0
+
+### Minor Changes
+
+- 0d1914c: feat(definitions/autenticacao): recover password
+
 ## 3.2.11
 
 ### Patch Changes
