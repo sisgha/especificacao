@@ -1,5 +1,11 @@
 # @ladesa-ro/especificacao
 
+## 3.4.1
+
+### Patch Changes
+
+- 18ad6c2: chore: update dependencies
+
 ## 3.4.0
 
 ### Minor Changes
