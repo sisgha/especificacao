@@ -1,6 +1,6 @@
 {
   "name": "@ladesa-ro/especificacao",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "scripts": {
     "prepublishOnly": "pnpm run build",
     "build:lib:cleanup": "find ./dist -type f \\( -name *.cts -o -name *.mts \\) -exec rm {} \\+",
