@@ -11,42 +11,32 @@
   "targets": {
     "generate": {
       "executor": "nx:run-commands",
-
       "cache": true,
-
       "inputs": ["{workspaceRoot}/definitions/.generated/json-schema/**/*"],
-
       "options": {
         "cwd": "{projectRoot}",
         "commands": ["./.scripts/generate.sh"],
         "parallel": false
       },
-
       "outputs": ["{projectRoot}/src/schemas.ts"],
-
       "dependsOn": ["@ladesa-ro/especificacao.json-schema"]
     },
 
     "build:lib": {
       "executor": "nx:run-commands",
-
       "cache": true,
-
       "inputs": ["default"],
-
       "options": {
         "cwd": "{projectRoot}",
         "commands": ["unbuild", "pnpm run build:lib:cleanup"],
         "parallel": false
       },
-
       "outputs": ["{projectRoot}/dist/**/*"],
-
       "dependsOn": ["generate"]
     },
 
     "build": {
-      "cache": false,
+      "cache": true,
       "executor": "nx:run-commands",
       "inputs": ["default"],
       "options": {

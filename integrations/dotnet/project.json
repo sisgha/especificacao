@@ -26,7 +26,7 @@
       "dependsOn": ["@ladesa-ro/especificacao.json-schema:generate"]
     },
     "build": {
-      "cache": false,
+      "cache": true,
       "executor": "nx:run-commands",
       "inputs": ["default"],
       "options": {

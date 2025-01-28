@@ -31,6 +31,19 @@
         "commands": ["nx run-many --targets=build:json-schema", "pnpm run code-static:fix"],
         "parallel": false
       },
+      "dependsOn": []
+    },
+
+    "cleanup": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "inputs": ["{projectRoot}/.generated"],
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["rm -rf .generated"],
+        "parallel": false
+      },
+      "outputs": ["{projectRoot}/.generated"],
       "dependsOn": ["cleanup"]
     }
   }

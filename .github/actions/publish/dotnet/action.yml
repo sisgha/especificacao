@@ -33,7 +33,7 @@ runs:
     - name: Build
       uses: ./.github/actions/prepare/build
       with:
-        integrations-dotnet-build: "true"
+        workspace-build: "true"
 
     - name: Pack
       shell: bash

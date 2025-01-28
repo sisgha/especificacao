@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "prepare": "dotnet tool restore -v diag --no-cache",
-    "generate": "nx generate",
+    "build": "nx run build",
+    "generate": "nx run generate",
     "patch-version": "./.scripts/patch-version.sh",
     "lint:check": "exit 0",
     "lint:fix": "exit 0",
