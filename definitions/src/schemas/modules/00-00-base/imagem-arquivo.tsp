@@ -1,4 +1,4 @@
-import "../../../.utils/index.tsp";
+import "../../../extensions/index.tsp";
 
 using Unispec.JsonSchema;
 

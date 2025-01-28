@@ -4,58 +4,16 @@
   "private": true,
   "scripts": {
     "prepare": "dotnet tool restore -v diag --no-cache",
-    "build": "wireit",
-    "generate": "wireit",
-    "patch-version": "wireit",
-    "format:check": "wireit",
-    "format:fix": "wireit",
-    "lint:check": "wireit",
-    "lint:fix": "wireit",
-    "code-static:check": "wireit",
-    "code-static:fix": "wireit"
+    "generate": "nx generate",
+    "patch-version": "./.scripts/patch-version.sh",
+    "lint:check": "exit 0",
+    "lint:fix": "exit 0",
+    "format:check": "dotnet tool run dotnet-csharpier --check .",
+    "format:fix": "dotnet tool run dotnet-csharpier .",
+    "code-static:check": "pnpm run lint:check && pnpm run format:check",
+    "code-static:fix": "pnpm run lint:fix && pnpm run format:fix"
   },
   "devDependencies": {
-    "quicktype": "^23.0.171",
-    "wireit": "^0.14.9"
-  },
-  "wireit": {
-    "patch-version": {
-      "command": "./.scripts/patch-version.sh"
-    },
-    "generate": {
-      "command": "quicktype -s schema --framework SystemTextJson --namespace Ladesa.Dtos --lang csharp -o ./Ladesa.Dtos/Ladesa.Dtos.cs --src ../json-schema/lib/* && pnpm run code-static:fix",
-      "files": [
-        "../json-schema/lib/**/*"
-      ],
-      "output": [
-        "./src/schemas.ts"
-      ],
-      "dependencies": [
-        "../json-schema:build"
-      ]
-    },
-    "build": {
-      "dependencies": [
-        "generate"
-      ]
-    },
-    "lint:check": {
-      "command": "exit 0"
-    },
-    "lint:fix": {
-      "command": "exit 0"
-    },
-    "format:check": {
-      "command": "dotnet tool run dotnet-csharpier --check ."
-    },
-    "format:fix": {
-      "command": "dotnet tool run dotnet-csharpier ."
-    },
-    "code-static:check": {
-      "command": "pnpm run lint:check && pnpm run format:check"
-    },
-    "code-static:fix": {
-      "command": "pnpm run lint:fix && pnpm run format:fix"
-    }
+    "quicktype": "^23.0.171"
   }
 }

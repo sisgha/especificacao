@@ -11,7 +11,7 @@ runs:
   using: "composite"
 
   steps:
-    - name: "Generate all"
+    - name: "generate:all"
       if: ${{ inputs.workspace-generate == 'true' }}
       shell: bash
       run: pnpm run -w generate:all

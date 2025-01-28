@@ -1,5 +1,5 @@
 import "./unispec.js";
-import "../../../schemas/tokens.tsp";
+import "../../schemas/tokens.tsp";
 
 using TypeSpec.JsonSchema;
 using TypeSpec.Reflection;

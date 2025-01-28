@@ -45,6 +45,11 @@ jobs:
         with:
           workspace-generate: "true"
 
+      - name: "Build all"
+        uses: ./.github/actions/prepare/build
+        with:
+          workspace-build: "true"
+
       - name: Format Everything
         run: pnpm run -w format:fix ${observe_path};
 

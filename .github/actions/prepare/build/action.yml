@@ -7,21 +7,11 @@ inputs:
     required: false
     default: "false"
 
-  integrations-dotnet-build:
-    description: "integrations/dotnet build"
-    required: false
-    default: "false"
-
 runs:
   using: "composite"
 
   steps:
-    - name: "Build: all package.json scripts"
+    - name: "build all"
       if: ${{ inputs.workspace-build == 'true' }}
       shell: bash
       run: pnpm run -w build:all
-    - name: "Build: integrations/dotnet"
-      if: ${{ inputs.integrations-dotnet-build == 'true' }}
-      shell: bash
-      working-directory: ./integrations/dotnet
-      run: dotnet build --configuration Release

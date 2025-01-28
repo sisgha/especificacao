@@ -1,0 +1,30 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+
+  "tags": ["integrations", "integrations:json-schema"],
+  "root": "integrations/json-schema",
+
+  "namedInputs": {
+    "default": []
+  },
+
+  "targets": {
+    "generate": {
+      "cache": true,
+
+      "executor": "nx:run-commands",
+
+      "inputs": ["{workspaceRoot}/definitions/.generated/json-schema/**/*"],
+
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["rm -rf ./lib/*", "cp ../../definitions/.generated/json-schema/* -r ./lib"],
+        "parallel": false
+      },
+
+      "outputs": ["{projectRoot}/lib/**/*"],
+
+      "dependsOn": ["@ladesa-ro/especificacao.definitions:build"]
+    }
+  }
+}

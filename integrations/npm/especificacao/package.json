@@ -2,17 +2,17 @@
   "name": "@ladesa-ro/especificacao",
   "version": "3.4.0",
   "scripts": {
-    "prepublishOnly": "wireit",
-    "build:lib:cleanup": "wireit",
-    "build:lib": "wireit",
-    "build": "wireit",
-    "generate": "wireit",
-    "format:check": "wireit",
-    "format:fix": "wireit",
-    "lint:check": "wireit",
-    "lint:fix": "wireit",
-    "code-static:check": "wireit",
-    "code-static:fix": "wireit"
+    "prepublishOnly": "pnpm run build",
+    "build:lib:cleanup": "find ./dist -type f \\( -name *.cts -o -name *.mts \\) -exec rm {} \\+",
+    "build:lib": "nx run build:lib",
+    "build": "nx run build",
+    "generate": "nx run generate",
+    "lint:check": "biome lint .",
+    "lint:fix": "biome lint --write --unsafe .",
+    "format:check": "biome format .",
+    "format:fix": "biome format --write .",
+    "code-static:check": "pnpm run lint:check && pnpm run format:check",
+    "code-static:fix": "pnpm run lint:fix && pnpm run format:fix"
   },
   "files": [
     "dist/**/*",
@@ -59,62 +59,5 @@
   "devDependencies": {
     "quicktype": "^23.0.171",
     "unbuild": "3.3.0"
-  },
-  "wireit": {
-    "prepublishOnly": {
-      "dependencies": [
-        "build"
-      ]
-    },
-    "generate": {
-      "command": "./.scripts/generate.sh",
-      "files": [
-        "../../json-schema/lib/**/*"
-      ],
-      "output": [
-        "./src/schemas.ts"
-      ],
-      "dependencies": [
-        "../../json-schema:build"
-      ]
-    },
-    "build:lib:cleanup": {
-      "command": "find ./dist -type f \\( -name *.cts -o -name *.mts \\) -exec rm {} \\+"
-    },
-    "build:lib": {
-      "command": "unbuild && pnpm run build:lib:cleanup",
-      "dependencies": [
-        "generate"
-      ],
-      "files": [
-        "./src/**/*"
-      ],
-      "output": [
-        "./dist/**/*"
-      ]
-    },
-    "build": {
-      "dependencies": [
-        "build:lib"
-      ]
-    },
-    "lint:check": {
-      "command": "biome lint ."
-    },
-    "lint:fix": {
-      "command": "biome lint --write --unsafe ."
-    },
-    "format:check": {
-      "command": "biome format ."
-    },
-    "format:fix": {
-      "command": "biome format --write ."
-    },
-    "code-static:check": {
-      "command": "pnpm run lint:check && pnpm run format:check"
-    },
-    "code-static:fix": {
-      "command": "pnpm run lint:fix && pnpm run format:fix"
-    }
   }
 }
