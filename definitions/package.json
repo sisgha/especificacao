@@ -5,7 +5,7 @@
   "version": "3.3.0",
   "scripts": {
     "watch": "tsp compile src/main.tsp --config tspconfig.json-schema.yaml --output-dir '.generated' --watch",
-    "cleanup": "rimraf .generated",
+    "cleanup": "nx run generate",
     "build": "nx run build",
     "build:json-schema": "nx run build:json-schema",
     "lint:check": "biome lint .",
