@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "wireit",
+    "build:all": "nx run-many -t build",
+    "generate:all": "nx run-many -t generate",
     "changeset:add": "changeset add",
     "changeset:tag": "changeset tag",
     "changeset:version": "changeset version && pnpm run -r --if-present patch-version",

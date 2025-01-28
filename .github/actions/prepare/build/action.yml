@@ -12,19 +12,14 @@ inputs:
     required: false
     default: "false"
 
-# outputs: - no outputs
-
 runs:
   using: "composite"
 
   steps:
-    - name: "Build: all build scripts"
+    - name: "Build: all package.json scripts"
       if: ${{ inputs.workspace-build == 'true' }}
       shell: bash
-      run: pnpm run -w build
-      env:
-        WIREIT_LOGGER: simple
-
+      run: pnpm run -w build:all
     - name: "Build: integrations/dotnet"
       if: ${{ inputs.integrations-dotnet-build == 'true' }}
       shell: bash
