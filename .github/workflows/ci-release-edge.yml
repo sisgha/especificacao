@@ -1,0 +1,36 @@
+name: "CI - Release (Edge)"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - development
+  push:
+    branches:
+      - development
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+
+jobs:
+  ci-edge-npm:
+    name: Edge NPM package publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/actions/prepare/install
+        with:
+          install-node: "true"
+          install-dotnet: "true"
+
+      - name: Build
+        uses: ./.github/actions/prepare/build
+        with:
+          workspace-build: "true"
+
+      - name: "Continuos Release: publish to pkg.pr.new"
+        run: pnpx pkg-pr-new publish --comment=update './integrations/npm/especificacao'

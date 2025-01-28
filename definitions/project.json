@@ -1,0 +1,37 @@
+{
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+
+  "tags": ["definitions"],
+  "root": "definitions",
+
+  "namedInputs": {
+    "default": ["{projectRoot}/src/**/*", "{projectRoot}/tspconfig*.yaml"]
+  },
+
+  "targets": {
+    "build:json-schema": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "inputs": ["default"],
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["tsp compile src/main.tsp --config tspconfig.json-schema.yaml --output-dir '.generated'"],
+        "parallel": false
+      },
+      "outputs": ["{projectRoot}/.generated/json-schema/**/*"],
+      "dependsOn": []
+    },
+
+    "build": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "inputs": ["default"],
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["nx run-many --targets=build:json-schema", "pnpm run code-static:fix"],
+        "parallel": false
+      },
+      "dependsOn": ["cleanup"]
+    }
+  }
+}

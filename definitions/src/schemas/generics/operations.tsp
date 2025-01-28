@@ -43,10 +43,7 @@ alias GenericOperationList<Token, Output extends unknown | null, ExtraQueries ex
         page?: Ladesa.Schemas.Pagination.Input.GenericSearchInputView.page;
         limit?: Ladesa.Schemas.Pagination.Input.GenericSearchInputView.limit;
         search?: Ladesa.Schemas.Pagination.Input.GenericSearchInputView.search;
-
-        // sortables
         sortBy?: Ladesa.Schemas.Pagination.Input.GenericSearchInputView.sortBy;
-
         ...ExtraQueries;
       };
     };

@@ -3,30 +3,6 @@
   "version": "3.3.0",
   "private": true,
   "scripts": {
-    "build": "wireit",
-    "generate": "wireit"
-  },
-  "devDependencies": {
-    "rimraf": "^6.0.1",
-    "wireit": "^0.14.9"
-  },
-  "wireit": {
-    "generate": {
-      "command": "cp ../../definitions/.generated/json-schema/* -r ./lib",
-      "files": [
-        "../../definitions/.generated/json-schema/**/*"
-      ],
-      "output": [
-        "./lib/**/*"
-      ],
-      "dependencies": [
-        "../../definitions:build"
-      ]
-    },
-    "build": {
-      "dependencies": [
-        "generate"
-      ]
-    }
+    "generate": "nx generate"
   }
 }

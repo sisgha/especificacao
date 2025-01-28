@@ -1,0 +1,41 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+
+  "tags": ["integrations", "integrations:dotnet"],
+  "root": "integrations/dotnet",
+
+  "namedInputs": {
+    "default": ["{projectRoot}/Ladesa.Dtos/**/*"],
+    "generate": ["{workspaceRoot}/json-schema/lib/**/*"]
+  },
+
+  "targets": {
+    "generate": {
+      "cache": true,
+      "executor": "nx:run-commands",
+      "inputs": ["generate"],
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": [
+          "quicktype -s schema --framework SystemTextJson --namespace Ladesa.Dtos --lang csharp -o ./Ladesa.Dtos/Ladesa.Dtos.cs --src ../json-schema/lib/*",
+          "pnpm run code-static:fix"
+        ],
+        "parallel": false
+      },
+      "outputs": ["{projectRoot}/Ladesa.Dtos/Ladesa.Dtos.cs"],
+      "dependsOn": ["@ladesa-ro/especificacao.json-schema:generate"]
+    },
+    "build": {
+      "cache": false,
+      "executor": "nx:run-commands",
+      "inputs": ["default"],
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["dotnet build --configuration Release"],
+        "parallel": false
+      },
+      "outputs": ["{projectRoot}/dist/**/*"],
+      "dependsOn": []
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
   "files": {
     "ignoreUnknown": true,
-    "ignore": [".archived", "definitions", "integrations/npm/especificacao"]
+    "ignore": [".archived", ".nx", "definitions", "integrations/npm/especificacao", "**/dist/**/*"]
   },
   "formatter": {
     "enabled": true,
