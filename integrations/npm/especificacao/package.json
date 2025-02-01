@@ -58,6 +58,6 @@
   },
   "devDependencies": {
     "quicktype": "^23.0.171",
-    "unbuild": "3.3.0"
+    "unbuild": "3.3.1"
   }
 }
